@@ -13,6 +13,28 @@ website/
 
 Lokal ansehen: `index.html` im Browser öffnen (oder `python -m http.server 8777`).
 
+**Live-Test:** https://db-designs-business.github.io/artist-of-aesthetic-landingpage/
+
+---
+
+## Deployment
+
+GitHub Pages, Quelle: Branch `main`, Ordner `/` (root). Jeder Push auf
+`main` löst automatisch ein neues Deployment aus (ca. 30–60 Sekunden).
+
+```bash
+git add -A
+git commit -m "Beschreibung der Aenderung"
+git push
+```
+
+Die Testseite ist mit `<meta name="robots" content="noindex, nofollow">`
+und einer sperrenden `robots.txt` versehen, damit sie nicht in Google
+landet und nicht mit artist-of-aesthetic.de um dieselben Keywords
+konkurriert. **Beides vor dem Livegang auf der echten Domain entfernen.**
+
+`.nojekyll` verhindert, dass GitHub die Dateien durch Jekyll schickt.
+
 ---
 
 ## Branding
