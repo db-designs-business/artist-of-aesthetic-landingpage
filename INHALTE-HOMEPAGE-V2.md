@@ -1,11 +1,12 @@
 # Homepage Version 2 — Texte
 
-Umgesetzt auf der Startseite `/`. Dieses Dokument enthält die Texte in der von
+Umgesetzt unter `/v2/`. Dieses Dokument enthält die Texte in der von
 Prompt 2 geforderten Gliederung, direkt kopierbar für Prompt 3.
 
-Die Startseite führt diese Texte mit den Bausteinen der ersten Fassung zusammen:
-vollständige Preisliste, Ergebnisgalerie, Drei-Schritte-Ablauf und
-Kontaktformular. Die getrennte Fassung unter `/v2/` gibt es nicht mehr.
+Beide Fassungen bestehen parallel: die erste unter `/`, diese unter `/v2/`.
+In der Topbar steht ein Umschalter, der nur auf diesen beiden Seiten
+erscheint. Vor dem Livegang entfernen — Markup in `_shared/topbar.html`,
+Markierung in `tools/build.py`, Stile unter `.verswitch` in `style.css`.
 
 ---
 

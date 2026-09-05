@@ -52,6 +52,14 @@ def render_block(name, page):
     base = base_for(page["slug"])
     html = html.replace("{{base}}", base)
 
+    if name == "topbar":
+        # Aktive Entwurfsfassung markieren (nur die beiden Startseiten)
+        ver = "v2" if page["slug"] == "v2" else "v1"
+        html = html.replace(
+            '<a href="%s" data-ver="%s">' % (base if ver == "v1" else base + "v2/", ver),
+            '<a href="%s" data-ver="%s" class="is-active" aria-current="page">'
+            % (base if ver == "v1" else base + "v2/", ver), 1)
+
     if name == "header":
         target = base if page["slug"] == "" else base + page["slug"] + "/"
         # Auf Unterseiten einer Kategorie den Kategoriepunkt hervorheben

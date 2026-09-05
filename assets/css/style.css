@@ -217,6 +217,29 @@ h1,h2,h3,h4{
 }
 .topbar__area{ display:flex; align-items:center; gap:8px; margin:0; }
 .topbar__area svg{ width:15px; height:15px; flex:none; opacity:.8; }
+/* Umschalter zwischen den Entwurfsfassungen der Startseite.
+   Nur auf den beiden Startseiten sichtbar; vor dem Livegang entfernen
+   (Markup in _shared/topbar.html, Markierung in tools/build.py). */
+.verswitch{ display:none; align-items:center; gap:5px; }
+body[data-page=""] .verswitch,
+body[data-page="v2"] .verswitch{ display:flex; }
+.verswitch__lbl{
+  font-size:.62rem; letter-spacing:.18em; text-transform:uppercase;
+  opacity:.7; margin-right:4px;
+}
+.verswitch a{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:34px; min-height:26px; padding:4px 9px;
+  border:1px solid rgba(255,255,255,.42); border-radius:3px;
+  font-family:var(--font-h); font-size:.68rem; font-weight:600;
+  letter-spacing:.08em; color:var(--white);
+  transition:background-color .2s var(--ease), border-color .2s var(--ease);
+}
+.verswitch a:hover{ background:rgba(255,255,255,.16); color:var(--white); }
+.verswitch a.is-active{
+  background:var(--white); border-color:var(--white); color:var(--rose-deep);
+}
+
 .topbar__tel{
   display:inline-flex; align-items:center; gap:8px;
   color:var(--white); font-weight:600; letter-spacing:.04em;
@@ -504,6 +527,31 @@ h1,h2,h3,h4{
 .analyse p{ max-width:62ch; }
 
 /* =========================================================
+   Abschluss-CTA
+   ========================================================= */
+.finalcta{ background:var(--ink); color:rgba(255,255,255,.8); padding-block:var(--sp-7); }
+.finalcta__inner{ text-align:center; max-width:70ch; margin-inline:auto; }
+.finalcta__inner .eyebrow{ justify-content:center; }
+.finalcta .h2{ color:var(--white); }
+.finalcta__sub{ font-size:1.06rem; margin-bottom:var(--sp-4); }
+.finalcta__tel{ margin:0 0 var(--sp-4); }
+.finalcta__tel a{
+  display:inline-block; min-height:44px;
+  font-family:var(--font-h); font-size:clamp(1.9rem,4.2vw,2.7rem);
+  font-weight:300; color:var(--blush); letter-spacing:.02em;
+  font-variant-numeric:tabular-nums;
+}
+.finalcta__tel a:hover{ color:var(--white); }
+.finalcta__actions{
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
+  margin-bottom:var(--sp-4);
+}
+.finalcta__addr{
+  margin:0; font-size:.86rem; color:rgba(255,255,255,.6);
+  letter-spacing:.04em;
+}
+
+/* =========================================================
    Leistungsuebersicht (/services)
    ========================================================= */
 .svc{ display:grid; gap:var(--sp-6); }
@@ -759,15 +807,6 @@ h1,h2,h3,h4{
   font-size:1.03rem; color:var(--ink); display:inline-block; min-height:24px;
 }
 .contact__list a:hover{ color:var(--rose-deep); }
-.contact__tel{ margin:0 0 var(--sp-3); }
-.contact__tel a{
-  display:inline-block; min-height:44px;
-  font-family:var(--font-h); font-size:clamp(1.8rem,3.8vw,2.5rem);
-  font-weight:300; color:var(--rose-deep); letter-spacing:.02em;
-  font-variant-numeric:tabular-nums;
-}
-.contact__tel a:hover{ color:var(--rose-dark); }
-
 .contact__quick{ display:flex; flex-wrap:wrap; gap:12px; }
 
 /* --- Formular --- */
@@ -1023,6 +1062,7 @@ h1,h2,h3,h4{
   .contact__list a{ display:inline-flex; align-items:center; min-height:44px; }
   .core__h a{ display:inline-flex; align-items:center; min-height:44px; }
   .topbar__tel{ min-height:44px; }
+  .verswitch a{ min-height:44px; min-width:44px; }
   .footer__col{ gap:2px; }
   .footer__col a{ display:flex; align-items:center; min-height:44px; }
   .footer__bottom nav{ gap:var(--sp-2); }
@@ -1041,6 +1081,7 @@ h1,h2,h3,h4{
   .core__top{ flex-direction:column; gap:4px; }
   .core__item .core__price{ text-align:left; }
   .core__item .core__price span{ display:inline; margin-left:8px; }
+  .finalcta__actions .btn{ flex:1; min-width:150px; }
   .gallery{ grid-template-columns:repeat(2,1fr); }
   .tabs__panels{ padding:var(--sp-2) var(--sp-3); }
   .contact__form{ padding:var(--sp-3); }
@@ -1056,6 +1097,9 @@ h1,h2,h3,h4{
 @media (max-width:560px){
   .topbar{ font-size:.72rem; }
   .topbar__more{ display:none; }
+  /* Platz fuer den Umschalter: Ort steht ohnehin im Footer */
+  body[data-page=""] .topbar__area,
+  body[data-page="v2"] .topbar__area{ display:none; }
   .topbar__inner{ gap:10px; }
   .pagehead{ padding-block:var(--sp-5) var(--sp-4); }
   .header__inner{ gap:10px; padding-block:10px; }
