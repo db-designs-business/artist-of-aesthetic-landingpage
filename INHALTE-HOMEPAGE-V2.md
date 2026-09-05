@@ -1,7 +1,11 @@
 # Homepage Version 2 — Texte
 
-Umgesetzt unter `/v2/`. Dieses Dokument enthält die Texte in der von
+Umgesetzt auf der Startseite `/`. Dieses Dokument enthält die Texte in der von
 Prompt 2 geforderten Gliederung, direkt kopierbar für Prompt 3.
+
+Die Startseite führt diese Texte mit den Bausteinen der ersten Fassung zusammen:
+vollständige Preisliste, Ergebnisgalerie, Drei-Schritte-Ablauf und
+Kontaktformular. Die getrennte Fassung unter `/v2/` gibt es nicht mehr.
 
 ---
 
