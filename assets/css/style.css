@@ -117,6 +117,9 @@ h1,h2,h3,h4{
   text-wrap:balance;
 }
 .h1{ text-wrap:balance; }
+/* Fuer laengere Headlines (ab ~50 Zeichen), damit der Hero nicht
+   auf vier Zeilen anwaechst und die CTAs unter die Falz rutschen. */
+.h1--long{ font-size:clamp(2.1rem, 4.3vw, 3.45rem); letter-spacing:-.02em; }
 .sec__sub, .lead{ text-wrap:pretty; }
 .eyebrow{
   font-family:var(--font-h);
@@ -430,6 +433,100 @@ h1,h2,h3,h4{
   width:10px; height:1px; background:var(--rose);
 }
 .card__body .link{ margin-top:auto; align-self:flex-start; }
+
+/* =========================================================
+   Trust-Leiste unter dem Hero
+   ========================================================= */
+.trustbar{ border-block:1px solid var(--line); background:var(--white); }
+.trustbar__grid{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:var(--sp-4); padding-block:var(--sp-4);
+}
+.trustbar li{ display:flex; align-items:flex-start; gap:13px; }
+.trustbar svg{ width:22px; height:22px; flex:none; color:var(--rose-deep); margin-top:2px; }
+.trustbar span{ display:block; font-size:.88rem; color:var(--muted); line-height:1.55; }
+.trustbar strong{
+  display:block; font-family:var(--font-h); font-size:.88rem;
+  font-weight:600; color:var(--ink); margin-bottom:2px;
+}
+
+/* =========================================================
+   Warum wir — vier Differenzierer
+   ========================================================= */
+.why{ display:grid; grid-template-columns:repeat(4,1fr); gap:var(--sp-4); }
+.why__item{
+  padding:var(--sp-4) var(--sp-3);
+  border-top:2px solid var(--blush);
+}
+.why__item .why__num{
+  font-family:var(--font-h); font-size:2.9rem; font-weight:300;
+  color:var(--ink); line-height:1; margin:0 0 var(--sp-2);
+  font-variant-numeric:tabular-nums;
+}
+.why__item .why__num span{ color:var(--rose-deep); font-size:.62em; }
+.why__h{ font-size:1.14rem; margin-bottom:10px; }
+.why__item p{ margin:0; font-size:.95rem; }
+
+/* =========================================================
+   Kernleistungen
+   ========================================================= */
+.core{ display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-3) var(--sp-5); }
+.core__item{
+  padding:var(--sp-4) 0;
+  border-top:1px solid var(--line);
+}
+.core__top{
+  display:flex; align-items:baseline; justify-content:space-between;
+  gap:var(--sp-3); margin-bottom:12px;
+}
+.core__h{ font-size:1.26rem; margin:0; }
+.core__h a{ color:var(--ink); }
+.core__h a:hover{ color:var(--rose-deep); }
+.core__item .core__price{
+  flex:none; margin:0; text-align:right;
+  font-family:var(--font-h); font-size:1.1rem; font-weight:500;
+  color:var(--rose-deep); font-variant-numeric:tabular-nums;
+}
+.core__item .core__price span{
+  display:block; font-size:.66rem; font-weight:400; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); margin-top:3px;
+}
+.core__item p{ margin:0; font-size:.95rem; }
+.core__more{ margin:var(--sp-5) 0 0; text-align:center; }
+
+/* =========================================================
+   Hautanalyse-Streifen
+   ========================================================= */
+.analyse{
+  display:grid; grid-template-columns:1.6fr auto;
+  gap:var(--sp-5); align-items:center;
+}
+.analyse p{ max-width:62ch; }
+
+/* =========================================================
+   Abschluss-CTA
+   ========================================================= */
+.finalcta{ background:var(--ink); color:rgba(255,255,255,.8); padding-block:var(--sp-7); }
+.finalcta__inner{ text-align:center; max-width:70ch; margin-inline:auto; }
+.finalcta__inner .eyebrow{ justify-content:center; }
+.finalcta .h2{ color:var(--white); }
+.finalcta__sub{ font-size:1.06rem; margin-bottom:var(--sp-4); }
+.finalcta__tel{ margin:0 0 var(--sp-4); }
+.finalcta__tel a{
+  display:inline-block; min-height:44px;
+  font-family:var(--font-h); font-size:clamp(1.9rem,4.2vw,2.7rem);
+  font-weight:300; color:var(--blush); letter-spacing:.02em;
+  font-variant-numeric:tabular-nums;
+}
+.finalcta__tel a:hover{ color:var(--white); }
+.finalcta__actions{
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
+  margin-bottom:var(--sp-4);
+}
+.finalcta__addr{
+  margin:0; font-size:.86rem; color:rgba(255,255,255,.6);
+  letter-spacing:.04em;
+}
 
 /* =========================================================
    Leistungsuebersicht (/services)
@@ -917,11 +1014,18 @@ h1,h2,h3,h4{
 @media (max-width:960px){
   :root{ --sp-7: 72px; }
   .hero{ padding-block:var(--sp-5) var(--sp-6); }
+  /* Auf schmalen Screens steht das Bild vor der Headline. Flacheres
+     Format, damit H1 und CTA ueber der Falz bleiben. */
+  .hero__figure--compact{ aspect-ratio:16/11; }
   .hero__grid, .about, .contact, .faq-wrap{ grid-template-columns:1fr; }
   .hero__media{ order:-1; }
   .hero__badge{ left:auto; right:16px; bottom:-20px; padding:16px 20px; }
   .framed::before{ display:none; }
   .cards, .usps, .revs, .steps{ grid-template-columns:1fr 1fr; }
+  .trustbar__grid, .why{ grid-template-columns:1fr 1fr; gap:var(--sp-3); }
+  .core{ grid-template-columns:1fr; gap:0; }
+  .analyse{ grid-template-columns:1fr; gap:var(--sp-3); }
+  .analyse .btn{ justify-self:start; }
   .steps{ gap:var(--sp-4); }
   .about__certs{ margin:-46px auto 0 var(--sp-3); }
   .stats__grid{ grid-template-columns:repeat(2,1fr); gap:var(--sp-4) 0; }
@@ -931,6 +1035,9 @@ h1,h2,h3,h4{
   body{ padding-bottom:78px; }
 
   /* Touch-Ziele auf 44px */
+  .link{ min-height:44px; }
+  .core__h a{ display:inline-flex; align-items:center; min-height:44px; }
+  .topbar__tel{ min-height:44px; }
   .footer__col{ gap:2px; }
   .footer__col a{ display:flex; align-items:center; min-height:44px; }
   .footer__bottom nav{ gap:var(--sp-2); }
@@ -945,6 +1052,11 @@ h1,h2,h3,h4{
   body{ font-size:16px; }
   .announce__inner{ font-size:.76rem; padding-block:9px; }
   .cards, .usps, .revs, .steps, .field-row{ grid-template-columns:1fr; }
+  .trustbar__grid, .why{ grid-template-columns:1fr; }
+  .core__top{ flex-direction:column; gap:4px; }
+  .core__item .core__price{ text-align:left; }
+  .core__item .core__price span{ display:inline; margin-left:8px; }
+  .finalcta__actions .btn{ flex:1; min-width:150px; }
   .gallery{ grid-template-columns:repeat(2,1fr); }
   .tabs__panels{ padding:var(--sp-2) var(--sp-3); }
   .contact__form{ padding:var(--sp-3); }

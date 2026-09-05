@@ -95,6 +95,12 @@ GENERAL = [
     ("hautanalyse-beratung-bruchsal", "Hautanalyse & Hauttyp-Beratung"),
 ]
 
+# Entwuerfe / Varianten zum Vergleich
+DRAFTS = [
+    {"slug": "v2", "name": "Homepage Version 2",
+     "h1": "Homepage Version 2", "kind": "draft"},
+]
+
 LEGAL = [
     {"slug": "impressum", "name": "Impressum", "h1": "Impressum", "kind": "legal"},
     {"slug": "datenschutz", "name": "Datenschutz", "h1": "Datenschutzerklärung", "kind": "legal"},
@@ -119,6 +125,8 @@ def all_pages():
         pages.append({"slug": slug, "name": name, "h1": f"{name} in {CITY}",
                       "kind": "general"})
     for p in LEGAL:
+        pages.append(dict(p))
+    for p in DRAFTS:
         pages.append(dict(p))
     return pages
 
