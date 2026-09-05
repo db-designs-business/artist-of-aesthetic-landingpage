@@ -34,6 +34,14 @@
   --shadow-md: 0 12px 40px rgba(57,57,57,.10);
   --shadow-lg: 0 28px 70px rgba(57,57,57,.14);
 
+  /* Weiche Sektionsuebergaenge.
+     Der Weg von Weiss nach Ink laeuft ueber zwei warme Zwischentoene,
+     damit der Verlauf nicht durch ein totes Neutralgrau kippt. */
+  --fade:      clamp(56px, 8vw, 96px);
+  --fade-dark: clamp(48px, 5.5vw, 76px);
+  --fade-1:    #F6EFF2;
+  --fade-2:    #A2929A;
+
   --ease: cubic-bezier(.22,.61,.36,1);
   --z-header: 100;
   --z-mobar:  90;
@@ -249,6 +257,7 @@ h1,h2,h3,h4{
 .hero__bg{
   position:absolute; inset:0; z-index:-1;
   background:
+    linear-gradient(to bottom, transparent 55%, var(--white) 100%),
     radial-gradient(60% 70% at 88% 8%,  rgba(239,215,229,.72), transparent 62%),
     radial-gradient(52% 60% at 4% 92%, rgba(248,241,244,.95), transparent 60%),
     var(--white);
@@ -301,10 +310,21 @@ h1,h2,h3,h4{
 /* =========================================================
    Stats
    ========================================================= */
-.stats{ background:var(--ink); color:var(--white); }
+.stats{
+  color:var(--white);
+  background:linear-gradient(180deg,
+    var(--white) 0,
+    var(--fade-1) calc(var(--fade-dark) * .34),
+    var(--fade-2) calc(var(--fade-dark) * .72),
+    var(--ink)    var(--fade-dark),
+    var(--ink)    calc(100% - var(--fade-dark)),
+    var(--fade-2) calc(100% - var(--fade-dark) * .72),
+    var(--fade-1) calc(100% - var(--fade-dark) * .34),
+    var(--white)  100%);
+}
 .stats__grid{
   display:grid; grid-template-columns:repeat(4,1fr);
-  padding-block:var(--sp-5);
+  padding-block:calc(var(--fade-dark) + var(--sp-5));
 }
 .stat{ text-align:center; padding-inline:var(--sp-2); }
 .stat + .stat{ border-left:1px solid rgba(255,255,255,.16); }
@@ -322,8 +342,30 @@ h1,h2,h3,h4{
    Section shells
    ========================================================= */
 .sec{ padding-block:var(--sp-7); }
-.sec--tint{ background:var(--blush-soft); }
-.sec--dark{ background:var(--ink); color:rgba(255,255,255,.8); }
+
+/* Sanfte Uebergaenge: die Flaechen laufen an den Raendern in das
+   Weiss der Nachbarsektionen aus, statt hart abzuschneiden.
+   Die Verlaeufe liegen jeweils im Innenabstand, nie unter dem Text. */
+.sec--tint{
+  background:linear-gradient(180deg,
+    var(--white) 0,
+    var(--blush-soft) var(--fade),
+    var(--blush-soft) calc(100% - var(--fade)),
+    var(--white) 100%);
+}
+.sec--dark{
+  color:rgba(255,255,255,.8);
+  background:linear-gradient(180deg,
+    var(--white) 0,
+    var(--fade-1) calc(var(--fade-dark) * .34),
+    var(--fade-2) calc(var(--fade-dark) * .72),
+    var(--ink)    var(--fade-dark),
+    var(--ink)    calc(100% - var(--fade-dark)),
+    var(--fade-2) calc(100% - var(--fade-dark) * .72),
+    var(--fade-1) calc(100% - var(--fade-dark) * .34),
+    var(--white)  100%);
+  padding-block:calc(var(--fade-dark) + var(--sp-6));
+}
 .sec--dark .h2{ color:var(--white); }
 
 .sec__head{ max-width:62ch; margin-bottom:var(--sp-6); }
@@ -678,7 +720,15 @@ h1,h2,h3,h4{
 /* =========================================================
    Footer
    ========================================================= */
-.footer{ background:var(--ink); color:rgba(255,255,255,.72); padding-top:var(--sp-6); font-size:.94rem; }
+.footer{
+  color:rgba(255,255,255,.72); font-size:.94rem;
+  background:linear-gradient(180deg,
+    var(--white) 0,
+    var(--fade-1) calc(var(--fade-dark) * .34),
+    var(--fade-2) calc(var(--fade-dark) * .72),
+    var(--ink)    var(--fade-dark));
+  padding-top:calc(var(--fade-dark) + var(--sp-5));
+}
 .footer__grid{
   display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr;
   gap:var(--sp-5); padding-bottom:var(--sp-5);
