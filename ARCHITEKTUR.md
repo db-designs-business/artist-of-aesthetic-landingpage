@@ -138,23 +138,37 @@ Kunden anfordern.
 
 ---
 
-## Offene technische Punkte
+## Technische Entscheidungen
 
-1. **Homepage-URL.** Das Planning setzt die Homepage auf
-   `/kosmetikstudio-bruchsal`. Damit läge die Startseite nicht auf der Wurzel
-   der Domain — externe Links, Google-Business-Eintrag und Direkteingaben
-   zeigen aber auf `artist-of-aesthetic.de/`. Empfehlung: Homepage auf `/`,
-   das Keyword steckt ohnehin in Title und H1.
+1. **Homepage liegt auf `/`.** Abweichend vom Planning, das
+   `/kosmetikstudio-bruchsal` vorsah. Externe Links, Google-Business-Eintrag
+   und Direkteingaben zeigen auf `artist-of-aesthetic.de/`; das Ziel-Keyword
+   steckt in Title und H1, die URL trägt dazu nichts bei.
 
-2. **Saubere URLs ohne `.html`.** Umsetzung als Verzeichnis je Seite
+2. **Reines HTML, CSS und JS — kein Framework, kein Build-Zwang.**
+   Jede der 41 Seiten ist eine vollständige, direkt bearbeitbare HTML-Datei.
+   Header, Navigation, Footer und Mobile-Bar werden von einem Sync-Skript
+   zwischen Kommentar-Markern gepflegt:
+
+   ```html
+   <!-- @shared:header -->
+   … gemeinsamer Block, vom Skript geschrieben …
+   <!-- /@shared:header -->
+   ```
+
+   Das Skript ist ein Wartungswerkzeug, keine Voraussetzung: Wird es nie
+   ausgeführt, funktioniert die Seite unverändert. Header und Footer per
+   JavaScript nachzuladen ist ausgeschlossen — die interne Verlinkung muss
+   für 41 Keyword-Seiten im ausgelieferten HTML stehen.
+
+3. **Saubere URLs ohne `.html`.** Ein Verzeichnis je Seite
    (`gesichtsbehandlungen-bruchsal/index.html`). Funktioniert auf GitHub Pages
-   und auf jedem normalen Webserver.
+   und jedem normalen Webserver.
 
-3. **Relative Links.** Die Testseite läuft unter dem Unterpfad
-   `/artist-of-aesthetic-landingpage/`. Absolute Pfade wie
-   `/gesichtsbehandlungen-bruchsal` würden dort ins Leere greifen. Alle
-   internen Links und Asset-Pfade daher relativ.
+4. **Alle Pfade relativ.** Die Testseite läuft unter dem Unterpfad
+   `/artist-of-aesthetic-landingpage/`; absolute Pfade wie
+   `/gesichtsbehandlungen-bruchsal` griffen dort ins Leere.
 
-4. **Wiederverwendung von Kopf und Fuß.** Bei 41 Seiten dürfen Header,
-   Navigation, Footer und Mobile-Bar nicht 41-mal im Quelltext stehen.
-   Entscheidung steht aus.
+5. **Zweite Hero-Variante ohne Foto.** Für die rund 20 Leistungsseiten ohne
+   eigenes Bildmotiv wird ein Hero aus Typografie und Blush-Fläche entworfen,
+   der bewusst gestaltet wirkt statt nach fehlendem Bild.
