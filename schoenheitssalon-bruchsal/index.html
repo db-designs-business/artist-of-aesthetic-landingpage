@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Schönheitssalon Bruchsal | Artist of Aesthetic</title>
-<meta name="description" content="Schönheitssalon bei Artist of Aesthetic, Kosmetikstudio in Bruchsal.">
+<title>Schönheitssalon Bruchsal | Make-up & Augenbrauen | Artist of Aesthetic</title>
+<meta name="description" content="Schönheitssalon in Bruchsal: Braut-Make-up mit Probetermin, Tages- und Abend-Make-up, Augenbrauen formen und färben. Antwort innerhalb von 24 Stunden.">
 
 <!-- ===== NUR FÜR DIE TEST-DEPLOYMENT AUF GITHUB PAGES =====
      VOR DEM LIVEGANG diese Zeile und robots.txt löschen. -->
@@ -14,7 +14,51 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../assets/img/makeup.jpg" fetchpriority="high">
 <link rel="stylesheet" href="../assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Schönheitssalon",
+  "name": "Schönheitssalon in Bruchsal",
+  "description": "Schönheitssalon in Bruchsal: Braut-Make-up mit Probetermin, Tages- und Abend-Make-up, Augenbrauen formen und färben. Antwort innerhalb von 24 Stunden.",
+  "provider": {
+    "@type": "BeautySalon",
+    "@id": "https://www.artist-of-aesthetic.de/#studio",
+    "name": "Artist of Aesthetic",
+    "telephone": "+4917676333562",
+    "email": "info@artist-of-aesthetic.de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Schwimmbadstraße 14",
+      "addressLocality": "Bruchsal",
+      "addressRegion": "Baden-Württemberg",
+      "postalCode": "76646",
+      "addressCountry": "DE"
+    }
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Bruchsal" },
+    { "@type": "AdministrativeArea", "name": "Baden-Württemberg" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Schönheitssalon",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Braut-Make-Up inkl. Probemake-up", "url": "https://www.artist-of-aesthetic.de/braut-make-up-bruchsal/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Augenbrauen zupfen & formen (Faden / Wax)", "url": "https://www.artist-of-aesthetic.de/augenbrauen-formen-bruchsal/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tages-Make-Up", "url": "https://www.artist-of-aesthetic.de/tages-make-up-bruchsal/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Abend-Make-Up", "url": "https://www.artist-of-aesthetic.de/abend-make-up-bruchsal/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GLAM Smokey Eye", "url": "https://www.artist-of-aesthetic.de/glam-smokey-eye-bruchsal/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gesichtsenthaarung mit Fadentechnik oder Wax", "url": "https://www.artist-of-aesthetic.de/gesichtsenthaarung-bruchsal/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ohren- & Nasenhaare entfernen mit Wax", "url": "https://www.artist-of-aesthetic.de/ohren-nasenhaare-entfernen-bruchsal/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Augenbrauen färben", "url": "https://www.artist-of-aesthetic.de/augenbrauen-faerben-bruchsal/" } }
+    ]
+  }
+}
+</script>
 </head>
 <body data-page="schoenheitssalon-bruchsal">
 
@@ -76,13 +120,223 @@
 <!-- /@shared:header -->
 
 <main id="main">
-  <section class="pagehead">
-    <div class="wrap pagehead__inner">
-      <p class="eyebrow">Leistungsbereich</p>
-      <h1 class="h1 pagehead__h">Schönheitssalon in Bruchsal</h1>
-      <p class="pagehead__note">Inhalt folgt in Kürze.</p>
+
+<!-- ============ HERO ============ -->
+<section class="pagehero">
+  <div class="pagehero__bg" style="--pagehero-img:url(&quot;../img/makeup.jpg&quot;)" aria-hidden="true"></div>
+  <div class="wrap pagehero__inner">
+    <p class="eyebrow eyebrow--light">Leistungsbereich</p>
+    <h1 class="h1 h1--long">Schönheitssalon in Bruchsal – Make-up, das den ganzen Tag hält</h1>
+    <p class="lead pagehero__lead">Make-up, das nach vier Stunden anders aussieht, und Augenbrauen, die nicht sitzen? Wir arbeiten mit Produkten, die für lange Tragedauer und Kameralicht gemacht sind. Brauttermine bitte früh anfragen – auf jede Anfrage antworten wir innerhalb von 24 Stunden. Ruf an: 0176 76333562.</p>
+
+    <div class="pagehero__actions">
+      <a class="btn btn--primary btn--lg" href="tel:+4917676333562">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        Jetzt anrufen: 0176 76333562
+      </a>
+      <a class="btn btn--light btn--lg" href="../contact/">Termin anfragen</a>
     </div>
-  </section>
+
+    <ul class="hstrip" aria-label="Vertrauensmerkmale">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg>
+        Zertifizierte Catwalk Make-up Artist
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.09 5.26L20 9.27l-4 3.9.94 5.83L12 16.25 7.06 19l.94-5.83-4-3.9 5.91-1.01L12 3z"/></svg>
+        73 Fünf-Sterne-Bewertungen
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        Probe-Make-up beim Brauttermin inklusive
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Antwort innerhalb von 24 Stunden
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ INHALT ============ -->
+<section class="sec">
+  <div class="wrap prose">
+    <p class="prose__lead reveal">
+      Es gibt Tage, an denen alles sitzen muss – und genau dann hält das selbst gemachte Make-up
+      nur bis zum Mittag. Du hast neue Produkte gekauft, Videos nachgemacht und trotzdem sieht das
+      Ergebnis auf Fotos anders aus als im Spiegel. In unserem Schönheitssalon in Bruchsal machen
+      wir das jeden Tag, mit Produkten, die für lange Tragedauer und Kameralicht gemacht sind.
+      Für Hochzeiten und größere Anlässe lohnt es sich, früh anzufragen – gute Termine sind
+      schnell vergeben.
+    </p>
+
+    <h2 class="reveal">Welche Probleme kennst du?</h2>
+    <p class="reveal">
+      Das häufigste ist Make-up, das nicht durchhält: Nach ein paar Stunden setzt sich die
+      Foundation in den Fältchen ab, der Lidschatten wandert, die Haut glänzt. Dazu kommt die
+      Farbwahl. Ein Ton, der in der Drogerie passend aussah, wirkt im Gesicht plötzlich zu
+      orange oder zu grau, weil er nicht zum Hautunterton passt. Bei den Augenbrauen ist es
+      ähnlich: einmal zu schmal gezupft, und du wartest Monate, bis alles gleichmäßig
+      nachgewachsen ist.
+    </p>
+    <p class="reveal">
+      Ein Warnzeichen ist, wenn deine Haut nach dem Make-up regelmäßig gereizt reagiert oder
+      wenn du bei jedem Anlass unsicher bist, ob das Ergebnis hält. Selbst machen scheitert
+      meist nicht am Können, sondern am Blickwinkel: Du siehst dein Gesicht nur frontal im
+      Spiegel, nie von der Seite und nie unter Blitzlicht. Genau da fallen Übergänge auf.
+      Beim Zupfen kommt dazu, dass die Brauenform an der Gesichtsform hängt – ein Millimeter
+      zu viel verändert den Ausdruck stärker, als die meisten erwarten.
+    </p>
+
+    <h2 class="reveal">Unsere Leistungen im Schönheitssalon</h2>
+    <p class="reveal">
+      Der aufwendigste Termin ist das
+      <a href="../braut-make-up-bruchsal/">Braut-Make-Up inkl. Probemake-up</a>. Das Probe-Make-up
+      ist immer dabei und kein Zusatzposten: Beim ersten Termin legen wir Look, Farben und
+      Haltbarkeit fest, am Hochzeitstag wird genau dieses Ergebnis wiederholt. Für alles andere
+      gibt es zwei Varianten. Das <a href="../tages-make-up-bruchsal/">Tages-Make-Up</a> ist
+      dezent gesetzt und bleibt bei Tageslicht natürlich, das
+      <a href="../abend-make-up-bruchsal/">Abend-Make-Up</a> wird kräftiger aufgebaut und hält
+      auch bei langen Abenden. Wenn es deutlich auffallen darf, ist das
+      <a href="../glam-smokey-eye-bruchsal/">GLAM Smokey Eye</a> die richtige Wahl.
+    </p>
+    <p class="reveal">
+      Der zweite Schwerpunkt sind Augenbrauen und Gesichtshaare. Beim
+      <a href="../augenbrauen-formen-bruchsal/">Augenbrauen zupfen &amp; formen (Faden / Wax)</a>
+      messen wir die Form an deinen Proportionen aus und arbeiten je nach Hauttyp mit Faden oder
+      Wax. Wer mehr Tiefe möchte, ohne morgens zum Stift zu greifen, lässt zusätzlich die
+      <a href="../augenbrauen-faerben-bruchsal/">Augenbrauen färben</a>. Für feine Härchen im
+      Gesicht gibt es die
+      <a href="../gesichtsenthaarung-bruchsal/">Gesichtsenthaarung mit Fadentechnik oder Wax</a>,
+      die auch bei empfindlicher Haut funktioniert. Und weil vieles davon in denselben Termin
+      passt, lässt sich
+      <a href="../ohren-nasenhaare-entfernen-bruchsal/">Ohren- &amp; Nasenhaare entfernen mit Wax</a>
+      in wenigen Minuten mit erledigen. Sag einfach bei der Anfrage, was zusammen soll, dann
+      planen wir die Zeit passend ein.
+    </p>
+    <p class="reveal">
+      Wie lange ein Termin dauert, hängt vom Anlass ab. Für Tages-Make-up rechne mit etwa
+      45 Minuten, für Abend-Make-up und Smokey Eye eher mit einer Stunde. Brauen zupfen und
+      formen ist in 15 bis 20 Minuten erledigt und lässt sich gut anhängen. Beim Braut-Make-up
+      sind es zwei Termine: der Probetermin einige Wochen vorher und der Tag selbst. Komm zum
+      Make-up-Termin am besten ungeschminkt und mit gepflegter Haut – wenn du magst, bring
+      Fotos vom gewünschten Look oder von deinem Outfit mit. Das spart Abstimmung und wir
+      treffen die Farben auf Anhieb besser.
+    </p>
+
+    <h2 class="reveal">Make-up und Brauen für Bruchsal und Umgebung</h2>
+    <p class="reveal">
+      Zu uns kommen Kundinnen aus Bruchsal selbst und aus Karlsdorf-Neuthard, Forst, Hambrücken,
+      Ubstadt-Weiher, Spöck, Büchenau, Untergrombach, Obergrombach und Heidelsheim. Für Anlässe
+      ist das wichtig: Wenn die Feier in der Region stattfindet, sparst du dir die weite Fahrt
+      am Morgen und kommst entspannter an. Parkplätze sind in der Innenstadt knapp, deshalb
+      planen wir gerade für Brauttermine genug Puffer ein und nennen dir vorab, wo du am besten
+      stehst.
+    </p>
+    <p class="reveal">
+      Wer hier arbeitet, kennt außerdem die Anlässe: Hochzeiten im Sommer, Abibälle im Frühjahr,
+      Weihnachtsfeiern im Dezember. In diesen Wochen sind die Termine früher voll als sonst.
+      Wenn dein Datum feststeht, frag lieber gleich an, auch wenn es noch Monate hin ist –
+      wir tragen dich ein und stimmen den Probetermin dann in Ruhe ab.
+    </p>
+
+    <h2 class="reveal">Warum Kundinnen zu uns kommen</h2>
+    <p class="reveal">
+      Aylin ist zertifizierte Catwalk Make-up Artist und staatlich anerkannte Fachkosmetikerin.
+      Aus über zehn Jahren und mehr als 8.000 Behandlungen sind 73 Fünf-Sterne-Bewertungen auf
+      Google geworden. Gearbeitet wird mit hochwertigen, dermatologisch getesteten Produkten,
+      die auf lange Tragedauer und Fotografie abgestimmt sind. Den Preis erfährst du vorher und
+      er bleibt so – auch wenn der Termin länger dauert als geplant. Auf Anfragen antworten wir
+      innerhalb von 24 Stunden.
+    </p>
+
+    <p class="prose__cta reveal">
+      Wenn dein Anlass schon feststeht, ist jetzt der richtige Moment: Gerade für Brauttermine
+      sind die Wochenenden im Sommer früh ausgebucht. Ruf an unter
+      <a href="tel:+4917676333562">0176 76333562</a> und wir halten dir einen Termin frei.
+      Alle weiteren Bereiche findest du in unserem
+      <a href="../">Kosmetikstudio in Bruchsal</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ============ LEISTUNGSRASTER ============ -->
+<section class="sec sec--tint" id="behandlungen">
+  <div class="wrap">
+    <header class="sec__head reveal">
+      <p class="eyebrow">Alle Behandlungen</p>
+      <h2 class="h2">Alle Leistungen im Schönheitssalon</h2>
+      <p class="sec__sub">Acht Behandlungen für Anlässe und für den Alltag. Vieles davon lässt sich im selben Termin kombinieren.</p>
+    </header>
+
+    <div class="sgrid">
+      <article class="sgrid__item reveal">
+        <p class="sgrid__tag">Kernleistung</p>
+        <h3 class="sgrid__h"><a href="../braut-make-up-bruchsal/">Braut-Make-Up inkl. Probemake-up</a></h3>
+        <p>Look, Farben und Haltbarkeit werden vorab beim Probetermin festgelegt.</p>
+        <a class="link" href="../braut-make-up-bruchsal/">Mehr erfahren <span aria-hidden="true">&#8594;</span></a>
+      </article>
+      <article class="sgrid__item reveal">
+        <p class="sgrid__tag">Kernleistung</p>
+        <h3 class="sgrid__h"><a href="../augenbrauen-formen-bruchsal/">Augenbrauen zupfen & formen (Faden / Wax)</a></h3>
+        <p>Die Form richtet sich nach deinen Gesichtsproportionen, nicht nach einem Trend.</p>
+        <a class="link" href="../augenbrauen-formen-bruchsal/">Mehr erfahren <span aria-hidden="true">&#8594;</span></a>
+      </article>
+      <article class="sgrid__item reveal">
+        <h3 class="sgrid__h"><a href="../tages-make-up-bruchsal/">Tages-Make-Up</a></h3>
+        <p>Dezent gesetzt für Termine am Tag, sieht auch bei Tageslicht natürlich aus.</p>
+        <a class="link" href="../tages-make-up-bruchsal/">Mehr erfahren <span aria-hidden="true">&#8594;</span></a>
+      </article>
+      <article class="sgrid__item reveal">
+        <h3 class="sgrid__h"><a href="../abend-make-up-bruchsal/">Abend-Make-Up</a></h3>
+        <p>Kräftiger aufgebaut und so gemacht, dass es den ganzen Abend hält.</p>
+        <a class="link" href="../abend-make-up-bruchsal/">Mehr erfahren <span aria-hidden="true">&#8594;</span></a>
+      </article>
+      <article class="sgrid__item reveal">
+        <h3 class="sgrid__h"><a href="../glam-smokey-eye-bruchsal/">GLAM Smokey Eye</a></h3>
+        <p>Der verrauchte Augenaufschlag für Anlässe, bei denen es auffallen darf.</p>
+        <a class="link" href="../glam-smokey-eye-bruchsal/">Mehr erfahren <span aria-hidden="true">&#8594;</span></a>
+      </article>
+      <article class="sgrid__item reveal">
+        <h3 class="sgrid__h"><a href="../gesichtsenthaarung-bruchsal/">Gesichtsenthaarung mit Fadentechnik oder Wax</a></h3>
+        <p>Entfernt feine Härchen im Gesicht, auch bei empfindlicher Haut.</p>
+        <a class="link" href="../gesichtsenthaarung-bruchsal/">Mehr erfahren <span aria-hidden="true">&#8594;</span></a>
+      </article>
+      <article class="sgrid__item reveal">
+        <h3 class="sgrid__h"><a href="../ohren-nasenhaare-entfernen-bruchsal/">Ohren- & Nasenhaare entfernen mit Wax</a></h3>
+        <p>In wenigen Minuten erledigt, meist als Ergänzung zum Termin.</p>
+        <a class="link" href="../ohren-nasenhaare-entfernen-bruchsal/">Mehr erfahren <span aria-hidden="true">&#8594;</span></a>
+      </article>
+      <article class="sgrid__item reveal">
+        <h3 class="sgrid__h"><a href="../augenbrauen-faerben-bruchsal/">Augenbrauen färben</a></h3>
+        <p>Mehr Tiefe und Kontur, ohne jeden Morgen zum Stift zu greifen.</p>
+        <a class="link" href="../augenbrauen-faerben-bruchsal/">Mehr erfahren <span aria-hidden="true">&#8594;</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABSCHLUSS-CTA ============ -->
+<section class="finalcta" id="termin">
+  <div class="wrap finalcta__inner reveal">
+    <p class="eyebrow eyebrow--light">Termin sichern</p>
+    <h2 class="h2">Termin für deinen Anlass sichern</h2>
+    <p class="finalcta__sub">Gerade Brauttermine an Sommerwochenenden sind früh vergeben. Antwort innerhalb von 24 Stunden, unverbindlich.</p>
+    <p class="finalcta__tel">
+      <a href="tel:+4917676333562">0176 76333562</a>
+    </p>
+    <div class="finalcta__actions">
+      <a class="btn btn--primary btn--lg" href="tel:+4917676333562">Jetzt anrufen</a>
+      <a class="btn btn--light btn--lg" href="../contact/">Termin anfragen</a>
+      <a class="btn btn--wa btn--lg" href="https://wa.me/4917676333562?text=Hallo%20Aylin%2C%20ich%20interessiere%20mich%20f%C3%BCr%20einen%20Termin." target="_blank" rel="noopener">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2 22l5.36-1.4a9.8 9.8 0 0 0 4.68 1.19h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.48 2 12.04 2zm5.76 14.06c-.24.68-1.4 1.3-1.94 1.34-.5.05-1.13.07-1.82-.11-.42-.11-.96-.29-1.65-.59-2.9-1.25-4.8-4.17-4.94-4.37-.15-.2-1.19-1.58-1.19-3.01 0-1.44.75-2.14 1.02-2.44.27-.29.58-.37.78-.37h.56c.18 0 .42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.3 2.35 1.45.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.71-.17 1.39z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <p class="finalcta__addr">Schwimmbadstraße 14 · 76646 Bruchsal · Termine nach Vereinbarung</p>
+  </div>
+</section>
+
 </main>
 
 <!-- @shared:footer -->

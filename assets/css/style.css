@@ -1079,6 +1079,64 @@ body[data-page="v3"] .core__more{
 .locs__link{ margin:10px 0 0; }
 
 /* =========================================================
+   Kategorieseiten - Bildhero, Fliesstext, Leistungsraster
+   ========================================================= */
+.pagehero{ position:relative; padding-block:var(--sp-7); color:var(--white); overflow:hidden; }
+.pagehero__bg{
+  position:absolute; inset:0; z-index:-1;
+  background:
+    linear-gradient(180deg, rgba(40,32,35,.80) 0%, rgba(40,32,35,.64) 45%, rgba(40,32,35,.86) 100%),
+    var(--pagehero-img) center 30% / cover no-repeat,
+    var(--ink);
+}
+.pagehero__inner{ max-width:70ch; }
+.pagehero .h1{ color:var(--white); }
+.pagehero .h1 em{ color:var(--blush); }
+.pagehero__lead{ color:rgba(255,255,255,.9); max-width:60ch; }
+.pagehero__actions{ display:flex; flex-wrap:wrap; gap:14px; margin:var(--sp-4) 0; }
+.pagehero .hstrip{ justify-content:flex-start; }
+
+/* Fliesstext */
+.prose{ max-width:70ch; }
+.prose h2{
+  font-family:var(--font-h); font-weight:300; letter-spacing:-.01em;
+  font-size:clamp(1.45rem, 2.5vw, 2rem); line-height:1.25;
+  margin:var(--sp-5) 0 var(--sp-2);
+}
+.prose p{ margin:0 0 var(--sp-2); }
+.prose p:last-child{ margin-bottom:0; }
+.prose a{
+  color:var(--rose-deep); text-decoration:underline;
+  text-decoration-thickness:1px; text-underline-offset:3px;
+}
+.prose a:hover{ color:var(--rose-dark); text-decoration-thickness:2px; }
+.prose__lead{ font-size:1.12rem; color:var(--ink); }
+.prose__cta{
+  margin-top:var(--sp-4); padding:var(--sp-3);
+  border-left:3px solid var(--rose-deep); background:var(--blush-soft);
+  border-radius:0 var(--radius) var(--radius) 0;
+}
+
+/* Leistungsraster */
+.sgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-3); }
+.sgrid__item{
+  display:flex; flex-direction:column;
+  padding:var(--sp-3); background:var(--white);
+  border:1px solid var(--line); border-radius:var(--radius);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.sgrid__item:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--blush); }
+.sgrid__tag{
+  font-size:.66rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--rose-deep); margin:0 0 8px; font-weight:600;
+}
+.sgrid__h{ font-size:1.08rem; line-height:1.35; margin:0 0 10px; }
+.sgrid__h a{ color:var(--ink); }
+.sgrid__h a:hover{ color:var(--rose-deep); }
+.sgrid__item p{ font-size:.92rem; margin:0 0 16px; }
+.sgrid__item .link{ margin-top:auto; align-self:flex-start; }
+
+/* =========================================================
    Responsive
    ========================================================= */
 @media (max-width:1080px){
@@ -1135,6 +1193,7 @@ body[data-page="v3"] .core__more{
   .core{ grid-template-columns:1fr; gap:0; }
   .analyse{ grid-template-columns:1fr; gap:var(--sp-3); }
   .areas__inner{ grid-template-columns:1fr; gap:var(--sp-4); }
+  .sgrid{ grid-template-columns:1fr 1fr; }
   .core--feature{ gap:var(--sp-4); }
   .core--feature .core__item{ padding-top:var(--sp-3); }
   .hstrip{ gap:12px var(--sp-3); }
@@ -1151,6 +1210,7 @@ body[data-page="v3"] .core__more{
   .link{ min-height:44px; }
   .contact__list a{ display:inline-flex; align-items:center; min-height:44px; }
   .core__h a{ display:inline-flex; align-items:center; min-height:44px; }
+  .sgrid__h a{ display:inline-flex; align-items:center; min-height:44px; }
   .topbar__tel{ min-height:44px; }
   .verswitch a{ min-height:44px; min-width:44px; }
   .footer__col{ gap:2px; }
@@ -1181,6 +1241,9 @@ body[data-page="v3"] .core__more{
   .tab{ white-space:nowrap; flex:none; }
   .footer__grid{ grid-template-columns:1fr; }
   .hero__actions .btn{ flex:1; min-width:150px; }
+  .sgrid{ grid-template-columns:1fr; }
+  .pagehero__actions .btn{ width:100%; }
+  .pagehero .hstrip{ align-items:flex-start; }
   .hstrip{ flex-direction:column; align-items:center; gap:12px; }
   .hstrip li{ text-align:left; }
   /* Die Rufnummer im Label macht den Button zu breit fuer zwei Spalten */

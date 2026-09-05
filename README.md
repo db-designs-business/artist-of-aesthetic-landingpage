@@ -82,6 +82,25 @@ Preise und Rezensionen sind 1:1 von artist-of-aesthetic.de übernommen.
 
 ---
 
+## Inhaltsstand (Stand 5. September 2026)
+
+| Seitentyp | Anzahl | Inhalt |
+|-----------|-------|--------|
+| Startseite V1 / V2 / V3 | 3 | fertig, umschaltbar über die Topbar |
+| Kategorieseiten | 4 | fertig, je rund 1.000 Wörter |
+| Kernleistungen | 8 | Platzhalter |
+| Unterleistungen | 24 | Platzhalter |
+| Hautanalyse | 1 | Platzhalter |
+| Services / Über uns / Kontakt | 3 | Platzhalter |
+| Impressum / Datenschutz | 2 | Platzhalter |
+
+Die vier Kategorieseiten verlinken jede ihrer Unterleistungen zweimal:
+einmal im Fließtext und einmal im Leistungsraster darunter. Die
+Zielseiten stehen bereits, tragen aber noch Platzhaltertext — die Links
+laufen also nicht ins Leere, das Ziel ist nur noch leer.
+
+---
+
 ## Was noch angebunden werden muss
 
 - **Formularversand** — `assets/js/main.js`, Abschnitt „Platzhalter für den
