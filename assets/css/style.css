@@ -222,7 +222,8 @@ h1,h2,h3,h4{
    (Markup in _shared/topbar.html, Markierung in tools/build.py). */
 .verswitch{ display:none; align-items:center; gap:5px; }
 body[data-page=""] .verswitch,
-body[data-page="v2"] .verswitch{ display:flex; }
+body[data-page="v2"] .verswitch,
+body[data-page="v3"] .verswitch{ display:flex; }
 .verswitch__lbl{
   font-size:.62rem; letter-spacing:.18em; text-transform:uppercase;
   opacity:.7; margin-right:4px;
@@ -993,6 +994,91 @@ body[data-page="v2"] .verswitch{ display:flex; }
 }
 
 /* =========================================================
+   Homepage V3 - Hero mit Bild, Konversionsreihenfolge
+   ========================================================= */
+.hero--img{ padding-block:var(--sp-7); color:var(--white); }
+.hero--img .hero__bg{
+  background:
+    linear-gradient(180deg, rgba(40,32,35,.78) 0%, rgba(40,32,35,.62) 45%, rgba(40,32,35,.84) 100%),
+    url("../img/hero-behandlung.jpg") center 28% / cover no-repeat,
+    var(--ink);
+}
+.hero__inner{ max-width:74ch; text-align:center; }
+.hero--img .eyebrow{ justify-content:center; }
+.hero--img .h1{ color:var(--white); }
+.hero--img .h1 em{ color:var(--blush); }
+.hero__lead{ color:rgba(255,255,255,.9); margin-inline:auto; max-width:60ch; }
+.hero--img .hero__actions{ justify-content:center; }
+
+.hstrip{
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:14px var(--sp-4);
+  margin:var(--sp-4) 0 0; padding-top:var(--sp-4);
+  border-top:1px solid rgba(255,255,255,.24);
+}
+.hstrip li{
+  display:flex; align-items:center; gap:9px;
+  font-size:.88rem; color:rgba(255,255,255,.88);
+}
+.hstrip svg{ width:18px; height:18px; flex:none; color:var(--blush); }
+
+.btn--light{ background:var(--white); color:var(--ink); }
+.btn--light:hover{ background:var(--blush); color:var(--ink); }
+
+.why__ico{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:48px; height:48px; margin-bottom:var(--sp-2);
+  border-radius:50%; background:var(--blush-soft);
+}
+.why__ico svg{ width:24px; height:24px; color:var(--rose-deep); }
+
+/* Platzhalter fuer das Google-Bewertungs-Widget */
+.gembed{
+  border:1px dashed var(--rose); border-radius:var(--radius-lg);
+  background:var(--white); padding:var(--sp-4);
+  margin-bottom:var(--sp-4);
+}
+.gembed__note{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin:0; font-size:.9rem; color:var(--muted); text-align:center;
+}
+.gembed__note svg{ width:18px; height:18px; flex:none; color:var(--rose-deep); }
+
+/* Anfrageformular mit abgesetztem Hintergrund */
+.leadsec{ background:var(--blush); padding-block:var(--sp-7); }
+.leadsec .contact__form{ background:var(--white); box-shadow:var(--shadow-md); }
+
+.core--feature{ gap:var(--sp-5); }
+.core--feature .core__item{ border-top:1px solid var(--line); padding-top:var(--sp-3); }
+.core--feature .core__h{ margin-bottom:12px; }
+.core--feature .link{ margin-top:14px; }
+body[data-page="v3"] .core__more{
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
+}
+
+/* Einzugsgebiet */
+.areas__inner{
+  display:grid; grid-template-columns:1.15fr .85fr;
+  gap:var(--sp-5); align-items:center;
+}
+.areas__inner p{ max-width:62ch; margin-bottom:0; }
+.areas__list{ display:flex; flex-wrap:wrap; gap:10px; }
+.areas__list li{
+  padding:9px 16px; border:1px solid var(--line); border-radius:999px;
+  background:var(--blush-soft); font-size:.88rem; color:var(--graphite);
+}
+
+/* Orte - kompaktes Band ueber dem Footer */
+.locs{ border-top:1px solid var(--line); padding-block:var(--sp-4); }
+.locs__h{
+  font-family:var(--font-h); font-size:.72rem; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
+  margin-bottom:8px;
+}
+.locs__list{ margin:0; font-size:.88rem; color:var(--graphite); max-width:90ch; }
+.locs__link{ margin:10px 0 0; }
+
+/* =========================================================
    Responsive
    ========================================================= */
 @media (max-width:1080px){
@@ -1048,6 +1134,10 @@ body[data-page="v2"] .verswitch{ display:flex; }
   .trustbar__grid, .why{ grid-template-columns:1fr 1fr; gap:var(--sp-3); }
   .core{ grid-template-columns:1fr; gap:0; }
   .analyse{ grid-template-columns:1fr; gap:var(--sp-3); }
+  .areas__inner{ grid-template-columns:1fr; gap:var(--sp-4); }
+  .core--feature{ gap:var(--sp-4); }
+  .core--feature .core__item{ padding-top:var(--sp-3); }
+  .hstrip{ gap:12px var(--sp-3); }
   .analyse .btn{ justify-self:start; }
   .steps{ gap:var(--sp-4); }
   .about__certs{ margin:-46px auto 0 var(--sp-3); }
@@ -1091,6 +1181,15 @@ body[data-page="v2"] .verswitch{ display:flex; }
   .tab{ white-space:nowrap; flex:none; }
   .footer__grid{ grid-template-columns:1fr; }
   .hero__actions .btn{ flex:1; min-width:150px; }
+  .hstrip{ flex-direction:column; align-items:center; gap:12px; }
+  .hstrip li{ text-align:left; }
+  /* Die Rufnummer im Label macht den Button zu breit fuer zwei Spalten */
+  .hero--img .hero__actions{ flex-direction:column; }
+  .hero--img .hero__actions .btn{ width:100%; flex:none; }
+  /* WCAG 2.2: Zeigerziele im Web mindestens 24 x 24 px */
+  .field--check input{ width:24px; height:24px; }
+  .leadsec{ padding-block:var(--sp-6); }
+  .gembed{ padding:var(--sp-3); }
   .footer__bottom{ flex-direction:column; align-items:flex-start; }
 }
 
@@ -1099,7 +1198,8 @@ body[data-page="v2"] .verswitch{ display:flex; }
   .topbar__more{ display:none; }
   /* Platz fuer den Umschalter: Ort steht ohnehin im Footer */
   body[data-page=""] .topbar__area,
-  body[data-page="v2"] .topbar__area{ display:none; }
+  body[data-page="v2"] .topbar__area,
+  body[data-page="v3"] .topbar__area{ display:none; }
   .topbar__inner{ gap:10px; }
   .pagehead{ padding-block:var(--sp-5) var(--sp-4); }
   .header__inner{ gap:10px; padding-block:10px; }

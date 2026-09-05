@@ -53,12 +53,17 @@ def render_block(name, page):
     html = html.replace("{{base}}", base)
 
     if name == "topbar":
-        # Aktive Entwurfsfassung markieren (nur die beiden Startseiten)
-        ver = "v2" if page["slug"] == "v2" else "v1"
-        html = html.replace(
-            '<a href="%s" data-ver="%s">' % (base if ver == "v1" else base + "v2/", ver),
-            '<a href="%s" data-ver="%s" class="is-active" aria-current="page">'
-            % (base if ver == "v1" else base + "v2/", ver), 1)
+        # Aktive Entwurfsfassung markieren (nur auf den Startseiten-Fassungen)
+        if page["kind"] == "draft":
+            ver = page["slug"]          # v2, v3, ...
+        elif page["slug"] == "":
+            ver = "v1"                  # die Startseite ist Fassung 1
+        else:
+            ver = None                  # Unterseiten: kein Punkt markiert
+        if ver:
+            html = re.sub(
+                r'(<a href="[^"]*" data-ver="%s")' % ver,
+                r'\1 class="is-active" aria-current="page"', html, count=1)
 
     if name == "header":
         target = base if page["slug"] == "" else base + page["slug"] + "/"

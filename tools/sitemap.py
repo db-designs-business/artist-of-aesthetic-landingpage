@@ -99,6 +99,8 @@ GENERAL = [
 DRAFTS = [
     {"slug": "v2", "name": "Homepage Version 2",
      "h1": "Homepage Version 2", "kind": "draft"},
+    {"slug": "v3", "name": "Homepage Version 3",
+     "h1": "Homepage Version 3", "kind": "draft"},
 ]
 
 LEGAL = [
