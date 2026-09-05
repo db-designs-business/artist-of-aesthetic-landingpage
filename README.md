@@ -88,8 +88,13 @@ Preise und Rezensionen sind 1:1 von artist-of-aesthetic.de übernommen.
 |-----------|-------|--------|
 | Startseite V1 / V2 / V3 | 3 | fertig, umschaltbar über die Topbar |
 | Kategorieseiten | 4 | fertig, je rund 1.000 Wörter |
-| Kernleistungen | 8 | Platzhalter |
+| Kernleistungen | 8 | fertig, je rund 1.000 Wörter |
 | Unterleistungen | 24 | Platzhalter |
+
+Jede Kernleistungsseite verlinkt ihre verwandten Unterleistungen im
+Fließtext und im Raster darunter, dazu die eigene Kategorieseite und die
+Startseite. Die Zuordnung der Unterleistungen zu den Kernleistungen steht
+in `INHALTE-KERNLEISTUNGEN.md`.
 | Hautanalyse | 1 | Platzhalter |
 | Services / Über uns / Kontakt | 3 | Platzhalter |
 | Impressum / Datenschutz | 2 | Platzhalter |

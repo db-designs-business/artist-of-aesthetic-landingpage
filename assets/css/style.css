@@ -1135,6 +1135,7 @@ body[data-page="v3"] .core__more{
 .sgrid__h a:hover{ color:var(--rose-deep); }
 .sgrid__item p{ font-size:.92rem; margin:0 0 16px; }
 .sgrid__item .link{ margin-top:auto; align-self:flex-start; }
+.sgrid--two{ grid-template-columns:repeat(2,1fr); max-width:820px; }
 
 /* =========================================================
    Responsive
