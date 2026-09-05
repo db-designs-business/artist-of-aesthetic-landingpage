@@ -46,6 +46,11 @@
    Reset & Base
    ========================================================= */
 *,*::before,*::after{ box-sizing:border-box; }
+
+/* Das hidden-Attribut muss staerker sein als jede Layout-Regel der
+   Komponenten (z. B. .err mit display:flex), sonst bleiben versteckte
+   Elemente sichtbar. */
+[hidden]{ display:none !important; }
 html{ overflow-x:hidden; scroll-behavior:smooth; scroll-padding-top:120px; -webkit-text-size-adjust:100%; }
 @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
 
@@ -177,9 +182,10 @@ h1,h2,h3,h4{
 .link:hover span{ transform:translateX(5px); }
 
 /* =========================================================
-   Konturrahmen — wiederkehrendes Dekorelement
-   Versetzter Umriss in Marken-Mauve hinter Bild- und Kartenflaechen.
-   Position und Groesse pro Einsatzort ueber die Custom Properties.
+   Konturrahmen — versetzter Umriss in Marken-Mauve hinter einer
+   Bild- oder Kartenflaeche. Aktuell nur am Hero-Bild.
+   Fuer weitere Stellen: Klasse .framed setzen, Position und Groesse
+   ueber --frame-pos / --frame-w / --frame-h steuern.
    ========================================================= */
 .framed{ position:relative; }
 .framed::before{
@@ -392,12 +398,7 @@ h1,h2,h3,h4{
    Über
    ========================================================= */
 .about{ display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-6); align-items:center; }
-.about__media{
-  position:relative;
-  /* oben links, damit der Zertifikats-Kasten unten rechts frei bleibt */
-  --frame-pos:-24px auto auto -24px;
-  --frame-w:58%; --frame-h:56%;
-}
+.about__media{ position:relative; }
 .about__img{
   width:100%; border-radius:var(--radius-lg);
   box-shadow:var(--shadow-md); aspect-ratio:4/3.2; object-fit:cover;
@@ -447,7 +448,6 @@ h1,h2,h3,h4{
 /* =========================================================
    Preise / Tabs
    ========================================================= */
-.tabs{ --frame-pos:auto -22px -22px auto; --frame-w:46%; --frame-h:38%; }
 .tabs__list{
   display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
   margin-bottom:var(--sp-5);
@@ -622,8 +622,7 @@ h1,h2,h3,h4{
 .contact__quick{ display:flex; flex-wrap:wrap; gap:12px; }
 
 /* --- Formular --- */
-.contact__form{ --frame-pos:auto auto -24px -24px; --frame-w:52%; --frame-h:44%; }
-.contact__form form{
+.contact__form{
   background:var(--white); border:1px solid var(--line);
   border-radius:var(--radius-lg); box-shadow:var(--shadow-md);
   padding:var(--sp-5);
@@ -859,7 +858,7 @@ h1,h2,h3,h4{
   .cards, .usps, .revs, .steps, .field-row{ grid-template-columns:1fr; }
   .gallery{ grid-template-columns:repeat(2,1fr); }
   .tabs__panels{ padding:var(--sp-2) var(--sp-3); }
-  .contact__form form{ padding:var(--sp-3); }
+  .contact__form{ padding:var(--sp-3); }
   .price li{ flex-direction:column; gap:6px; }
   .price__p{ font-size:1.15rem; }
   .tabs__list{ justify-content:flex-start; flex-wrap:nowrap; overflow-x:auto; padding-bottom:8px; margin-inline:calc(var(--sp-3) * -1); padding-inline:var(--sp-3); }
