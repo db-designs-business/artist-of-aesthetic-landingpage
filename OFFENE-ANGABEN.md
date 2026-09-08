@@ -7,8 +7,20 @@
 | **Eigene Fotos** | 3 Kernleistungs- und 5 Unterseiten, zweites Studiobild auf „Über uns" | Wird nachgereicht. Bis dahin teilen sich mehrere Seiten dasselbe Bild — welche, steht in `INHALTE-KERNLEISTUNGEN.md` und `INHALTE-UNTERLEISTUNGEN.md`. |
 | **Domain in Cookiebot freischalten** | Cookiebot-Konto | Ohne Freigabe erscheint kein Banner. Details unten. |
 | **Google Fonts selbst hosten** | alle Seiten | Cookiebot blockiert keine Stylesheets — die Schriften laden weiterhin ohne Einwilligung. Details unten. |
-| **Anzeige beim Gesundheitsamt (§ 36 IfSG), Betriebshaftpflicht** | „Über uns", Nachweise | Nur falls vorhanden und belegbar. Ohne Angabe steht dort nichts dazu — erfunden wird nichts. |
-| **Rechtsprüfung** | Impressum, Datenschutz | Ich bin kein Anwalt. Beide Seiten sollte jemand mit Fachkenntnis einmal ansehen. |
+| **Elfsight: Firmierung und Anschrift** | Datenschutz, Abschnitt Elfsight | Steht weder im alten Impressum noch auf elfsight.com. Bitte im Elfsight-Konto oder im AV-Vertrag nachsehen. |
+
+## Am 8. September geklärt — kein Handlungsbedarf
+
+- **Gesundheitsamt (§ 36 IfSG) und Betriebshaftpflicht** — gibt es nicht, steht
+  deshalb nirgends auf der Seite. Ein Kommentar auf „Über uns“ hält fest, dass
+  das Absicht ist. Anmerkung ohne Rechtsberatungsanspruch: Für Studios, die
+  Permanent Make-up anbieten, ist die Anzeige beim Gesundheitsamt nach § 36
+  IfSG in der Regel Pflicht — das Gesundheitsamt Karlsruhe gibt dazu Auskunft.
+  Für die Website ändert das nichts.
+- **AV-Verträge** mit Cookiebot und Elfsight — liegen vor. Die entsprechenden
+  Sätze in der Datenschutzerklärung können so stehen bleiben.
+- **Rechtsprüfung** von Impressum und Datenschutz — erledigt bzw. übernommen.
+- **Fotos** — werden am Ende gemeinsam mit der Gesamtdurchsicht geklärt.
 
 ## Am 8. September erledigt
 
