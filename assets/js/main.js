@@ -199,6 +199,7 @@
   var summary = document.getElementById('formSummary');
   var summaryList = document.getElementById('formSummaryList');
   var success = document.getElementById('formSuccess');
+  var fail = document.getElementById('formFail');
   var submitBtn = document.getElementById('submitBtn');
 
   var labels = {
@@ -271,6 +272,10 @@
     });
   });
 
+  // Startzeit fuer die Spampruefung setzen
+  var startzeit = form.querySelector('[data-startzeit]');
+  if (startzeit) startzeit.value = Math.floor(Date.now() / 1000);
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     success.hidden = true;
@@ -304,18 +309,49 @@
 
     summary.hidden = true;
 
-    // Platzhalter für den Versand — hier später Backend/Formspree/CF7 anbinden.
+    // Versand an kontakt.php (siehe Datei im Wurzelverzeichnis).
     submitBtn.classList.add('is-loading');
     submitBtn.disabled = true;
     submitBtn.querySelector('.btn__label').textContent = 'Wird gesendet …';
+    if (fail) fail.hidden = true;
 
-    window.setTimeout(function () {
+    function fertig() {
       submitBtn.classList.remove('is-loading');
       submitBtn.disabled = false;
       submitBtn.querySelector('.btn__label').textContent = 'Terminanfrage senden';
-      form.reset();
-      success.hidden = false;
-      success.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' });
-    }, 900);
+    }
+
+    function gescheitert(text) {
+      fertig();
+      if (!fail) return;
+      fail.innerHTML = text;
+      fail.hidden = false;
+      fail.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' });
+    }
+
+    var endpunkt = form.getAttribute('data-endpoint') || 'kontakt.php';
+
+    fetch(endpunkt, { method: 'POST', body: new FormData(form) })
+      .then(function (res) {
+        // Auf einer rein statischen Fassung (z. B. GitHub Pages) gibt es
+        // kein PHP – dann kommt 404 oder der Quelltext zurück.
+        if (!res.ok) throw new Error('status ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (!data.ok) throw new Error(data.meldung || 'Fehler');
+        fertig();
+        form.reset();
+        success.hidden = false;
+        success.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' });
+      })
+      .catch(function () {
+        gescheitert(
+          'Der Versand ist gerade nicht möglich. Ruf uns bitte kurz an unter ' +
+          '<a href="tel:+4917676333562">0176 76333562</a> oder schreib an ' +
+          '<a href="mailto:info@artist-of-aesthetic.de">info@artist-of-aesthetic.de</a> – ' +
+          'wir melden uns innerhalb von 24 Stunden.'
+        );
+      });
   });
 })();

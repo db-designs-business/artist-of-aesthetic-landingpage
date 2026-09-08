@@ -6,7 +6,6 @@
 |-----|-----|-----------|
 | **Eigene Fotos** | 3 Kernleistungs- und 5 Unterseiten, zweites Studiobild auf „Über uns" | Wird nachgereicht. Bis dahin teilen sich mehrere Seiten dasselbe Bild — welche, steht in `INHALTE-KERNLEISTUNGEN.md` und `INHALTE-UNTERLEISTUNGEN.md`. |
 | **Consent-Tool** | alle Seiten | Wird nachgereicht. Sobald es steht: Abschnitt in der Datenschutzerklärung ergänzen (Anbieter, gespeicherte Daten, Rechtsgrundlage, Widerruf). Die Klick-Lösung bei der Karte kann dann bleiben oder durch die Consent-Abfrage ersetzt werden. |
-| **Formularversand** | `assets/js/main.js` | Noch simuliert. Siehe Abschnitt unten. |
 | **Anzeige beim Gesundheitsamt (§ 36 IfSG), Betriebshaftpflicht** | „Über uns", Nachweise | Nur falls vorhanden und belegbar. Ohne Angabe steht dort nichts dazu — erfunden wird nichts. |
 | **Rechtsprüfung** | Impressum, Datenschutz | Ich bin kein Anwalt. Beide Seiten sollte jemand mit Fachkenntnis einmal ansehen. |
 
@@ -41,28 +40,48 @@ Direktes Einbetten ohne Klick ist ein Einzeiler — der iframe aus dem
 `data-map`-Attribut kommt direkt in den Container. Der Kommentar im Quelltext
 der Kontaktseite beschreibt beide Varianten.
 
-## Zum Formular: reicht Elfsight für SEO?
+## Formularversand — gebaut am 8. September 2026
 
-**Für SEO ist es egal** — Formulare werden nicht gerankt und Google bewertet
-sie nicht. Die SEO-Frage stellt sich hier gar nicht.
+`kontakt.php` liegt im Wurzelverzeichnis. Das Formular schickt die Angaben per
+`fetch` dorthin, PHP prüft sie noch einmal und verschickt eine E-Mail an
+`info@artist-of-aesthetic.de`. **Nichts wird gespeichert, kein Drittanbieter ist
+beteiligt** — deshalb braucht es dafür weder einen Consent-Banner noch einen
+zusätzlichen Abschnitt in der Datenschutzerklärung. Der bestehende Abschnitt
+„Kontaktformular" deckt es ab.
 
-Was dagegen spricht, sind drei andere Punkte:
+**Vor der Inbetriebnahme:** Empfängeradresse oben in `kontakt.php` prüfen. Die
+Absenderadresse muss eine der eigenen Domain sein, sonst stufen viele
+Mailserver die Nachricht als Fälschung ein — steht als Kommentar in der Datei.
+Nach dem Upload einmal testweise absenden und prüfen, ob die Mail ankommt (auch
+im Spam-Ordner nachsehen).
 
-1. **Ladezeit.** Elfsight lädt ein externes Skript nach, das das Formular per
-   JavaScript erzeugt. Das kostet spürbar Ladezeit und geht auf die Core Web
-   Vitals — und die sind ein Rankingfaktor.
-2. **Datenschutz.** Ein weiterer externer Dienst, der Daten überträgt und
-   Cookies setzt. Er braucht einen eigenen Abschnitt in der
-   Datenschutzerklärung und muss hinter das Consent-Tool. Wer nicht zustimmt,
-   sieht kein Formular.
-3. **Design.** Das eingebettete Formular sieht anders aus als die Seite. Das
-   fertige Formular ist bereits gebaut, geprüft und barrierefrei — mit
-   Fehlermeldungen an den Feldern, Fehlerübersicht und Tastaturbedienung.
+**Spamschutz** ohne Captcha: ein für Menschen unsichtbares Feld, das Bots
+ausfüllen, plus eine Zeitprüfung — wer in unter drei Sekunden absendet, ist
+keiner. Beides wird stillschweigend verworfen, damit der Bot nichts lernt.
 
-**Mein Vorschlag:** Das bestehende Formular behalten und nur den Versand
-anbinden. Dafür reicht ein Endpunkt wie Web3Forms oder Formspree — eine Zeile
-im HTML, kein zusätzliches Skript, kein Cookie, Design und Barrierefreiheit
-bleiben. Aufwand etwa 15 Minuten, sobald die Empfänger-E-Mail feststeht.
+**Auf der Testfassung** läuft kein PHP. Das Formular zeigt dort eine ehrliche
+Fehlermeldung mit Telefonnummer und E-Mail-Adresse statt eines falschen
+Erfolgs. Geprüft: Erfolgsweg und Fehlerweg funktionieren beide, alle neun
+Felder werden übertragen.
 
-Wenn du trotzdem Elfsight möchtest, geht das auch — dann tauschen wir den
-Formularblock aus und ergänzen den Datenschutzabschnitt.
+Ein Randpunkt: Auf GitHub Pages ist `kontakt.php` als Text lesbar, weil Pages
+PHP nicht ausführt. Darin stehen keine Zugangsdaten, nur die
+Empfängeradresse — und die steht ohnehin im Impressum. Auf einem Hoster mit
+PHP tritt das nicht auf.
+
+## Google-Bewertungen: reicht Elfsight für SEO?
+
+**Für SEO bringt es nichts** — Bewertungen auf der eigenen Website ranken nicht.
+Wichtiger: Google zeigt für eigene, selbst eingebundene Bewertungen **keine
+Sterne in den Suchergebnissen**. `AggregateRating`-Markup dafür ist laut
+Richtlinien nicht erlaubt und kann eine manuelle Maßnahme auslösen. Sterne in
+der Suche kommen über das Unternehmensprofil, nicht über die Website.
+
+Der echte Nutzen ist **Konversion** — frische, rotierende Bewertungen wirken.
+Die Kosten: ein externes Skript (Ladezeit, Core Web Vitals — die sind
+Rankingfaktor), Consent-Pflicht, und ohne Zustimmung sehen Besucher nichts.
+
+**Vorschlag:** Die drei echten Rezensionen, die fest im HTML stehen, als Basis
+behalten — immer sichtbar, kein Consent. Elfsight später zusätzlich in den
+vorbereiteten Container auf der Startseite V3 (`#google-reviews`) und in den
+Google-Abschnitt auf „Über uns" setzen, sobald das Consent-Tool steht.

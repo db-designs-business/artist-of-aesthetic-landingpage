@@ -585,7 +585,8 @@
     </div>
 
     <div class="contact__form reveal reveal--delay">
-      <form id="terminForm" novalidate>
+      <form id="terminForm" action="kontakt.php" method="post" novalidate
+            data-endpoint="kontakt.php">
         <h3 class="form__h">Terminanfrage</h3>
         <p class="form__sub">Unverbindlich &amp; kostenlos. Ich melde mich in der Regel innerhalb von 24 Stunden.</p>
 
@@ -650,12 +651,23 @@
           <p class="err" id="err-datenschutz" hidden></p>
         </div>
 
+
+        <!-- Spamschutz: fuer Menschen unsichtbar, Bots fuellen es aus.
+             Nicht entfernen und nicht per display:none in der CSS-Datei
+             verstecken - manche Bots pruefen das Stylesheet. -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Website (bitte frei lassen)</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="startzeit" value="" data-startzeit>
+
         <button class="btn btn--primary btn--lg btn--block" type="submit" id="submitBtn">
           <span class="btn__label">Terminanfrage senden</span>
           <span class="spinner" aria-hidden="true"></span>
         </button>
 
         <p class="form__note">Kein Spam, keine Weitergabe deiner Daten. Antwort in der Regel innerhalb von 24 Stunden.</p>
+        <p class="form__fail" id="formFail" role="alert" hidden></p>
         <p class="form__success" id="formSuccess" role="status" hidden>
           Vielen Dank! Deine Anfrage ist eingegangen – ich melde mich zeitnah bei dir.
         </p>

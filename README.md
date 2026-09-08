@@ -110,14 +110,12 @@ laufen also nicht ins Leere, das Ziel ist nur noch leer.
 
 ## Was noch angebunden werden muss
 
-- **Formularversand** — `assets/js/main.js`, Abschnitt „Platzhalter für den
-  Versand". Aktuell wird der Erfolgsfall nur simuliert. Anbindung an
-  Contact Form 7, Formspree o. ä. dort einsetzen.
-- **Öffnungszeiten** — auf der Live-Seite nirgends veröffentlicht. Steht
-  deshalb als „Termine nach Vereinbarung". Falls feste Zeiten existieren:
-  im Kontaktblock und im JSON-LD (`openingHoursSpecification`) ergänzen.
-- **Impressum / Datenschutz** — verlinken derzeit auf `#impressum` / `#datenschutz`.
-  Auf die bestehenden Unterseiten umbiegen.
+- **Formularversand** — `kontakt.php` im Wurzelverzeichnis. Läuft auf jedem
+  Hoster mit PHP (also auch auf All-Inkl). Empfängeradresse steht oben in
+  der Datei. Auf GitHub Pages gibt es kein PHP — dort zeigt das Formular
+  den Ersatzweg mit Telefonnummer und E-Mail-Adresse.
+- **Consent-Tool** — wird nachgereicht. Danach den passenden Abschnitt in
+  die Datenschutzerklärung eintragen.
 - **Bilder** — als JPEG ausgeliefert. Vor dem Livegang zu WebP/AVIF
   konvertieren und Hero-Bild in mehreren Breiten via `srcset` einbinden.
 - **Google-Bewertung 5,0** — der Wert in der Stats-Bar sollte vor dem

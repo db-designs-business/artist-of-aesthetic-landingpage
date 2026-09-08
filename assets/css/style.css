@@ -881,6 +881,21 @@ body[data-page="v3"] .verswitch{ display:flex; }
 .form__summary a{ color:#8A1F19; text-decoration:underline; font-size:.9rem; }
 
 .form__note{ font-size:.82rem; color:var(--muted); text-align:center; margin:var(--sp-2) 0 0; }
+
+/* Honigtopf: aus dem Blickfeld, aber nicht display:none */
+.hp{
+  position:absolute; left:-9999px; top:auto;
+  width:1px; height:1px; overflow:hidden;
+}
+
+/* Fehlermeldung beim Versand */
+.form__fail{
+  margin:var(--sp-2) 0 0; padding:14px 16px;
+  border-radius:var(--radius); background:#FCEEEC;
+  border:1px solid #E7C3BD; color:#8A1F19; font-size:.92rem; line-height:1.6;
+}
+.form__fail a{ color:#8A1F19; text-decoration:underline; }
+
 .form__success{
   margin:var(--sp-3) 0 0; padding:var(--sp-2) var(--sp-3);
   background:#EDF7F0; border:1px solid #B9DFC7; border-left:3px solid var(--wa);
