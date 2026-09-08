@@ -86,7 +86,7 @@ Preise und Rezensionen sind 1:1 von artist-of-aesthetic.de übernommen.
 
 | Seitentyp | Anzahl | Inhalt |
 |-----------|-------|--------|
-| Startseite V1 / V2 / V3 | 3 | fertig, umschaltbar über die Topbar |
+| Startseite V1 / V2 / V3 / **V4** | 4 | umschaltbar über die Topbar. **V4 ist die abgestimmte Endfassung** — V1–V3 sind Entwürfe und fliegen vor dem Livegang raus. |
 | Kategorieseiten | 4 | fertig, je rund 1.000 Wörter |
 | Kernleistungen | 8 | fertig, je rund 1.000 Wörter |
 | Unterleistungen | 24 | fertig, je 600–660 Wörter |

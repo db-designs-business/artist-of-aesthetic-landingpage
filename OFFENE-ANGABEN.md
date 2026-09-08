@@ -9,6 +9,35 @@
 | **Google Fonts selbst hosten** | alle Seiten | Cookiebot blockiert keine Stylesheets — die Schriften laden weiterhin ohne Einwilligung. Details unten. |
 | **Elfsight: Firmierung und Anschrift** | Datenschutz, Abschnitt Elfsight | Steht weder im alten Impressum noch auf elfsight.com. Bitte im Elfsight-Konto oder im AV-Vertrag nachsehen. |
 
+## Startseite V4 — die abgestimmte Endfassung
+
+Zusammengesetzt am 8. September aus den Bausteinen, die du ausgewählt hast:
+
+| Baustein | Herkunft | Anpassung |
+|---|---|---|
+| Hero | V1 (Aufbau) | H1 trägt jetzt Leistung + Stadt. Rabatt-Pille durch eine Telefonzeile ersetzt. |
+| Zahlenleiste | V1 | Vierter Wert: „73× / 5 Sterne bei Google“ statt der Durchschnittsnote. |
+| Warum hier | V3 | — |
+| Bewertungen | V3 | **ohne** Elfsight-Einbettung, nur die drei festen Rezensionen. |
+| Anfrageformular | V3 | — |
+| Vier Bereiche / Acht Leistungen | V3 | — |
+| Einzugsgebiet + Ortsliste | V3 | — |
+| Über Aylin, FAQ, Abschluss-CTA | V3 | — |
+
+Sitewide dazu erledigt:
+
+- **„Umland“ → „Umkreis“** auf 15 Seiten. Die Überschrift „Acht Leistungen, für
+  die Kundinnen ins Umland fahren“ war dabei auch inhaltlich verdreht — das
+  Studio liegt ja in Bruchsal. Jetzt: „… aus dem Umkreis anreisen“.
+- **Rabatthinweise (20 %) entfernt** — aus Hero, Preisabschnitt, FAQ,
+  Formular-Checkbox und der Meta-Beschreibung von V1 sowie aus V2. Die
+  FAQ-Frage dazu wurde durch eine zur kostenlosen Beratung ersetzt, damit an
+  der Stelle keine Lücke bleibt.
+
+V1, V2 und V3 bleiben vorerst zum Vergleich stehen. Vor dem Livegang: V4 nach
+`index.html` verschieben, die drei Entwürfe löschen und den Umschalter aus
+`_shared/topbar.html`, `tools/sitemap.py` und dem Stylesheet entfernen.
+
 ## Am 8. September geklärt — kein Handlungsbedarf
 
 - **Gesundheitsamt (§ 36 IfSG) und Betriebshaftpflicht** — gibt es nicht, steht

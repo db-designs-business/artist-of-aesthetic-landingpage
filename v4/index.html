@@ -145,8 +145,8 @@
       <span class="verswitch__lbl">Entwurf</span>
       <a href="../" data-ver="v1">V1</a>
       <a href="../v2/" data-ver="v2">V2</a>
-      <a href="../v3/" data-ver="v3" class="is-active" aria-current="page">V3</a>
-      <a href="../v4/" data-ver="v4">V4</a>
+      <a href="../v3/" data-ver="v3">V3</a>
+      <a href="../v4/" data-ver="v4" class="is-active" aria-current="page">V4</a>
     </div>
 
     <a class="topbar__tel" href="tel:+4917676333562">
@@ -192,43 +192,82 @@
 
 <main id="main">
 
-<!-- ============ 1 · HERO ============ -->
-<section class="hero hero--img">
+<!-- ============ 1 · HERO ============
+     Aufbau von V1 uebernommen: Text links, Bild rechts, Kennzahl als
+     Plakette. Die H1 nennt Leistung und Stadt - danach wird gesucht.
+     Der Rabatthinweis, der hier in V1 stand, entfaellt bewusst.
+     ================================================================== -->
+<section class="hero" id="top">
   <div class="hero__bg" aria-hidden="true"></div>
-  <div class="wrap hero__inner">
-    <p class="eyebrow eyebrow--light">Kosmetikstudio in Bruchsal</p>
-    <h1 class="h1 h1--long">Kosmetikstudio Bruchsal – 73× 5 Sterne, 8.000+ Behandlungen</h1>
-    <p class="lead hero__lead">
-      Zertifizierte PMU- &amp; Kosmetikexpertise seit über 10 Jahren.
-      Kostenlose Hautanalyse. Antwort innerhalb von 24 Stunden.
-    </p>
+  <div class="wrap hero__grid">
+    <div class="hero__copy reveal">
+      <p class="eyebrow">Permanent Make-up &middot; Gesichtspflege &middot; Wimpern</p>
+      <h1 class="h1">
+        Kosmetikstudio<br>in Bruchsal.<br>
+        <em>Sichtbar sch&ouml;ne Ergebnisse.</em>
+      </h1>
+      <p class="lead">
+        Behandlungen f&uuml;r Haut, Permanent Make-up und Wimpern &ndash; abgestimmt auf
+        deinen Hauttyp und deine W&uuml;nsche. &Uuml;ber zehn Jahre Erfahrung, kostenlose
+        Hautanalyse, Antwort innerhalb von 24 Stunden.
+      </p>
 
-    <div class="hero__actions">
-      <a class="btn btn--primary btn--lg" href="tel:+4917676333562">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-        Jetzt anrufen: 0176 76333562
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="#anfrage">
+          Termin anfragen
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--wa btn--lg" href="https://wa.me/4917676333562?text=Hallo%20Aylin%2C%20ich%20interessiere%20mich%20f%C3%BCr%20einen%20Termin." target="_blank" rel="noopener">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2 22l5.36-1.4a9.8 9.8 0 0 0 4.68 1.19h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.48 2 12.04 2zm5.76 14.06c-.24.68-1.4 1.3-1.94 1.34-.5.05-1.13.07-1.82-.11-.42-.11-.96-.29-1.65-.59-2.9-1.25-4.8-4.17-4.94-4.37-.15-.2-1.19-1.58-1.19-3.01 0-1.44.75-2.14 1.02-2.44.27-.29.58-.37.78-.37h.56c.18 0 .42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.3 2.35 1.45.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.71-.17 1.39z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <!-- Die ganze Pille ist der Link, damit sie auch am Handy sicher
+           zu treffen ist. -->
+      <a class="hero__offer" href="tel:+4917676333562">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        Lieber direkt sprechen? <strong>0176&nbsp;76333562</strong>
       </a>
-      <a class="btn btn--light btn--lg" href="#anfrage">Kostenlose Hautanalyse sichern</a>
+
+      <ul class="hero__trust">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg>
+          Staatlich gepr&uuml;fte Fachkosmetikerin
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          PhiBrows &amp; PhiContour zertifiziert
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.3-9A5.3 5.3 0 0 1 12 6.6 5.3 5.3 0 0 1 21.3 12c-1.8 4.4-9.3 9-9.3 9z"/></svg>
+          Inhabergef&uuml;hrt in Bruchsal, keine Kette
+        </li>
+      </ul>
     </div>
 
-    <ul class="hstrip" aria-label="Vertrauensmerkmale">
-      <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        Staatlich geprüft &amp; PhiBrows-zertifiziert
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        Antwort innerhalb von 24 Stunden
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.09 5.26L20 9.27l-4 3.9.94 5.83L12 16.25 7.06 19l.94-5.83-4-3.9 5.91-1.01L12 3z"/></svg>
-        Hautanalyse kostenlos, ohne Buchungszwang
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Inhabergeführt in Bruchsal, keine Kette
-      </li>
-    </ul>
+    <div class="hero__media framed reveal reveal--delay">
+      <figure class="hero__figure">
+        <img src="../assets/img/hero-behandlung.jpg" alt="Aylin Acikg&ouml;z bei einer Gesichtsbehandlung im Kosmetikstudio Artist of Aesthetic in Bruchsal" width="1200" height="900" fetchpriority="high">
+      </figure>
+      <div class="hero__badge">
+        <span class="hero__badge-num">8.000<span>+</span></span>
+        <span class="hero__badge-lbl">durchgef&uuml;hrte<br>Behandlungen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZAHLENLEISTE ============
+     Aus V1. Statt der Durchschnittsnote steht hier die Anzahl der
+     Bewertungen - eine Note ohne Anzahl sagt wenig aus.
+     ================================================================== -->
+<section class="stats" aria-label="Kennzahlen">
+  <div class="wrap stats__grid">
+    <div class="stat reveal"><span class="stat__n" data-count="10" data-suffix="+">10+</span><span class="stat__l">Jahre Erfahrung</span></div>
+    <div class="stat reveal"><span class="stat__n" data-count="8000" data-suffix="+">8000+</span><span class="stat__l">Behandlungen</span></div>
+    <div class="stat reveal"><span class="stat__n" data-count="30" data-suffix="+">30+</span><span class="stat__l">Behandlungsarten</span></div>
+    <div class="stat reveal"><span class="stat__n">73&times;</span><span class="stat__l">5 Sterne bei Google</span></div>
   </div>
 </section>
 
@@ -294,18 +333,10 @@
       </p>
     </header>
 
-    <!-- Live-Widget: Sobald das Google-Reviews-Embed vorliegt, den
-         Einbettungscode in den folgenden Container setzen. Die drei
-         statischen Rezensionen darunter bleiben als Fallback stehen,
-         falls das Widget blockiert wird (Consent, Adblocker). -->
-    <!-- Elfsight Google Reviews.
-         Das <script> fuer die Elfsight-Plattform steht einmal pro Seite im
-         gemeinsamen Consent-Block ganz unten - hier braucht es nur das <div>.
-         Die drei festen Rezensionen darunter bleiben als Rueckfallebene
-         stehen: Wer dem Consent nicht zustimmt, sieht das Widget nicht. -->
-    <div class="reviewsapp reveal" id="google-reviews">
-      <div class="elfsight-app-4cd2f642-a1d5-475d-8f81-25d58a6e1a88" data-elfsight-app-lazy></div>
-    </div>
+    <!-- Bewusst OHNE Elfsight-Einbettung: hier stehen nur die drei festen
+         Rezensionen. Sie sind Teil der Seite, brauchen keine Einwilligung,
+         laden nichts nach und sind damit auch fuer Suchmaschinen lesbar.
+         Das Elfsight-Widget mit allen Bewertungen steht auf "Ueber uns". -->
 
     <div class="revs">
       <figure class="rev reveal">

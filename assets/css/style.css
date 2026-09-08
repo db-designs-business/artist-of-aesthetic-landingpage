@@ -350,6 +350,14 @@ body[data-page="v3"] .verswitch{ display:flex; }
 .hero__offer svg{ width:17px; height:17px; color:var(--rose-deep); flex:none; }
 .hero__offer strong{ font-weight:600; }
 
+/* In V4 ist die Pille selbst der Telefonlink. min-height, damit sie am
+   Handy sicher zu treffen ist (44px). */
+a.hero__offer{ text-decoration:none; min-height:44px; transition:background .18s ease, color .18s ease; }
+a.hero__offer strong{ color:var(--rose-deep); }
+a.hero__offer:hover,a.hero__offer:focus-visible{ background:var(--rose-deep); color:var(--white); }
+a.hero__offer:hover strong,a.hero__offer:focus-visible strong,
+a.hero__offer:hover svg,a.hero__offer:focus-visible svg{ color:var(--white); }
+
 .hero__trust{
   display:grid; gap:14px;
   padding-top:var(--sp-4); border-top:1px solid var(--line);
