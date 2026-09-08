@@ -23,7 +23,7 @@ import sitemap  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SHARED = os.path.join(ROOT, "_shared")
-BLOCKS = ["topbar", "header", "footer", "mobilebar"]
+BLOCKS = ["topbar", "header", "footer", "mobilebar", "consent"]
 
 
 def read(path):
@@ -135,6 +135,7 @@ SKELETON = u"""<!DOCTYPE html>
 
 <!-- @shared:footer --><!-- /@shared:footer -->
 <!-- @shared:mobilebar --><!-- /@shared:mobilebar -->
+<!-- @shared:consent --><!-- /@shared:consent -->
 
 <script src="{base}assets/js/main.js" defer></script>
 </body>

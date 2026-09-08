@@ -438,9 +438,12 @@
       <a class="btn btn--primary btn--lg" href="https://share.google/enJHHr753bU9iZdxZ" target="_blank" rel="noopener">
         Unternehmensprofil bei Google ansehen
       </a>
-      <!-- Bewertungs-Widget (Elfsight o. ä.) käme hier hinein. Bitte erst
-           einbauen, wenn das Consent-Tool steht – solche Widgets laden
-           Skripte und setzen Cookies, bevor jemand zugestimmt hat. -->
+    </div>
+
+    <!-- Elfsight Google Reviews. Das Plattform-Skript steht im gemeinsamen
+         Consent-Block am Seitenende, hier genuegt das <div>. -->
+    <div class="reviewsapp reveal">
+      <div class="elfsight-app-4cd2f642-a1d5-475d-8f81-25d58a6e1a88" data-elfsight-app-lazy></div>
     </div>
   </div>
 </section>
@@ -572,6 +575,21 @@
   <a class="mobar__btn mobar__btn--main" href="../contact/">Termin anfragen</a>
 </div>
 <!-- /@shared:mobilebar -->
+
+<!-- @shared:consent -->
+<!-- Elfsight Cookie Consent
+     Laedt die Elfsight-Plattform. Dieselbe Datei bedient auch das
+     Bewertungs-Widget auf der Startseite V3 und auf "Ueber uns" - deshalb
+     steht das <script> nur hier, einmal pro Seite. Wer weitere
+     Elfsight-Widgets einbaut, braucht nur noch das <div>.
+
+     WICHTIG: Ob das Banner andere Dienste tatsaechlich blockiert, haengt
+     von der Einstellung im Elfsight-Konto ab. Bitte dort pruefen, dass
+     Google Maps und die Schriften als zustimmungspflichtig gefuehrt
+     werden. Das Banner allein blockiert nichts. -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-d6ae126d-6644-44ec-bcd6-9f546bb36959" data-elfsight-app-lazy></div>
+<!-- /@shared:consent -->
 
 <script src="../assets/js/main.js" defer></script>
 </body>

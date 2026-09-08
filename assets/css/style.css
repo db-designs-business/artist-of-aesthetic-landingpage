@@ -1317,6 +1317,12 @@ body[data-page="v3"] .core__more{
 }
 .gprofile .rating{ margin:0; }
 
+/* Elfsight-Bewertungen: Hoehe reservieren, damit beim Nachladen nichts
+   springt (Layout Shift zaehlt zu den Core Web Vitals). */
+.reviewsapp{ min-height:360px; margin-bottom:var(--sp-4); }
+@media (max-width:720px){ .reviewsapp{ min-height:460px; } }
+
+
 
 
 

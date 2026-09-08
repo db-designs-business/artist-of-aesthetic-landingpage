@@ -92,23 +92,20 @@
 <!-- ============ INHALT ============
 
      Grundlage: artist-of-aesthetic.de/datenschutz/ (Stand 8. September 2026).
-     Am 8. September 2026 an diese Website angepasst:
+     An diese Website angepasst:
 
-     + ERGÄNZT: Google Fonts (Abschnitt 5) – diese Website lädt Montserrat
-       und Open Sans von Google.
-     + ERGÄNZT: Google Maps (Abschnitt 5) – die Karte auf der Kontaktseite
-       lädt erst nach einem Klick, der Text beschreibt genau das.
-     - ENTFERNT: Borlabs Cookie – dieses Consent-Tool wird hier nicht
-       eingesetzt.
-     - ERSETZT: OpenStreetMap durch Google Maps.
+     + Google Fonts – die Seite laedt Montserrat und Open Sans von Google.
+     + Google Maps – die Karte auf der Kontaktseite laedt erst nach Klick.
+     + Elfsight – Consent-Banner auf allen Seiten, Bewertungs-Widget auf der
+       Startseite V3 und auf "Ueber uns".
+     - Borlabs Cookie entfernt, OpenStreetMap durch Google Maps ersetzt.
 
-     NOCH OFFEN: Sobald das Consent-Tool eingebaut ist, gehört ein
-     Abschnitt dazu, der es beschreibt (Anbieter, gespeicherte Daten,
-     Rechtsgrundlage, Widerruf). Die Klick-Lösung bei der Karte kann dann
-     bleiben oder durch die Consent-Abfrage ersetzt werden.
-
-     Der Abschnitt "Hosting" nennt All-Inkl. Das gilt für die Live-Domain;
-     die Testfassung liegt auf GitHub Pages.
+     NOCH ZU ERGAENZEN:
+     * Vollstaendige Firmierung und Anschrift von Elfsight. Steht im
+       Elfsight-Konto beziehungsweise im Auftragsverarbeitungsvertrag.
+       Bitte dort abschreiben - hier wird nichts geraten.
+     * Auftragsverarbeitungsvertrag mit Elfsight abschliessen, falls noch
+       nicht geschehen (im Elfsight-Konto verfuegbar).
      ================================================================== -->
 <section class="sec">
   <div class="wrap prose legal">
@@ -506,6 +503,39 @@
 
     <h2 class="reveal">5. Plugins und Tools</h2>
 
+    <h3 class="reveal">Elfsight (Cookie-Banner und Bewertungen)</h3>
+    <p class="reveal">
+      Auf dieser Website setzen wir Widgets des Anbieters Elfsight ein: das
+      Einwilligungs-Banner, über das Sie den Einsatz von Cookies und externen Diensten
+      steuern, sowie auf einzelnen Seiten die Anzeige unserer Google-Bewertungen. Nähere
+      Angaben zum Anbieter finden Sie unter
+      <a href="https://elfsight.com/privacy-policy/" target="_blank" rel="noopener">https://elfsight.com/privacy-policy/</a>.
+      <!-- Vollstaendige Firmierung und Anschrift von Elfsight hier ergaenzen -
+           steht im Elfsight-Konto bzw. im Auftragsverarbeitungsvertrag. -->
+    </p>
+    <p class="reveal">
+      Beim Aufruf einer Seite mit einem Elfsight-Widget wird eine Verbindung zu den Servern
+      von Elfsight hergestellt. Dabei werden nach Angaben des Anbieters Ihre IP-Adresse, Ihr
+      Betriebssystem und Ihr Browsertyp übertragen. Diese Angaben werden dort für sieben Tage
+      gespeichert und anonymisiert ausgewertet, um Störungen zu erkennen und die Sicherheit
+      des Dienstes zu gewährleisten. Zusätzlich kann Elfsight das Cookie
+      <em>elfsight_viewed_recently</em> setzen, das verhindert, dass Aufrufe mehrfach
+      gezählt werden.
+    </p>
+    <p class="reveal">
+      Das Einwilligungs-Banner ist erforderlich, damit wir Ihre Entscheidung über Cookies und
+      externe Dienste einholen und dokumentieren können. Rechtsgrundlage hierfür ist Art. 6
+      Abs. 1 lit. c DSGVO. Für die Anzeige der Bewertungen ist die Rechtsgrundlage Ihre
+      Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG; sie ist jederzeit
+      für die Zukunft widerrufbar. Wenn Sie nicht einwilligen, sehen Sie statt des Widgets
+      eine Auswahl unserer Bewertungen, die fest in der Seite hinterlegt ist.
+    </p>
+    <p class="reveal">
+      Mit Elfsight besteht ein Vertrag über Auftragsverarbeitung nach Art. 28 DSGVO.
+      <!-- Falls noch nicht abgeschlossen: im Elfsight-Konto nachholen und diesen
+           Satz erst danach stehen lassen. -->
+    </p>
+
     <h3 class="reveal">Google Fonts</h3>
     <p class="reveal">
       Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Google
@@ -672,6 +702,21 @@
   <a class="mobar__btn mobar__btn--main" href="../contact/">Termin anfragen</a>
 </div>
 <!-- /@shared:mobilebar -->
+
+<!-- @shared:consent -->
+<!-- Elfsight Cookie Consent
+     Laedt die Elfsight-Plattform. Dieselbe Datei bedient auch das
+     Bewertungs-Widget auf der Startseite V3 und auf "Ueber uns" - deshalb
+     steht das <script> nur hier, einmal pro Seite. Wer weitere
+     Elfsight-Widgets einbaut, braucht nur noch das <div>.
+
+     WICHTIG: Ob das Banner andere Dienste tatsaechlich blockiert, haengt
+     von der Einstellung im Elfsight-Konto ab. Bitte dort pruefen, dass
+     Google Maps und die Schriften als zustimmungspflichtig gefuehrt
+     werden. Das Banner allein blockiert nichts. -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-d6ae126d-6644-44ec-bcd6-9f546bb36959" data-elfsight-app-lazy></div>
+<!-- /@shared:consent -->
 
 <script src="../assets/js/main.js" defer></script>
 </body>

@@ -291,12 +291,13 @@
          Einbettungscode in den folgenden Container setzen. Die drei
          statischen Rezensionen darunter bleiben als Fallback stehen,
          falls das Widget blockiert wird (Consent, Adblocker). -->
-    <div class="gembed reveal" id="google-reviews">
-      <!-- PASTE GOOGLE REVIEWS EMBED CODE HERE -->
-      <p class="gembed__note">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
-        Platzhalter für das Google-Bewertungs-Widget – Einbettungscode folgt.
-      </p>
+    <!-- Elfsight Google Reviews.
+         Das <script> fuer die Elfsight-Plattform steht einmal pro Seite im
+         gemeinsamen Consent-Block ganz unten - hier braucht es nur das <div>.
+         Die drei festen Rezensionen darunter bleiben als Rueckfallebene
+         stehen: Wer dem Consent nicht zustimmt, sieht das Widget nicht. -->
+    <div class="reviewsapp reveal" id="google-reviews">
+      <div class="elfsight-app-4cd2f642-a1d5-475d-8f81-25d58a6e1a88" data-elfsight-app-lazy></div>
     </div>
 
     <div class="revs">
@@ -791,6 +792,21 @@
   <a class="mobar__btn mobar__btn--main" href="../contact/">Termin anfragen</a>
 </div>
 <!-- /@shared:mobilebar -->
+
+<!-- @shared:consent -->
+<!-- Elfsight Cookie Consent
+     Laedt die Elfsight-Plattform. Dieselbe Datei bedient auch das
+     Bewertungs-Widget auf der Startseite V3 und auf "Ueber uns" - deshalb
+     steht das <script> nur hier, einmal pro Seite. Wer weitere
+     Elfsight-Widgets einbaut, braucht nur noch das <div>.
+
+     WICHTIG: Ob das Banner andere Dienste tatsaechlich blockiert, haengt
+     von der Einstellung im Elfsight-Konto ab. Bitte dort pruefen, dass
+     Google Maps und die Schriften als zustimmungspflichtig gefuehrt
+     werden. Das Banner allein blockiert nichts. -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-d6ae126d-6644-44ec-bcd6-9f546bb36959" data-elfsight-app-lazy></div>
+<!-- /@shared:consent -->
 
 <script src="../assets/js/main.js" defer></script>
 </body>
