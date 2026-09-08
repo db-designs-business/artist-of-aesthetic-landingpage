@@ -363,29 +363,35 @@
       <p class="sec__sub">Schwimmbadstraße 14, 76646 Bruchsal</p>
     </header>
 
-    <div class="embed embed--map reveal" id="karte">
-      <!-- GOOGLE-MAPS-KARTE HIER EINBETTEN.
-           Bewusst noch nicht eingebunden: Eine direkt eingebettete Karte lädt
-           beim Seitenaufruf Daten zu Google und setzt Cookies. Für eine
-           deutsche Website heißt das, sie gehört hinter eine Consent-Abfrage
-           (Zwei-Klick-Lösung) oder muss in der Datenschutzerklärung stehen.
-           Sobald das geklärt ist, hier den iframe einsetzen:
-           <iframe src="https://www.google.com/maps/embed?pb=…"
-                   width="100%" height="420" style="border:0"
-                   loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                   title="Standort Artist of Aesthetic, Schwimmbadstraße 14, Bruchsal"></iframe>
-           Datenschutzfreundliche Alternative: ein statisches Kartenbild mit
-           Link, oder OpenStreetMap. Bis dahin steht unten der Maps-Link. -->
-      <p class="embed__note">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Platzhalter für die Karte – noch nicht eingebettet, damit ohne
-        Einwilligung keine Daten an Google gehen.
-      </p>
-      <p class="embed__action">
-        <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Schwimmbadstra%C3%9Fe+14%2C+76646+Bruchsal" target="_blank" rel="noopener">
-          Route in Google Maps öffnen
-        </a>
-      </p>
+    <!-- KARTE MIT KLICK-LOESUNG
+         Die Karte laedt erst, wenn jemand die Schaltflaeche anklickt. Bis
+         dahin geht kein einziger Request an Google. So ist die Karte da,
+         ohne dass vor dem Consent-Tool Daten uebertragen werden.
+
+         Sobald das Consent-Tool steht, gibt es zwei Wege:
+         a) So lassen — der Klick ist die Einwilligung, das genuegt.
+         b) Auf das Consent-Tool umstellen: dann das data-map-Element vom
+            Tool ansteuern lassen und die Schaltflaeche entfernen.
+
+         Direktes Einbetten ohne Klick waere ein Einzeiler: den iframe aus
+         dem data-map-Attribut direkt in den Container schreiben. Bitte
+         erst, wenn das Consent-Tool laeuft. -->
+    <div class="mapbox reveal" id="karte"
+         data-map="https://www.google.com/maps?q=Schwimmbadstra%C3%9Fe+14,+76646+Bruchsal&amp;hl=de&amp;z=16&amp;output=embed">
+      <div class="mapbox__ask">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <p class="mapbox__h">Schwimmbadstraße 14, 76646 Bruchsal</p>
+        <p class="mapbox__note">
+          Die Karte wird erst geladen, wenn du sie aktivierst. Dabei werden Daten an Google
+          übertragen – Näheres in der <a href="../datenschutz/">Datenschutzerklärung</a>.
+        </p>
+        <button class="btn btn--primary" type="button" data-map-load>Karte laden</button>
+        <p class="mapbox__alt">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Schwimmbadstra%C3%9Fe+14%2C+76646+Bruchsal" target="_blank" rel="noopener">
+            Oder Route direkt in Google Maps öffnen
+          </a>
+        </p>
+      </div>
     </div>
   </div>
 </section>

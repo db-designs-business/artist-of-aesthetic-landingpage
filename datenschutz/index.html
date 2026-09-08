@@ -91,41 +91,24 @@
 
 <!-- ============ INHALT ============
 
-     ÜBERNOMMEN VON artist-of-aesthetic.de/datenschutz/ (Stand 8. September 2026),
-     Text unverändert.
+     Grundlage: artist-of-aesthetic.de/datenschutz/ (Stand 8. September 2026).
+     Am 8. September 2026 an diese Website angepasst:
 
-     !!! DREI STELLEN STIMMEN FÜR DIESE NEUE WEBSITE NICHT !!!
-     Vor dem Livegang bitte prüfen und anpassen lassen:
+     + ERGÄNZT: Google Fonts (Abschnitt 5) – diese Website lädt Montserrat
+       und Open Sans von Google.
+     + ERGÄNZT: Google Maps (Abschnitt 5) – die Karte auf der Kontaktseite
+       lädt erst nach einem Klick, der Text beschreibt genau das.
+     - ENTFERNT: Borlabs Cookie – dieses Consent-Tool wird hier nicht
+       eingesetzt.
+     - ERSETZT: OpenStreetMap durch Google Maps.
 
-     1. FEHLT: GOOGLE FONTS
-        Diese Website lädt die Schriften Montserrat und Open Sans von
-        fonts.googleapis.com bzw. fonts.gstatic.com. Dabei wird die IP-Adresse
-        der Besucherin an Google übertragen. Das ist in dieser Erklärung
-        NICHT erwähnt und gehört ergänzt (Abschnitt "Plugins und Tools").
-        Bessere Lösung: die Schriften selbst hosten – dann entfällt die
-        Übertragung ganz, die Seite lädt schneller und der Abschnitt wird
-        überflüssig. Dafür sind zwei Handgriffe nötig: Schriftdateien nach
-        assets/fonts/ legen und in style.css per @font-face einbinden,
-        danach den <link> auf fonts.googleapis.com aus allen Seiten entfernen.
+     NOCH OFFEN: Sobald das Consent-Tool eingebaut ist, gehört ein
+     Abschnitt dazu, der es beschreibt (Anbieter, gespeicherte Daten,
+     Rechtsgrundlage, Widerruf). Die Klick-Lösung bei der Karte kann dann
+     bleiben oder durch die Consent-Abfrage ersetzt werden.
 
-     2. TRIFFT NICHT ZU: BORLABS COOKIE
-        Der Abschnitt "Einwilligung mit Borlabs Cookie" beschreibt das
-        Consent-Tool der bestehenden WordPress-Seite. Diese Website setzt
-        derzeit KEINE Cookies und nutzt kein Consent-Tool. Der Abschnitt
-        gehört entfernt – oder er bleibt, sobald ein Consent-Banner
-        eingebaut wird (nötig, sobald Karte, Video oder Analyse dazukommen).
-
-     3. TRIFFT NICHT ZU: OPENSTREETMAP
-        Der Abschnitt beschreibt die Kartendarstellung der alten Seite.
-        Auf der Kontaktseite dieser Website ist bewusst KEINE Karte
-        eingebettet, sondern nur ein Link zu Google Maps. Sobald eine Karte
-        eingebunden wird, muss der Abschnitt auf den tatsächlich genutzten
-        Dienst umgeschrieben werden (Google Maps statt OpenStreetMap).
-
-     Ausserdem: Der Abschnitt "Hosting" nennt All-Inkl. Das gilt für die
-     Live-Domain. Die Testfassung liegt auf GitHub Pages – solange die Seite
-     nur zum Ansehen dient und nicht öffentlich indexiert wird, ist das
-     unkritisch; beim Umzug auf die echte Domain stimmt die Angabe wieder.
+     Der Abschnitt "Hosting" nennt All-Inkl. Das gilt für die Live-Domain;
+     die Testfassung liegt auf GitHub Pages.
      ================================================================== -->
 <section class="sec">
   <div class="wrap prose legal">
@@ -450,36 +433,6 @@
       Einwilligung abfragen.
     </p>
 
-    <!-- Dieser Abschnitt beschreibt das Consent-Tool der bestehenden
-         WordPress-Seite. Diese Website nutzt Borlabs Cookie NICHT.
-         Vor dem Livegang entfernen oder durch das dann tatsächlich
-         eingesetzte Consent-Tool ersetzen. -->
-    <h3 class="reveal">Einwilligung mit Borlabs Cookie</h3>
-    <p class="reveal">
-      Unsere Website nutzt die Consent-Technologie von Borlabs Cookie, um Ihre Einwilligung
-      zur Speicherung bestimmter Cookies in Ihrem Browser oder zum Einsatz bestimmter
-      Technologien einzuholen und diese datenschutzkonform zu dokumentieren. Anbieter dieser
-      Technologie ist die Borlabs GmbH, Rübenkamp 32, 22305 Hamburg (im Folgenden Borlabs).
-    </p>
-    <p class="reveal">
-      Wenn Sie unsere Website betreten, wird ein Borlabs-Cookie in Ihrem Browser gespeichert,
-      in dem die von Ihnen erteilten Einwilligungen oder der Widerruf dieser Einwilligungen
-      gespeichert werden. Diese Daten werden nicht an den Anbieter von Borlabs Cookie
-      weitergegeben.
-    </p>
-    <p class="reveal">
-      Die erfassten Daten werden gespeichert, bis Sie uns zur Löschung auffordern bzw. das
-      Borlabs-Cookie selbst löschen oder der Zweck für die Datenspeicherung entfällt.
-      Zwingende gesetzliche Aufbewahrungsfristen bleiben unberührt. Details zur
-      Datenverarbeitung von Borlabs Cookie finden Sie unter
-      <a href="https://de.borlabs.io/kb/welche-daten-speichert-borlabs-cookie/" target="_blank" rel="noopener">https://de.borlabs.io/kb/welche-daten-speichert-borlabs-cookie/</a>.
-    </p>
-    <p class="reveal">
-      Der Einsatz der Borlabs-Cookie-Consent-Technologie erfolgt, um die gesetzlich
-      vorgeschriebenen Einwilligungen für den Einsatz von Cookies einzuholen. Rechtsgrundlage
-      hierfür ist Art. 6 Abs. 1 lit. c DSGVO.
-    </p>
-
     <h3 class="reveal">Server-Log-Dateien</h3>
     <p class="reveal">
       Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten
@@ -553,35 +506,74 @@
 
     <h2 class="reveal">5. Plugins und Tools</h2>
 
-    <!-- Dieser Abschnitt beschreibt die Karte der bestehenden WordPress-Seite.
-         Auf dieser Website ist KEINE Karte eingebettet – die Kontaktseite
-         verlinkt nur zu Google Maps. Vor dem Livegang entfernen oder auf den
-         dann tatsächlich eingebundenen Kartendienst umschreiben.
-         AUSSERDEM FEHLT HIER: ein Abschnitt zu Google Fonts, siehe den
-         Hinweis oben im Quelltext. -->
-    <h3 class="reveal">OpenStreetMap</h3>
-    <p class="reveal">Wir nutzen den Kartendienst von OpenStreetMap (OSM).</p>
+    <h3 class="reveal">Google Fonts</h3>
     <p class="reveal">
-      Wir binden das Kartenmaterial von OpenStreetMap auf dem Server der OpenStreetMap
-      Foundation, St John’s Innovation Centre, Cowley Road, Cambridge, CB4 0WS, Großbritannien,
-      ein. Großbritannien gilt als datenschutzrechtlich sicherer Drittstaat. Das bedeutet,
-      dass Großbritannien ein Datenschutzniveau aufweist, das dem Datenschutzniveau in der
-      Europäischen Union entspricht. Bei der Nutzung der OpenStreetMap-Karten wird eine
-      Verbindung zu den Servern der OpenStreetMap-Foundation hergestellt. Dabei können
-      u.&nbsp;a. Ihre IP-Adresse und weitere Informationen über Ihr Verhalten auf dieser
-      Website an die OSMF weitergeleitet werden. OpenStreetMap speichert hierzu unter Umständen
-      Cookies in Ihrem Browser oder setzt vergleichbare Wiedererkennungstechnologien ein.
+      Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Google
+      Fonts, die von Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser
+      die benötigten Schriftarten in Ihren Browsercache, um Texte und Schriftarten korrekt
+      anzuzeigen.
     </p>
     <p class="reveal">
-      Die Nutzung von OpenStreetMap erfolgt im Interesse einer ansprechenden Darstellung
+      Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von
+      Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse
+      diese Website aufgerufen wurde. Die Nutzung von Google Fonts erfolgt auf Grundlage von
+      Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der
+      einheitlichen Darstellung des Schriftbildes auf seiner Website. Sofern eine
+      entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf
+      Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung
+      die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers
+      (z.&nbsp;B. Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist
+      jederzeit widerrufbar.
+    </p>
+    <p class="reveal">
+      Wenn Ihr Browser Google Fonts nicht unterstützt, wird eine Standardschrift von Ihrem
+      Computer genutzt. Weitere Informationen zu Google Fonts finden Sie unter
+      <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener">https://developers.google.com/fonts/faq</a>
+      und in der Datenschutzerklärung von Google:
+      <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">https://policies.google.com/privacy?hl=de</a>.
+    </p>
+
+    <h3 class="reveal">Google Maps</h3>
+    <p class="reveal">
+      Diese Seite nutzt den Kartendienst Google Maps. Anbieter ist die Google Ireland
+      Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland.
+    </p>
+    <p class="reveal">
+      Die Karte auf unserer Kontaktseite wird nicht automatisch geladen. Sie sehen dort
+      zunächst nur einen Hinweis mit einer Schaltfläche. Erst wenn Sie diese Schaltfläche
+      anklicken, wird die Karte nachgeladen und eine Verbindung zu den Servern von Google
+      hergestellt. Solange Sie nicht klicken, werden keine Daten an Google übertragen.
+    </p>
+    <p class="reveal">
+      Klicken Sie die Schaltfläche an, wird Ihre IP-Adresse an Google übermittelt und dort
+      unter Umständen gespeichert; die Übertragung erfolgt in der Regel an einen Server von
+      Google in den USA. Google kann hierbei Cookies in Ihrem Browser speichern oder
+      vergleichbare Wiedererkennungstechnologien einsetzen. Auf diese Datenübertragung haben
+      wir keinen Einfluss.
+    </p>
+    <p class="reveal">
+      Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung
       unserer Online-Angebote und einer leichten Auffindbarkeit der von uns auf der Website
-      angegebenen Orte. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1
-      lit. f DSGVO dar. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die
-      Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1
-      TTDSG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf
-      Informationen im Endgerät des Nutzers (z.&nbsp;B. Device-Fingerprinting) im Sinne des
-      TTDSG umfasst. Die Einwilligung ist jederzeit widerrufbar.
+      angegebenen Orte. Rechtsgrundlage ist Ihre Einwilligung, die Sie mit dem Klick auf die
+      Schaltfläche erteilen (Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG). Die
+      Einwilligung gilt jeweils für den laufenden Seitenaufruf und ist jederzeit widerrufbar,
+      indem Sie die Seite neu laden, ohne die Karte zu aktivieren.
     </p>
+    <p class="reveal">
+      Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der
+      EU-Kommission gestützt. Details finden Sie hier:
+      <a href="https://privacy.google.com/businesses/gdprcontrollerterms/" target="_blank" rel="noopener">https://privacy.google.com/businesses/gdprcontrollerterms/</a>
+      und
+      <a href="https://privacy.google.com/businesses/gdprcontrollerterms/sccs/" target="_blank" rel="noopener">https://privacy.google.com/businesses/gdprcontrollerterms/sccs/</a>.
+    </p>
+    <p class="reveal">
+      Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung
+      von Google:
+      <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">https://policies.google.com/privacy?hl=de</a>.
+    </p>
+
+    <!-- Sobald das Consent-Tool steht: hier einen Abschnitt dazu ergänzen
+         (Anbieter, gespeicherte Daten, Rechtsgrundlage, Widerruf). -->
 
     <h2 class="reveal">6. eCommerce und Zahlungsanbieter</h2>
 

@@ -173,6 +173,25 @@
     Array.prototype.forEach.call(sections, function (s) { sio.observe(s); });
   }
 
+  /* =======================================================
+     Karte erst auf Klick laden (kein Request an Google davor)
+     ======================================================= */
+  var mapBtn = document.querySelector('[data-map-load]');
+  if (mapBtn) {
+    mapBtn.addEventListener('click', function () {
+      var box = document.getElementById('karte');
+      var src = box.getAttribute('data-map');
+      var frame = document.createElement('iframe');
+      frame.src = src;
+      frame.title = 'Standort Artist of Aesthetic, Schwimmbadstraße 14, Bruchsal';
+      frame.loading = 'lazy';
+      frame.referrerPolicy = 'no-referrer-when-downgrade';
+      frame.setAttribute('allowfullscreen', '');
+      box.innerHTML = '';
+      box.appendChild(frame);
+    });
+  }
+
   /* ---------- Formular ---------- */
   var form = document.getElementById('terminForm');
   if (!form) return;
