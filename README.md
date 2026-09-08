@@ -82,7 +82,7 @@ Preise und Rezensionen sind 1:1 von artist-of-aesthetic.de übernommen.
 
 ---
 
-## Inhaltsstand (Stand 7. September 2026)
+## Inhaltsstand (Stand 8. September 2026)
 
 | Seitentyp | Anzahl | Inhalt |
 |-----------|-------|--------|
@@ -97,7 +97,8 @@ Startseite. Die Zuordnung der Unterleistungen zu den Kernleistungen steht
 in `INHALTE-KERNLEISTUNGEN.md`.
 | Hautanalyse | 1 | fertig |
 | Services | 1 | fertig, 33 Behandlungen verlinkt |
-| Über uns / Kontakt | 2 | Platzhalter |
+| Über uns | 1 | fertig, mit Platzhaltern für Story, Video, Google-Profil |
+| Kontakt | 1 | fertig, mit Platzhaltern für Öffnungszeiten und Karte |
 | Impressum / Datenschutz | 2 | Platzhalter |
 
 Die vier Kategorieseiten verlinken jede ihrer Unterleistungen zweimal:

@@ -1150,6 +1150,101 @@ body[data-page="v3"] .core__more{
 
 
 /* =========================================================
+   Ueber uns und Kontakt
+   ========================================================= */
+.story{ display:grid; grid-template-columns:1.05fr .95fr; gap:var(--sp-6); align-items:center; }
+.story__copy{ max-width:60ch; }
+.story__copy p{ margin-bottom:var(--sp-2); }
+.story__media{ display:grid; gap:var(--sp-3); }
+.story__fig{ margin:0; overflow:hidden; border-radius:var(--radius-lg); box-shadow:var(--shadow-md); }
+.story__fig img{ width:100%; height:100%; object-fit:cover; display:block; }
+.story__fig--small{ width:72%; justify-self:end; }
+
+/* Personenkasten */
+.bio{
+  display:grid; grid-template-columns:.8fr 1.2fr; gap:var(--sp-5);
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:var(--sp-4); align-items:start;
+}
+.bio__media{ overflow:hidden; border-radius:var(--radius); }
+.bio__img{ width:100%; display:block; aspect-ratio:4/3.6; object-fit:cover; }
+.bio__name{ font-size:1.9rem; font-weight:300; margin-bottom:4px; }
+.bio__role{
+  font-size:.74rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--rose-deep); margin-bottom:var(--sp-3);
+}
+.bio__creds{ display:grid; gap:9px; margin-bottom:var(--sp-3); }
+.bio__creds li{ position:relative; padding-left:26px; font-size:.95rem; }
+.bio__creds li::before{
+  content:""; position:absolute; left:0; top:.5em;
+  width:14px; height:2px; background:var(--rose);
+}
+.bio__facts{
+  display:flex; flex-wrap:wrap; gap:var(--sp-4);
+  padding:var(--sp-3) 0; margin-bottom:var(--sp-3);
+  border-block:1px solid var(--line);
+}
+.bio__facts p{ margin:0; display:flex; flex-direction:column; gap:2px; }
+.bio__facts strong{
+  font-family:var(--font-h); font-size:1.7rem; font-weight:300;
+  color:var(--ink); line-height:1; font-variant-numeric:tabular-nums;
+}
+.bio__facts span{
+  font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+}
+.bio__body p{ font-size:.97rem; }
+.bio__body .btn{ margin-top:var(--sp-2); }
+
+/* Platzhalter fuer Einbettungen */
+.embed{
+  border:1px dashed var(--rose); border-radius:var(--radius-lg);
+  background:var(--white); padding:var(--sp-4);
+}
+.embed--video{ min-height:190px; display:grid; place-content:center; }
+.embed__note{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin:0; font-size:.9rem; color:var(--muted); text-align:center; max-width:60ch;
+  margin-inline:auto;
+}
+.embed__note svg{ width:18px; height:18px; flex:none; color:var(--rose-deep); }
+.embed__action{ margin:var(--sp-3) 0 0; text-align:center; }
+
+/* Nachweise */
+.creds{ display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-4); }
+.cred{ padding-top:var(--sp-3); border-top:1px solid var(--line); }
+.cred__ico{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; margin-bottom:var(--sp-2);
+  border-radius:50%; background:var(--blush-soft);
+}
+.cred__ico svg{ width:22px; height:22px; color:var(--rose-deep); }
+.cred__h{ font-size:1.16rem; margin-bottom:10px; }
+.cred p{ margin:0; font-size:.95rem; }
+
+/* Soziale Profile */
+.sociallinks{ display:flex; flex-wrap:wrap; gap:var(--sp-3); justify-content:center; }
+.sociallink{
+  display:flex; align-items:center; gap:14px;
+  padding:16px 24px; min-height:44px;
+  border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--white); color:var(--ink);
+  transition:border-color .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.sociallink:hover{ border-color:var(--rose); transform:translateY(-3px); box-shadow:var(--shadow-md); color:var(--ink); }
+.sociallink svg{ width:26px; height:26px; color:var(--rose-deep); flex:none; }
+.sociallink span{ display:flex; flex-direction:column; line-height:1.35; font-size:.9rem; color:var(--muted); }
+.sociallink strong{ font-family:var(--font-h); font-size:.96rem; font-weight:600; color:var(--ink); }
+
+/* Grosse Rufnummer auf der Kontaktseite */
+.bigtel{ margin:var(--sp-3) 0 0; }
+.bigtel a{
+  font-family:var(--font-h); font-weight:300; letter-spacing:-.01em;
+  font-size:clamp(2rem, 4.6vw, 3.2rem); color:var(--rose-deep); line-height:1.1;
+}
+.bigtel a:hover{ color:var(--rose-dark); }
+.contact__note{ display:block; font-size:.86rem; color:var(--muted); margin-top:6px; }
+
+/* =========================================================
    Responsive
    ========================================================= */
 @media (max-width:1080px){
@@ -1207,6 +1302,9 @@ body[data-page="v3"] .core__more{
   .analyse{ grid-template-columns:1fr; gap:var(--sp-3); }
   .areas__inner{ grid-template-columns:1fr; gap:var(--sp-4); }
   .sgrid{ grid-template-columns:1fr 1fr; }
+  .story, .bio{ grid-template-columns:1fr; }
+  .story__fig--small{ width:100%; justify-self:stretch; }
+  .bio__media{ max-width:420px; }
   .core--feature{ gap:var(--sp-4); }
   .core--feature .core__item{ padding-top:var(--sp-3); }
   .hstrip{ gap:12px var(--sp-3); }
@@ -1255,6 +1353,9 @@ body[data-page="v3"] .core__more{
   .footer__grid{ grid-template-columns:1fr; }
   .hero__actions .btn{ flex:1; min-width:150px; }
   .sgrid{ grid-template-columns:1fr; }
+  .creds{ grid-template-columns:1fr; }
+  .sociallinks{ flex-direction:column; }
+  .bio__facts{ gap:var(--sp-3); }
   .pagehero__actions .btn{ width:100%; }
   .pagehero .hstrip{ align-items:flex-start; }
   .hstrip{ flex-direction:column; align-items:center; gap:12px; }

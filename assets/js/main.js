@@ -201,8 +201,9 @@
       if (v.replace(/[^0-9]/g, '').length < 7) return 'Diese Telefonnummer sieht unvollständig aus.';
       return '';
     },
-    email: function (v) {
-      if (!v.trim()) return '';
+    email: function (v, el) {
+      // Pflichtfeld nur dort, wo das Feld im HTML als required markiert ist
+      if (!v.trim()) return (el && el.required) ? 'Bitte gib deine E-Mail-Adresse an.' : '';
       if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.trim())) return 'Bitte prüfe die E-Mail-Adresse, z. B. name@beispiel.de';
       return '';
     },
