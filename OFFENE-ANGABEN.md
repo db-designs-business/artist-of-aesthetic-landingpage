@@ -5,7 +5,8 @@
 | Was | Wo | Anmerkung |
 |-----|-----|-----------|
 | **Eigene Fotos** | 3 Kernleistungs- und 5 Unterseiten, zweites Studiobild auf „Über uns" | Wird nachgereicht. Bis dahin teilen sich mehrere Seiten dasselbe Bild — welche, steht in `INHALTE-KERNLEISTUNGEN.md` und `INHALTE-UNTERLEISTUNGEN.md`. |
-| **Consent-Banner nachbessern** | Elfsight-Konto | Eingebaut, aber es blockiert nichts und holt keine gültige Einwilligung ein. Details im Abschnitt unten. |
+| **Domain in Cookiebot freischalten** | Cookiebot-Konto | Ohne Freigabe erscheint kein Banner. Details unten. |
+| **Google Fonts selbst hosten** | alle Seiten | Cookiebot blockiert keine Stylesheets — die Schriften laden weiterhin ohne Einwilligung. Details unten. |
 | **Anzeige beim Gesundheitsamt (§ 36 IfSG), Betriebshaftpflicht** | „Über uns", Nachweise | Nur falls vorhanden und belegbar. Ohne Angabe steht dort nichts dazu — erfunden wird nichts. |
 | **Rechtsprüfung** | Impressum, Datenschutz | Ich bin kein Anwalt. Beide Seiten sollte jemand mit Fachkenntnis einmal ansehen. |
 
@@ -69,58 +70,61 @@ PHP nicht ausführt. Darin stehen keine Zugangsdaten, nur die
 Empfängeradresse — und die steht ohnehin im Impressum. Auf einem Hoster mit
 PHP tritt das nicht auf.
 
-## Elfsight — eingebaut am 8. September 2026, mit zwei Befunden
+## Cookiebot — eingebaut am 8. September 2026
 
-Beide Codes sind installiert. Das Plattform-Skript `platform.js` steht **einmal
-pro Seite** im gemeinsamen Block `_shared/consent.html`; die Bewertungs-Widgets
-auf Startseite V3 und „Über uns" brauchen deshalb nur ihr `<div>`. Für das
-Bewertungs-Widget ist Platz reserviert, damit beim Nachladen nichts springt.
+Das Skript steht mit `data-blockingmode="auto"` als **erstes Skript im `<head>`**
+aller 45 Seiten. Nur an dieser Stelle kann der Automatikmodus Skripte und
+iframes abfangen, bevor sie laden — bitte nicht nach unten verschieben.
 
-Beide Widget-IDs sind gültig und konfiguriert — über die Elfsight-API geprüft.
-Das Bewertungs-Widget hängt an der Google-Place-ID des Studios, das Banner hat
-deutschen Text.
+Zusätzlich ist das Elfsight-Skript ausdrücklich als
+`type="text/plain" data-cookieconsent="marketing"` ausgezeichnet. Das greift
+auch dann, wenn `elfsightcdn.com` nicht in der Cookiebot-Datenbank steht.
 
-### Befund 1: Das Banner blockiert nichts
+Weiter eingerichtet:
 
-Das Cookie-Consent-Widget von Elfsight ist als **Hinweis** konfiguriert, nicht
-als Einwilligung:
+- **Karte** lädt automatisch, sobald Marketing erlaubt ist; der Knopf „Karte
+  laden" bleibt als zweiter Weg für alle, die nicht zustimmen.
+- **Fußleiste** hat eine Schaltfläche „Cookie-Einstellungen", die den Dialog
+  über `Cookiebot.renew()` erneut öffnet — der Widerruf muss jederzeit möglich
+  sein.
+- **Datenschutzerklärung** hat einen Cookiebot-Abschnitt (Anbieter
+  Usercentrics A/S, Havnegade 39, 1058 Kopenhagen; Nachweispflicht nach
+  Art. 7 Abs. 1 DSGVO) und am Ende von Abschnitt 4 die automatisch erzeugte
+  **Cookie-Erklärung**, die alle gesetzten Cookies auflistet.
 
-- `complianceType: "ask"`
-- Text: „Durch die Nutzung unserer Website stimmen Sie Cookies zu."
+### Geprüft auf der Testfassung
 
-Das ist die alte „Weitersurfen gilt als Zustimmung"-Variante. Nach DSGVO und
-§ 25 TTDSG ist das **keine wirksame Einwilligung** — die muss vorher, aktiv und
-in Kategorien wählbar erfolgen. Vor allem aber: Das Widget **hält keine Skripte
-zurück**. Google Fonts, Google Maps und das Bewertungs-Widget selbst laden
-unabhängig davon, was jemand anklickt.
+| Punkt | Ergebnis |
+|---|---|
+| Cookiebot lädt | ✓ |
+| Elfsight bleibt blockiert | ✓ `type="text/plain"`, kein Request |
+| Cookies vor Einwilligung | ✓ keine |
+| Banner erscheint | ✗ — Domain nicht freigegeben |
+| Google Fonts | ✗ — lädt trotzdem |
 
-Praktisch heißt das: Der eigentliche Zweck — Dienste erst nach Zustimmung laden —
-ist damit nicht erfüllt. Drei Wege:
+### Zwei Punkte zum Nachziehen
 
-1. **Echten Consent-Manager einsetzen** (Usercentrics, CookieYes, Complianz,
-   Borlabs). Die blockieren Skripte tatsächlich, bis zugestimmt wurde.
-2. **Bei Elfsight bleiben und die Dienste selbst zurückhalten.** Die Karte macht
-   das bereits über die Klick-Lösung. Dasselbe ließe sich für das
-   Bewertungs-Widget bauen — sag Bescheid, das ist eine halbe Stunde.
-3. **Google Fonts selbst hosten.** Dann fällt der größte Punkt ohnehin weg, weil
-   gar nichts mehr an Google geht. Empfehle ich unabhängig von allem anderen.
+**1. Domain freigeben.** Cookiebot meldet in der Konsole wörtlich:
 
-### Befund 2: Der Banner-Link zeigt auf die falsche Seite
+> The domain DB-DESIGNS-BUSINESS.GITHUB.IO is not authorized to show the cookie
+> banner for domain group ID f01d9f3d-… Please add it to the domain group in the
+> Cookiebot Manager.
 
-Im Elfsight-Konto steht als Ziel für „Mehr erfahren":
-`https://artist-of-aesthetic.de/impressum-2/` — also das **Impressum der alten
-Seite**. Ein Cookie-Banner muss auf die **Datenschutzerklärung** verlinken.
-Bitte im Elfsight-Konto auf `/datenschutz/` der neuen Seite ändern.
+Also: `db-designs-business.github.io` im Cookiebot-Manager zur Domain-Gruppe
+hinzufügen, dann erscheint das Banner auch in der Testfassung. Spätestens beim
+Umzug muss dort ohnehin die echte Domain eingetragen und der Scan gestartet
+werden — erst danach ist die Cookie-Erklärung vollständig.
 
-### Noch offen im Elfsight-Konto
+**2. Google Fonts selbst hosten.** Der Automatikmodus fängt Skripte und iframes
+ab, **aber keine Stylesheets**. Die Schriften Montserrat und Open Sans laden
+deshalb weiterhin bei jedem Seitenaufruf von Google, mit IP-Übertragung, bevor
+irgendjemand zugestimmt hat. Nachgemessen: zwei Requests an Google.
 
-- Vollständige Firmierung und Anschrift von Elfsight für die
-  Datenschutzerklärung (steht im Konto bzw. im AV-Vertrag). Ich rate hier nichts.
-- Auftragsverarbeitungsvertrag mit Elfsight abschließen, falls nicht geschehen.
-- Prüfen, ob die Domain der Testfassung im Konto freigegeben werden muss — in
-  meinem Prüfbrowser haben die Widgets nicht gerendert. Das kann an dessen
-  Sandbox liegen, bitte einmal in einem normalen Browser gegenprüfen:
-  https://db-designs-business.github.io/artist-of-aesthetic-landingpage/v3/
+Ein Banner ändert daran nichts. Sauber wird es nur durch Selbsthosten:
+Schriftdateien nach `assets/fonts/`, per `@font-face` in `style.css` einbinden,
+den `<link>` auf `fonts.googleapis.com` aus allen Seiten entfernen. Nebeneffekt:
+zwei externe Verbindungen weniger, die Seite lädt schneller. Etwa 30 Minuten
+Arbeit — sag Bescheid.
 
 ## Google-Bewertungen: reicht Elfsight für SEO?
 
