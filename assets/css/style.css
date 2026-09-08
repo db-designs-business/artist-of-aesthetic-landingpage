@@ -217,30 +217,6 @@ h1,h2,h3,h4{
 }
 .topbar__area{ display:flex; align-items:center; gap:8px; margin:0; }
 .topbar__area svg{ width:15px; height:15px; flex:none; opacity:.8; }
-/* Umschalter zwischen den Entwurfsfassungen der Startseite.
-   Nur auf den beiden Startseiten sichtbar; vor dem Livegang entfernen
-   (Markup in _shared/topbar.html, Markierung in tools/build.py). */
-.verswitch{ display:none; align-items:center; gap:5px; }
-body[data-page=""] .verswitch,
-body[data-page="v2"] .verswitch,
-body[data-page="v3"] .verswitch{ display:flex; }
-.verswitch__lbl{
-  font-size:.62rem; letter-spacing:.18em; text-transform:uppercase;
-  opacity:.7; margin-right:4px;
-}
-.verswitch a{
-  display:inline-flex; align-items:center; justify-content:center;
-  min-width:34px; min-height:26px; padding:4px 9px;
-  border:1px solid rgba(255,255,255,.42); border-radius:3px;
-  font-family:var(--font-h); font-size:.68rem; font-weight:600;
-  letter-spacing:.08em; color:var(--white);
-  transition:background-color .2s var(--ease), border-color .2s var(--ease);
-}
-.verswitch a:hover{ background:rgba(255,255,255,.16); color:var(--white); }
-.verswitch a.is-active{
-  background:var(--white); border-color:var(--white); color:var(--rose-deep);
-}
-
 .topbar__tel{
   display:inline-flex; align-items:center; gap:8px;
   color:var(--white); font-weight:600; letter-spacing:.04em;
@@ -1431,7 +1407,6 @@ body[data-page="v3"] .core__more{
   .core__h a{ display:inline-flex; align-items:center; min-height:44px; }
   .sgrid__h a{ display:inline-flex; align-items:center; min-height:44px; }
   .topbar__tel{ min-height:44px; }
-  .verswitch a{ min-height:44px; min-width:44px; }
   .footer__col{ gap:2px; }
   .footer__col a{ display:flex; align-items:center; min-height:44px; }
   .footer__bottom nav{ gap:var(--sp-2); }

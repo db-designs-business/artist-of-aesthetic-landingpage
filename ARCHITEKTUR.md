@@ -100,12 +100,17 @@ Hautanalyse & Hauttyp-Beratung `/hautanalyse-beratung-bruchsal`
 
 ## Navigation
 
-**Hauptnavigation:** Home · Gesichtsbehandlungen · Schönheitssalon ·
-Wimpernstudio · Permanent Make-up · Über uns · Kontakt
+**Hauptnavigation:** Home · Leistungen · Über uns · Kontakt
 
-Die bestehende Homepage arbeitet mit Ankern (`#leistungen`, `#preise` …).
-Diese Navigation muss auf Seiten-Links umgestellt werden; die Anker bleiben
-innerhalb der Homepage nutzbar.
+Bewusst vier Punkte. Die vier Kategorieseiten standen bis zum 8. September
+einzeln in der Kopfzeile — das waren sieben Punkte, die am Handy umbrachen und
+die Aufmerksamkeit auf vier gleichrangige Ziele verteilt haben. Jetzt führt ein
+Punkt auf `/services/`, und von dort geht es weiter in die Kategorien. Die
+Kategorieseiten selbst bleiben unverändert bestehen und werden aus dem Fließtext
+und aus der Fußzeile heraus verlinkt.
+
+Auf allen Behandlungsseiten — Kategorie, Kernleistung, Unterseite — wird der
+Punkt „Leistungen“ als aktiv markiert (Logik in `tools/build.py`).
 
 **Footer:** Alle Leistungen · Über uns · Kontakt · Impressum · Datenschutz ·
 alle 4 Kategorie-Seiten · Service-Gebiete als Textzeile

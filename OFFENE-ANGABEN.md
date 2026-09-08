@@ -34,9 +34,32 @@ Sitewide dazu erledigt:
   FAQ-Frage dazu wurde durch eine zur kostenlosen Beratung ersetzt, damit an
   der Stelle keine Lücke bleibt.
 
-V1, V2 und V3 bleiben vorerst zum Vergleich stehen. Vor dem Livegang: V4 nach
-`index.html` verschieben, die drei Entwürfe löschen und den Umschalter aus
-`_shared/topbar.html`, `tools/sitemap.py` und dem Stylesheet entfernen.
+**V4 ist seit dem 8. September die Startseite.** V1, V2 und V3 sind gelöscht,
+der Umschalter in der Kopfleiste ist raus — samt Markup, Markierungslogik in
+`tools/build.py`, Einträgen in `tools/sitemap.py` und CSS. Von 46 Seiten sind
+damit 43 übrig.
+
+### Zwei weitere Änderungen am selben Tag
+
+**Navigation auf vier Punkte gekürzt:** Home · Leistungen · Über uns · Kontakt.
+Die vier Kategorieseiten standen vorher einzeln in der Kopfzeile. Sie bleiben
+bestehen und werden weiter aus dem Fließtext und der Fußzeile verlinkt — nur der
+Weg dorthin führt jetzt über `/services/`.
+
+**„Kosmetikstudio“ → „Kosmetiker“**, passend zur Hauptkategorie im
+Google-Unternehmensprofil: in allen Seitentiteln, Meta-Beschreibungen, im
+Schema, in der Kopf- und Fußzeile, in den H1 und in den Bildbeschreibungen
+(dort als „beim Kosmetiker“). Der Satz „Alle Bereiche findest du in unserem
+Kosmetikstudio in Bruchsal“ wurde zu „… bei deinem Kosmetiker in Bruchsal“ —
+„in unserem Kosmetiker“ wäre falsches Deutsch.
+
+Drei Stellen blieben bewusst stehen:
+
+| Stelle | Grund |
+|---|---|
+| Impressum und Datenschutz, Zeile „Kosmetikstudio“ unter dem Namen | Geschäftsbezeichnung aus dem alten Impressum. Rechtstext wird nicht umformuliert. |
+| „Kosmetikstudios in Deutschland“ (Kommentar auf „Über uns“) | Allgemeine Aussage über die Branche, kein Bezug auf dieses Studio. |
+| Titel und Meta der Startseite | Sagen jetzt ebenfalls „Kosmetiker Bruchsal“. Falls du zusätzlich auf „Kosmetikstudio“ ranken willst, ist der Title die Stelle dafür — Thema fürs technische SEO. |
 
 ## Am 8. September geklärt — kein Handlungsbedarf
 
@@ -181,5 +204,5 @@ Rankingfaktor), Consent-Pflicht, und ohne Zustimmung sehen Besucher nichts.
 
 **Vorschlag:** Die drei echten Rezensionen, die fest im HTML stehen, als Basis
 behalten — immer sichtbar, kein Consent. Elfsight später zusätzlich in den
-vorbereiteten Container auf der Startseite V3 (`#google-reviews`) und in den
+vorbereiteten Container auf der Startseite (`#google-reviews`) und in den
 Google-Abschnitt auf „Über uns" setzen, sobald das Consent-Tool steht.
