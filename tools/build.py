@@ -52,6 +52,9 @@ def render_block(name, page):
     base = base_for(page["slug"])
     html = html.replace("{{base}}", base)
 
+    if name == "header" and page.get("kind") == "404":
+        return html
+
     if name == "header":
         target = base if page["slug"] == "" else base + page["slug"] + "/"
         # In der Kopfzeile steht nur noch ein Leistungspunkt. Alles, was
@@ -171,6 +174,37 @@ def scaffold(page):
     return True
 
 
+# Die 404-Seite steht bewusst nicht in sitemap.py: sie gehoert weder in
+# die sitemap.xml noch in die Navigation. Die gemeinsamen Bloecke braucht
+# sie trotzdem, deshalb hier als Sonderfall.
+SONDERSEITEN = [{"slug": "", "kind": "404", "datei": "404.html"}]
+
+
+def sync_sonderseiten():
+    n = 0
+    for eintrag in SONDERSEITEN:
+        pfad = os.path.join(ROOT, eintrag["datei"])
+        if not os.path.exists(pfad):
+            continue
+        text = read(pfad)
+        geaendert = False
+        for name in BLOCKS:
+            muster = re.compile(
+                r"(<!-- @shared:%s -->).*?(<!-- /@shared:%s -->)" % (name, name), re.S)
+            if not muster.search(text):
+                continue
+            block = render_block(name, eintrag)
+            neu_text = muster.sub(
+                lambda m: m.group(1) + "\n" + block.rstrip() + "\n" + m.group(2),
+                text, count=1)
+            if neu_text != text:
+                text, geaendert = neu_text, True
+        if geaendert:
+            write(pfad, text)
+            n += 1
+    return n
+
+
 def main():
     pages = sitemap.all_pages()
     created, synced, missing = [], [], []
@@ -191,6 +225,7 @@ def main():
     for s in created:
         print("    + %s" % s)
     print("Bloecke sync. : %d" % len(synced))
+    print("Sonderseiten  : %d" % sync_sonderseiten())
     if missing:
         print("FEHLEND       : %s" % ", ".join(missing))
         return 1

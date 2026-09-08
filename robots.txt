@@ -1,2 +1,18 @@
+# robots.txt fuer artist-of-aesthetic.de
+#
+# Alles ist zum Lesen freigegeben. Die Testfassung auf GitHub Pages
+# wird ueber <meta name="robots" content="noindex, nofollow"> im Kopf
+# jeder Seite aus dem Index gehalten - das wirkt nur, wenn die Seite
+# auch gelesen werden darf. Eine Sperre hier wuerde das verhindern.
+#
+# VOR DEM LIVEGANG: die noindex-Zeile aus allen Seiten entfernen.
+
 User-agent: *
-Disallow: /
+Allow: /
+
+# Es gibt keinen Verwaltungsbereich und keine API - die Seite ist
+# statisch. Ausgenommen sind nur die Arbeitsdateien.
+Disallow: /tools/
+Disallow: /_shared/
+
+Sitemap: https://www.artist-of-aesthetic.de/sitemap.xml

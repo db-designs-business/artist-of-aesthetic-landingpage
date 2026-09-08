@@ -1,0 +1,74 @@
+# =====================================================================
+#  Serverkonfiguration fuer Apache (All-Inkl und die meisten Hoster).
+#
+#  Auf GitHub Pages hat diese Datei KEINE Wirkung - dort wird 404.html
+#  automatisch als Fehlerseite genommen und die Komprimierung ist
+#  ohnehin aktiv. Sie wird erst beim Umzug auf den echten Hoster wichtig.
+# =====================================================================
+
+# ---------- Fehlerseite ----------
+ErrorDocument 404 /404.html
+
+# ---------- Verzeichnisse ohne Index nicht auflisten ----------
+Options -Indexes
+
+# ---------- Arbeitsdateien nicht ausliefern ----------
+<FilesMatch "\.(py|md)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 404 ^/(tools|_shared)/
+
+# ---------- Komprimierung ----------
+# Spart bei den Textdateien rund 75 Prozent. Bilder sind bereits
+# komprimiert und werden bewusst ausgelassen.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ---------- Zwischenspeicher im Browser ----------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                "access plus 1 year"
+  ExpiresByType application/javascript  "access plus 1 year"
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType text/html               "access plus 1 hour"
+</IfModule>
+
+# ---------- WebP korrekt ausliefern ----------
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
+# =====================================================================
+#  NOCH EINZURICHTEN - VOR DEM LIVEGANG
+# =====================================================================
+#
+#  1. HTTPS und Domain vereinheitlichen. Erst einschalten, wenn das
+#     Zertifikat steht, sonst ist die Seite nicht erreichbar. Und nur
+#     EINE Schreibweise als Ziel - passend zu den Canonical-Angaben,
+#     die auf https://www.artist-of-aesthetic.de/ zeigen.
+#
+#  <IfModule mod_rewrite.c>
+#    RewriteEngine On
+#    RewriteCond %{HTTPS} off [OR]
+#    RewriteCond %{HTTP_HOST} !^www\. [NC]
+#    RewriteRule ^(.*)$ https://www.artist-of-aesthetic.de/$1 [R=301,L]
+#  </IfModule>
+#
+#  2. Weiterleitungen von den alten WordPress-Adressen. Ohne sie laufen
+#     alle bestehenden Google-Treffer und fremden Links ins Leere - das
+#     ist der haeufigste Grund fuer einen Einbruch nach einem Relaunch.
+#     Die alte Adressliste bekommt man aus der Search Console
+#     (Seiten > indexiert) oder aus der alten WordPress-Sitemap.
+#
+#     Muster - alte Adresse links, neue rechts:
+#  Redirect 301 /leistungen/microblading/ /microblading-augenbrauen-bruchsal/
+#  Redirect 301 /impressum-2/            /impressum/
+#  Redirect 301 /kontakt/                /contact/
+#
+#     Die Zeile fuer das Impressum stimmt bereits: die alte Seite liegt
+#     unter /impressum-2/. Die uebrigen bitte erst pruefen, dann setzen.

@@ -1083,9 +1083,17 @@ body[data-page="v3"] .core__more{
 .pagehero{ position:relative; padding-block:var(--sp-7); color:var(--white); overflow:hidden; }
 .pagehero__bg{
   position:absolute; inset:0; z-index:-1;
+  /* Erste Angabe: JPEG. Zweite Angabe: dieselbe Flaeche als WebP, rund
+     40 % kleiner. Browser ohne image-set() ignorieren die zweite Zeile
+     und bekommen das JPEG - deshalb bleiben beide Dateien liegen. */
   background:
     linear-gradient(180deg, rgba(40,32,35,.80) 0%, rgba(40,32,35,.64) 45%, rgba(40,32,35,.86) 100%),
     var(--pagehero-img) center 30% / cover no-repeat,
+    var(--ink);
+  background:
+    linear-gradient(180deg, rgba(40,32,35,.80) 0%, rgba(40,32,35,.64) 45%, rgba(40,32,35,.86) 100%),
+    image-set(var(--pagehero-webp) type("image/webp"),
+              var(--pagehero-img) type("image/jpeg")) center 30% / cover no-repeat,
     var(--ink);
 }
 .pagehero__inner{ max-width:70ch; }
@@ -1481,3 +1489,67 @@ body[data-page="v3"] .core__more{
 @media print{
   .header, .mobar, .announce, .hero__actions, .contact__form{ display:none; }
 }
+
+/* =========================================================
+   Fehlerseite (404.html)
+   Drei gleichwertige Wege weiter statt einer grossen Zahl.
+   ========================================================= */
+.notfound{
+  display:grid; gap:var(--sp-3);
+  grid-template-columns:repeat(3,1fr);
+  margin-bottom:var(--sp-5);
+}
+.notfound__card{
+  display:flex; gap:14px; align-items:flex-start;
+  padding:var(--sp-3);
+  border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--white); text-decoration:none; color:inherit;
+  transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.notfound__card:hover,.notfound__card:focus-visible{
+  border-color:var(--rose-deep); box-shadow:0 6px 22px rgba(0,0,0,.06);
+}
+.notfound__ico{
+  flex:none; display:grid; place-items:center;
+  width:42px; height:42px; border-radius:50%;
+  background:var(--blush); color:var(--rose-deep);
+}
+.notfound__ico svg{ width:20px; height:20px; }
+.notfound__txt{ font-size:.92rem; color:var(--graphite); line-height:1.5; }
+.notfound__txt strong{
+  display:block; margin-bottom:4px;
+  font-family:var(--font-h); font-size:1.02rem; font-weight:600; color:var(--ink);
+}
+.notfound__tel{
+  margin:0 0 var(--sp-5); font-size:1.02rem; color:var(--graphite);
+}
+.notfound__tel a{
+  font-family:var(--font-h); font-weight:600; color:var(--rose-deep);
+  white-space:nowrap;
+}
+.notfound__h2{
+  font-family:var(--font-h); font-size:.74rem; font-weight:600;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 var(--sp-2);
+}
+.notfound__links{
+  display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0;
+}
+.notfound__links a{
+  display:inline-flex; align-items:center; min-height:38px;
+  padding:8px 15px; border:1px solid var(--line); border-radius:999px;
+  font-size:.88rem; color:var(--graphite); text-decoration:none;
+  transition:border-color .2s var(--ease), color .2s var(--ease);
+}
+.notfound__links a:hover,.notfound__links a:focus-visible{
+  border-color:var(--rose-deep); color:var(--rose-deep);
+}
+@media (max-width:960px){
+  .notfound{ grid-template-columns:1fr; }
+  .notfound__links a{ min-height:44px; }
+}
+
+/* <picture> umschliesst jedes Bild fuer die WebP-Fassung. display:contents
+   nimmt das Element aus dem Layout, damit alle bestehenden Regeln fuer
+   .card__img img & Co. weiter greifen wie vorher. */
+picture{ display:contents; }

@@ -9,6 +9,42 @@
 | **Google Fonts selbst hosten** | alle Seiten | Cookiebot blockiert keine Stylesheets — die Schriften laden weiterhin ohne Einwilligung. Details unten. |
 | **Elfsight: Firmierung und Anschrift** | Datenschutz, Abschnitt Elfsight | Steht weder im alten Impressum noch auf elfsight.com. Bitte im Elfsight-Konto oder im AV-Vertrag nachsehen. |
 
+## Technisches SEO — erledigt am 8. September 2026
+
+**Neu angelegt:** `sitemap.xml` (43 Adressen), `robots.txt`, `404.html`,
+`.htaccess`, `tools/sitemap_xml.py`.
+
+**Auf allen 43 Seiten ergänzt:** Canonical, Open Graph samt Bildmaßen,
+Twitter Card, BreadcrumbList im Schema.
+
+**Zwei Punkte, die eine Erklärung brauchen:**
+
+*Die `robots.txt` sperrt nichts mehr.* Vorher stand dort `Disallow: /`.
+Zusammen mit dem `noindex` im Kopf jeder Seite war das eine Sperre, die sich
+selbst im Weg stand: Was Google nicht lesen darf, dort kann Google auch das
+`noindex` nicht sehen – und eine gesperrte Adresse kann trotzdem im Index
+landen, wenn woanders ein Link darauf zeigt. Das `noindex` ist die stärkere
+Sperre. Es steht weiterhin auf allen 43 Seiten und muss vor dem Livegang raus.
+
+*Die `.htaccess` wirkt auf GitHub Pages nicht.* Sie ist für All-Inkl gedacht
+und regelt dort Fehlerseite, Komprimierung und Zwischenspeicher. Darin steht
+auch der vorbereitete Block für die **Weiterleitungen von den alten
+WordPress-Adressen** – auskommentiert, weil ich die alte Adressliste nicht
+habe. Die bekommst du aus der Search Console unter *Seiten > indexiert*.
+Ohne diese Weiterleitungen laufen alle bestehenden Google-Treffer ins Leere;
+das ist der häufigste Grund für einen Einbruch nach einem Relaunch.
+
+**Bilder:** alle 17 JPEG zusätzlich als WebP, insgesamt 1.880 kB → 1.176 kB
+(−37 %). Eingebunden über `<picture>` beziehungsweise `image-set()`, die JPEG
+bleiben als Rückfallebene liegen. Wer neue Bilder ergänzt, muss die
+WebP-Fassung mit anlegen – sonst greift stillschweigend das JPEG.
+
+**Bewusst nicht gemacht:** CSS und JS minifizieren. Gepackt sind es 13,3 kB
+und 4,1 kB – eine Minifizierung brächte vielleicht 3 kB und würde dafür die
+Kommentare zerstören, an denen sich die Dateien später pflegen lassen. Wenn du
+es trotzdem willst, gehört das in einen Bau-Schritt, der die Quelldateien in
+Ruhe lässt.
+
 ## Startseite V4 — die abgestimmte Endfassung
 
 Zusammengesetzt am 8. September aus den Bausteinen, die du ausgewählt hast:
