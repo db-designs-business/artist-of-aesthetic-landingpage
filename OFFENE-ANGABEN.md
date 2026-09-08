@@ -5,7 +5,7 @@
 | Was | Wo | Anmerkung |
 |-----|-----|-----------|
 | **Eigene Fotos** | 3 Kernleistungs- und 5 Unterseiten, zweites Studiobild auf „Über uns" | Wird nachgereicht. Bis dahin teilen sich mehrere Seiten dasselbe Bild — welche, steht in `INHALTE-KERNLEISTUNGEN.md` und `INHALTE-UNTERLEISTUNGEN.md`. |
-| **Consent-Tool** | alle Seiten | Wird nachgereicht. Sobald es steht: Abschnitt in der Datenschutzerklärung ergänzen (Anbieter, gespeicherte Daten, Rechtsgrundlage, Widerruf). Die Klick-Lösung bei der Karte kann dann bleiben oder durch die Consent-Abfrage ersetzt werden. |
+| **Consent-Banner nachbessern** | Elfsight-Konto | Eingebaut, aber es blockiert nichts und holt keine gültige Einwilligung ein. Details im Abschnitt unten. |
 | **Anzeige beim Gesundheitsamt (§ 36 IfSG), Betriebshaftpflicht** | „Über uns", Nachweise | Nur falls vorhanden und belegbar. Ohne Angabe steht dort nichts dazu — erfunden wird nichts. |
 | **Rechtsprüfung** | Impressum, Datenschutz | Ich bin kein Anwalt. Beide Seiten sollte jemand mit Fachkenntnis einmal ansehen. |
 
@@ -68,6 +68,59 @@ Ein Randpunkt: Auf GitHub Pages ist `kontakt.php` als Text lesbar, weil Pages
 PHP nicht ausführt. Darin stehen keine Zugangsdaten, nur die
 Empfängeradresse — und die steht ohnehin im Impressum. Auf einem Hoster mit
 PHP tritt das nicht auf.
+
+## Elfsight — eingebaut am 8. September 2026, mit zwei Befunden
+
+Beide Codes sind installiert. Das Plattform-Skript `platform.js` steht **einmal
+pro Seite** im gemeinsamen Block `_shared/consent.html`; die Bewertungs-Widgets
+auf Startseite V3 und „Über uns" brauchen deshalb nur ihr `<div>`. Für das
+Bewertungs-Widget ist Platz reserviert, damit beim Nachladen nichts springt.
+
+Beide Widget-IDs sind gültig und konfiguriert — über die Elfsight-API geprüft.
+Das Bewertungs-Widget hängt an der Google-Place-ID des Studios, das Banner hat
+deutschen Text.
+
+### Befund 1: Das Banner blockiert nichts
+
+Das Cookie-Consent-Widget von Elfsight ist als **Hinweis** konfiguriert, nicht
+als Einwilligung:
+
+- `complianceType: "ask"`
+- Text: „Durch die Nutzung unserer Website stimmen Sie Cookies zu."
+
+Das ist die alte „Weitersurfen gilt als Zustimmung"-Variante. Nach DSGVO und
+§ 25 TTDSG ist das **keine wirksame Einwilligung** — die muss vorher, aktiv und
+in Kategorien wählbar erfolgen. Vor allem aber: Das Widget **hält keine Skripte
+zurück**. Google Fonts, Google Maps und das Bewertungs-Widget selbst laden
+unabhängig davon, was jemand anklickt.
+
+Praktisch heißt das: Der eigentliche Zweck — Dienste erst nach Zustimmung laden —
+ist damit nicht erfüllt. Drei Wege:
+
+1. **Echten Consent-Manager einsetzen** (Usercentrics, CookieYes, Complianz,
+   Borlabs). Die blockieren Skripte tatsächlich, bis zugestimmt wurde.
+2. **Bei Elfsight bleiben und die Dienste selbst zurückhalten.** Die Karte macht
+   das bereits über die Klick-Lösung. Dasselbe ließe sich für das
+   Bewertungs-Widget bauen — sag Bescheid, das ist eine halbe Stunde.
+3. **Google Fonts selbst hosten.** Dann fällt der größte Punkt ohnehin weg, weil
+   gar nichts mehr an Google geht. Empfehle ich unabhängig von allem anderen.
+
+### Befund 2: Der Banner-Link zeigt auf die falsche Seite
+
+Im Elfsight-Konto steht als Ziel für „Mehr erfahren":
+`https://artist-of-aesthetic.de/impressum-2/` — also das **Impressum der alten
+Seite**. Ein Cookie-Banner muss auf die **Datenschutzerklärung** verlinken.
+Bitte im Elfsight-Konto auf `/datenschutz/` der neuen Seite ändern.
+
+### Noch offen im Elfsight-Konto
+
+- Vollständige Firmierung und Anschrift von Elfsight für die
+  Datenschutzerklärung (steht im Konto bzw. im AV-Vertrag). Ich rate hier nichts.
+- Auftragsverarbeitungsvertrag mit Elfsight abschließen, falls nicht geschehen.
+- Prüfen, ob die Domain der Testfassung im Konto freigegeben werden muss — in
+  meinem Prüfbrowser haben die Widgets nicht gerendert. Das kann an dessen
+  Sandbox liegen, bitte einmal in einem normalen Browser gegenprüfen:
+  https://db-designs-business.github.io/artist-of-aesthetic-landingpage/v3/
 
 ## Google-Bewertungen: reicht Elfsight für SEO?
 
