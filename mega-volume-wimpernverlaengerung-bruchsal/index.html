@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Cookiebot – muss das ERSTE Skript im <head> bleiben.
+     Nur dann kann der Automatikmodus (data-blockingmode="auto")
+     Skripte und iframes abfangen, bevor sie laden. Nicht nach
+     unten verschieben. -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="f01d9f3d-efba-4dab-890a-05d6c7ba5b8e" data-blockingmode="auto" type="text/javascript"></script>
 <title>Mega Volume Wimpern Bruchsal | ab 6D | Artist of Aesthetic</title>
 <meta name="description" content="Mega Volume Wimpernverlängerung ab 6D in Bruchsal: maximale Dichte mit hauchdünnem Material. Vorher wird geprüft, was die Naturwimper trägt. 0176 76333562.">
 
@@ -266,6 +272,7 @@
     <nav aria-label="Rechtliches">
       <a href="../impressum/">Impressum</a>
       <a href="../datenschutz/">Datenschutz</a>
+      <button type="button" class="footer__cc" data-cc-renew>Cookie-Einstellungen</button>
     </nav>
   </div>
 </footer>
@@ -285,18 +292,17 @@
 <!-- /@shared:mobilebar -->
 
 <!-- @shared:consent -->
-<!-- Elfsight Cookie Consent
-     Laedt die Elfsight-Plattform. Dieselbe Datei bedient auch das
-     Bewertungs-Widget auf der Startseite V3 und auf "Ueber uns" - deshalb
-     steht das <script> nur hier, einmal pro Seite. Wer weitere
-     Elfsight-Widgets einbaut, braucht nur noch das <div>.
+<!-- ===== ELFSIGHT (Google-Bewertungen) =====
+     Bewusst als type="text/plain" ausgezeichnet, damit der Browser das
+     Skript NICHT ausfuehrt. Cookiebot wandelt es erst in ein echtes
+     <script> um, wenn jemand der Kategorie Marketing zustimmt.
 
-     WICHTIG: Ob das Banner andere Dienste tatsaechlich blockiert, haengt
-     von der Einstellung im Elfsight-Konto ab. Bitte dort pruefen, dass
-     Google Maps und die Schriften als zustimmungspflichtig gefuehrt
-     werden. Das Banner allein blockiert nichts. -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-d6ae126d-6644-44ec-bcd6-9f546bb36959" data-elfsight-app-lazy></div>
+     Der Automatikmodus von Cookiebot wuerde das vermutlich ohnehin
+     abfangen - die ausdrueckliche Auszeichnung ist die sichere Variante
+     und funktioniert auch, wenn elfsightcdn.com noch nicht in der
+     Cookiebot-Datenbank steht. Bitte nicht "reparieren". -->
+<script type="text/plain" data-cookieconsent="marketing"
+        src="https://elfsightcdn.com/platform.js" async></script>
 <!-- /@shared:consent -->
 
 <script src="../assets/js/main.js" defer></script>

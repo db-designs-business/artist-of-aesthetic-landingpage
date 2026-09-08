@@ -103,6 +103,12 @@ SKELETON = u"""<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Cookiebot – muss das ERSTE Skript im <head> bleiben.
+     Nur dann kann der Automatikmodus (data-blockingmode="auto")
+     Skripte und iframes abfangen, bevor sie laden. Nicht nach
+     unten verschieben. -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="f01d9f3d-efba-4dab-890a-05d6c7ba5b8e" data-blockingmode="auto" type="text/javascript"></script>
 <title>{title}</title>
 <meta name="description" content="{desc}">
 

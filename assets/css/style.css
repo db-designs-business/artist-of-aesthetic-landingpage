@@ -1271,6 +1271,12 @@ body[data-page="v3"] .core__more{
 /* Lange URLs im Rechtstext muessen umbrechen duerfen */
 .legal a{ overflow-wrap:anywhere; }
 
+/* Cookie-Erklaerung von Cookiebot */
+.cookiedecl{ margin:var(--sp-3) 0 var(--sp-4); font-size:.92rem; }
+.cookiedecl table{ width:100%; border-collapse:collapse; }
+.cookiedecl div{ overflow-x:auto; }
+
+
 /* Oeffnungszeiten */
 .hours{ display:grid; gap:6px; margin:6px 0 0; max-width:320px; }
 .hours li{ display:flex; justify-content:space-between; gap:var(--sp-2); font-size:.95rem; }
@@ -1320,6 +1326,18 @@ body[data-page="v3"] .core__more{
 /* Elfsight-Bewertungen: Hoehe reservieren, damit beim Nachladen nichts
    springt (Layout Shift zaehlt zu den Core Web Vitals). */
 .reviewsapp{ min-height:360px; margin-bottom:var(--sp-4); }
+
+/* Knopf in der Fussleiste sieht aus wie die Links daneben */
+.footer__cc{
+  background:none; border:0; padding:0; cursor:pointer;
+  font-family:var(--font-b); font-size:inherit;
+  color:rgba(255,255,255,.72); text-align:left;
+}
+.footer__cc:hover{ color:var(--blush); }
+@media (max-width:960px){
+  .footer__cc{ display:flex; align-items:center; min-height:44px; }
+}
+
 @media (max-width:720px){ .reviewsapp{ min-height:460px; } }
 
 

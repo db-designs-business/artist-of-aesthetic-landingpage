@@ -176,8 +176,29 @@
   /* =======================================================
      Karte erst auf Klick laden (kein Request an Google davor)
      ======================================================= */
+  /* Cookie-Einstellungen erneut oeffnen (Knopf in der Fussleiste) */
+  var ccBtn = document.querySelector('[data-cc-renew]');
+  if (ccBtn) {
+    ccBtn.addEventListener('click', function () {
+      if (window.Cookiebot && typeof Cookiebot.renew === 'function') {
+        Cookiebot.renew();
+      }
+    });
+  }
+
   var mapBtn = document.querySelector('[data-map-load]');
   if (mapBtn) {
+    // Doppelt geladen wird nichts: nach dem ersten Klick ist der Knopf weg.
+
+    // Wer der Kategorie Marketing zugestimmt hat, bekommt die Karte
+    // direkt zu sehen - der Knopf bleibt fuer alle anderen der Weg.
+    var karteWennErlaubt = function () {
+      if (window.Cookiebot && Cookiebot.consent && Cookiebot.consent.marketing) {
+        mapBtn.click();
+      }
+    };
+    window.addEventListener('CookiebotOnAccept', karteWennErlaubt);
+    karteWennErlaubt();
     mapBtn.addEventListener('click', function () {
       var box = document.getElementById('karte');
       var src = box.getAttribute('data-map');

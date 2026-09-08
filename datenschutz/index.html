@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Cookiebot – muss das ERSTE Skript im <head> bleiben.
+     Nur dann kann der Automatikmodus (data-blockingmode="auto")
+     Skripte und iframes abfangen, bevor sie laden. Nicht nach
+     unten verschieben. -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="f01d9f3d-efba-4dab-890a-05d6c7ba5b8e" data-blockingmode="auto" type="text/javascript"></script>
 <title>Datenschutzerklärung | Artist of Aesthetic – Kosmetikstudio Bruchsal</title>
 <meta name="description" content="Datenschutzerklärung von Artist of Aesthetic, Kosmetikstudio in Bruchsal: welche Daten erhoben werden, wofür sie genutzt werden und welche Rechte du hast.">
 
@@ -94,18 +100,19 @@
      Grundlage: artist-of-aesthetic.de/datenschutz/ (Stand 8. September 2026).
      An diese Website angepasst:
 
-     + Google Fonts – die Seite laedt Montserrat und Open Sans von Google.
-     + Google Maps – die Karte auf der Kontaktseite laedt erst nach Klick.
-     + Elfsight – Consent-Banner auf allen Seiten, Bewertungs-Widget auf der
-       Startseite V3 und auf "Ueber uns".
+     + Cookiebot – Einwilligungsverwaltung auf allen Seiten, dazu die
+       automatisch erzeugte Cookie-Erklaerung am Ende von Abschnitt 4.
+     + Google Fonts, Google Maps, Elfsight.
      - Borlabs Cookie entfernt, OpenStreetMap durch Google Maps ersetzt.
 
-     NOCH ZU ERGAENZEN:
-     * Vollstaendige Firmierung und Anschrift von Elfsight. Steht im
-       Elfsight-Konto beziehungsweise im Auftragsverarbeitungsvertrag.
-       Bitte dort abschreiben - hier wird nichts geraten.
-     * Auftragsverarbeitungsvertrag mit Elfsight abschliessen, falls noch
-       nicht geschehen (im Elfsight-Konto verfuegbar).
+     NOCH ZU PRUEFEN, sobald die Seite auf der echten Domain liegt:
+     * Cookiebot-Scan laufen lassen. Erst dann erfasst die Cookie-Erklaerung
+       alle tatsaechlich gesetzten Cookies.
+     * Domain im Cookiebot-Konto eintragen, sonst erscheint kein Banner.
+     * Google Fonts: der Automatikmodus von Cookiebot blockiert Skripte und
+       iframes, aber KEINE Stylesheets. Die Schriften laden also weiterhin
+       ohne Einwilligung. Sauber wird das erst durch Selbsthosten - siehe
+       Hinweis in OFFENE-ANGABEN.md.
      ================================================================== -->
 <section class="sec">
   <div class="wrap prose legal">
@@ -501,39 +508,84 @@
       Aufbewahrungsfristen – bleiben unberührt.
     </p>
 
+    <h3 class="reveal">Übersicht der eingesetzten Cookies</h3>
+    <p class="reveal">
+      Die folgende Übersicht wird automatisch erzeugt und listet alle Cookies auf, die auf
+      dieser Website eingesetzt werden – aufgeschlüsselt nach Zweck, Anbieter, Laufzeit und
+      Art. Sie wird regelmäßig überprüft und aktualisiert.
+    </p>
+    <div class="cookiedecl reveal">
+      <!-- Cookie-Erklaerung von Cookiebot. Wird erst befuellt, wenn die
+           Domain im Cookiebot-Konto eingetragen ist und ein Scan gelaufen
+           ist. Auf der Testfassung bleibt der Bereich daher leer. -->
+      <script id="CookieDeclaration" src="https://consent.cookiebot.com/f01d9f3d-efba-4dab-890a-05d6c7ba5b8e/cd.js" type="text/javascript" async></script>
+      <noscript>
+        <p>Die Übersicht der Cookies lässt sich nur mit aktiviertem JavaScript anzeigen.
+        Wir senden sie dir auf Anfrage gern zu – <a href="mailto:info@artist-of-aesthetic.de">info@artist-of-aesthetic.de</a>.</p>
+      </noscript>
+    </div>
+
     <h2 class="reveal">5. Plugins und Tools</h2>
 
-    <h3 class="reveal">Elfsight (Cookie-Banner und Bewertungen)</h3>
+    <h3 class="reveal">Cookiebot (Einwilligungsverwaltung)</h3>
     <p class="reveal">
-      Auf dieser Website setzen wir Widgets des Anbieters Elfsight ein: das
-      Einwilligungs-Banner, über das Sie den Einsatz von Cookies und externen Diensten
-      steuern, sowie auf einzelnen Seiten die Anzeige unserer Google-Bewertungen. Nähere
-      Angaben zum Anbieter finden Sie unter
+      Diese Website nutzt Cookiebot, um Ihre Einwilligung zur Speicherung bestimmter Cookies
+      und zum Einsatz externer Dienste einzuholen und diese datenschutzkonform zu
+      dokumentieren. Anbieter ist die Usercentrics A/S, Havnegade 39, 1058 Kopenhagen,
+      Dänemark (nachfolgend „Cookiebot“).
+    </p>
+    <p class="reveal">
+      Beim Aufruf dieser Website wird eine Verbindung zu den Servern von Cookiebot
+      hergestellt, um Ihre Einwilligungen abzufragen und zu speichern. Anschließend speichert
+      Cookiebot ein Cookie in Ihrem Browser, in dem festgehalten wird, welchen Kategorien Sie
+      zugestimmt haben und welchen nicht. Erfasst werden dabei nach Angaben des Anbieters
+      unter anderem Ihre anonymisierte IP-Adresse, Datum und Uhrzeit der Einwilligung,
+      Informationen zu Ihrem Browser und Endgerät sowie die von Ihnen getroffene Auswahl.
+      Diese Angaben dienen dem Nachweis der Einwilligung nach Art. 7 Abs. 1 DSGVO.
+    </p>
+    <p class="reveal">
+      Solange Sie keine Einwilligung erteilt haben, werden zustimmungspflichtige Skripte und
+      eingebettete Inhalte automatisch blockiert und nicht geladen. Die Speicherung erfolgt,
+      bis Sie das Cookie löschen oder Ihre Einwilligung widerrufen. Rechtsgrundlage für den
+      Einsatz von Cookiebot ist Art. 6 Abs. 1 lit. c DSGVO – wir sind gesetzlich
+      verpflichtet, Einwilligungen einzuholen und nachweisen zu können.
+    </p>
+    <p class="reveal">
+      <strong>Ihre Einwilligung ändern oder widerrufen:</strong> Über die Schaltfläche
+      „Cookie-Einstellungen“ im Fußbereich jeder Seite öffnen Sie den Dialog jederzeit
+      erneut. Der Widerruf gilt für die Zukunft; die Rechtmäßigkeit der bis dahin erfolgten
+      Verarbeitung bleibt unberührt. Näheres zur Datenverarbeitung durch Cookiebot finden Sie
+      unter
+      <a href="https://www.cookiebot.com/de/privacy-policy/" target="_blank" rel="noopener">https://www.cookiebot.com/de/privacy-policy/</a>.
+    </p>
+    <p class="reveal">
+      Mit dem Anbieter besteht ein Vertrag über Auftragsverarbeitung nach Art. 28 DSGVO.
+      <!-- Falls noch nicht abgeschlossen: im Cookiebot-Konto nachholen und
+           diesen Satz erst danach stehen lassen. -->
+    </p>
+
+    <h3 class="reveal">Elfsight (Google-Bewertungen)</h3>
+    <p class="reveal">
+      Auf der Startseite und auf der Seite „Über uns“ zeigen wir unsere Google-Bewertungen
+      über ein Widget des Anbieters Elfsight an. Das Widget wird erst geladen, wenn Sie der
+      entsprechenden Kategorie im Einwilligungs-Dialog zugestimmt haben. Ohne Ihre
+      Zustimmung wird nichts nachgeladen und es werden keine Daten übertragen; Sie sehen
+      stattdessen eine feste Auswahl unserer Bewertungen, die Teil der Seite ist.
+    </p>
+    <p class="reveal">
+      Nach Ihrer Zustimmung wird eine Verbindung zu den Servern von Elfsight hergestellt.
+      Dabei werden nach Angaben des Anbieters Ihre IP-Adresse, Ihr Betriebssystem und Ihr
+      Browsertyp übertragen, dort für sieben Tage gespeichert und anonymisiert ausgewertet,
+      um Störungen zu erkennen und die Sicherheit des Dienstes zu gewährleisten. Zusätzlich
+      kann das Cookie <em>elfsight_viewed_recently</em> gesetzt werden, das verhindert, dass
+      Aufrufe mehrfach gezählt werden.
+    </p>
+    <p class="reveal">
+      Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1
+      TTDSG; sie ist jederzeit für die Zukunft widerrufbar. Näheres unter
       <a href="https://elfsight.com/privacy-policy/" target="_blank" rel="noopener">https://elfsight.com/privacy-policy/</a>.
       <!-- Vollstaendige Firmierung und Anschrift von Elfsight hier ergaenzen -
            steht im Elfsight-Konto bzw. im Auftragsverarbeitungsvertrag. -->
-    </p>
-    <p class="reveal">
-      Beim Aufruf einer Seite mit einem Elfsight-Widget wird eine Verbindung zu den Servern
-      von Elfsight hergestellt. Dabei werden nach Angaben des Anbieters Ihre IP-Adresse, Ihr
-      Betriebssystem und Ihr Browsertyp übertragen. Diese Angaben werden dort für sieben Tage
-      gespeichert und anonymisiert ausgewertet, um Störungen zu erkennen und die Sicherheit
-      des Dienstes zu gewährleisten. Zusätzlich kann Elfsight das Cookie
-      <em>elfsight_viewed_recently</em> setzen, das verhindert, dass Aufrufe mehrfach
-      gezählt werden.
-    </p>
-    <p class="reveal">
-      Das Einwilligungs-Banner ist erforderlich, damit wir Ihre Entscheidung über Cookies und
-      externe Dienste einholen und dokumentieren können. Rechtsgrundlage hierfür ist Art. 6
-      Abs. 1 lit. c DSGVO. Für die Anzeige der Bewertungen ist die Rechtsgrundlage Ihre
-      Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG; sie ist jederzeit
-      für die Zukunft widerrufbar. Wenn Sie nicht einwilligen, sehen Sie statt des Widgets
-      eine Auswahl unserer Bewertungen, die fest in der Seite hinterlegt ist.
-    </p>
-    <p class="reveal">
-      Mit Elfsight besteht ein Vertrag über Auftragsverarbeitung nach Art. 28 DSGVO.
-      <!-- Falls noch nicht abgeschlossen: im Elfsight-Konto nachholen und diesen
-           Satz erst danach stehen lassen. -->
     </p>
 
     <h3 class="reveal">Google Fonts</h3>
@@ -570,9 +622,10 @@
     </p>
     <p class="reveal">
       Die Karte auf unserer Kontaktseite wird nicht automatisch geladen. Sie sehen dort
-      zunächst nur einen Hinweis mit einer Schaltfläche. Erst wenn Sie diese Schaltfläche
-      anklicken, wird die Karte nachgeladen und eine Verbindung zu den Servern von Google
-      hergestellt. Solange Sie nicht klicken, werden keine Daten an Google übertragen.
+      zunächst nur einen Hinweis mit einer Schaltfläche. Die Karte wird erst geladen, wenn
+      Sie der entsprechenden Kategorie im Einwilligungs-Dialog zugestimmt oder die
+      Schaltfläche angeklickt haben. Solange beides nicht geschehen ist, werden keine Daten
+      an Google übertragen.
     </p>
     <p class="reveal">
       Klicken Sie die Schaltfläche an, wird Ihre IP-Adresse an Google übermittelt und dort
@@ -584,10 +637,10 @@
     <p class="reveal">
       Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung
       unserer Online-Angebote und einer leichten Auffindbarkeit der von uns auf der Website
-      angegebenen Orte. Rechtsgrundlage ist Ihre Einwilligung, die Sie mit dem Klick auf die
-      Schaltfläche erteilen (Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG). Die
-      Einwilligung gilt jeweils für den laufenden Seitenaufruf und ist jederzeit widerrufbar,
-      indem Sie die Seite neu laden, ohne die Karte zu aktivieren.
+      angegebenen Orte. Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a
+      DSGVO und § 25 Abs. 1 TTDSG, die Sie im Einwilligungs-Dialog oder mit dem Klick auf die
+      Schaltfläche erteilen. Sie ist jederzeit für die Zukunft widerrufbar – über die
+      Schaltfläche „Cookie-Einstellungen“ im Fußbereich jeder Seite.
     </p>
     <p class="reveal">
       Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der
@@ -685,6 +738,7 @@
     <nav aria-label="Rechtliches">
       <a href="../impressum/">Impressum</a>
       <a href="../datenschutz/">Datenschutz</a>
+      <button type="button" class="footer__cc" data-cc-renew>Cookie-Einstellungen</button>
     </nav>
   </div>
 </footer>
@@ -704,18 +758,17 @@
 <!-- /@shared:mobilebar -->
 
 <!-- @shared:consent -->
-<!-- Elfsight Cookie Consent
-     Laedt die Elfsight-Plattform. Dieselbe Datei bedient auch das
-     Bewertungs-Widget auf der Startseite V3 und auf "Ueber uns" - deshalb
-     steht das <script> nur hier, einmal pro Seite. Wer weitere
-     Elfsight-Widgets einbaut, braucht nur noch das <div>.
+<!-- ===== ELFSIGHT (Google-Bewertungen) =====
+     Bewusst als type="text/plain" ausgezeichnet, damit der Browser das
+     Skript NICHT ausfuehrt. Cookiebot wandelt es erst in ein echtes
+     <script> um, wenn jemand der Kategorie Marketing zustimmt.
 
-     WICHTIG: Ob das Banner andere Dienste tatsaechlich blockiert, haengt
-     von der Einstellung im Elfsight-Konto ab. Bitte dort pruefen, dass
-     Google Maps und die Schriften als zustimmungspflichtig gefuehrt
-     werden. Das Banner allein blockiert nichts. -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-d6ae126d-6644-44ec-bcd6-9f546bb36959" data-elfsight-app-lazy></div>
+     Der Automatikmodus von Cookiebot wuerde das vermutlich ohnehin
+     abfangen - die ausdrueckliche Auszeichnung ist die sichere Variante
+     und funktioniert auch, wenn elfsightcdn.com noch nicht in der
+     Cookiebot-Datenbank steht. Bitte nicht "reparieren". -->
+<script type="text/plain" data-cookieconsent="marketing"
+        src="https://elfsightcdn.com/platform.js" async></script>
 <!-- /@shared:consent -->
 
 <script src="../assets/js/main.js" defer></script>
