@@ -99,7 +99,7 @@ in `INHALTE-KERNLEISTUNGEN.md`.
 | Services | 1 | fertig, 33 Behandlungen verlinkt |
 | Über uns | 1 | fertig, mit Platzhaltern für Story, Video, Google-Profil |
 | Kontakt | 1 | fertig, mit Platzhaltern für Öffnungszeiten und Karte |
-| Impressum / Datenschutz | 2 | Platzhalter |
+| Impressum / Datenschutz | 2 | fertig, von artist-of-aesthetic.de übernommen |
 
 Die vier Kategorieseiten verlinken jede ihrer Unterleistungen zweimal:
 einmal im Fließtext und einmal im Leistungsraster darunter. Die
