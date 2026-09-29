@@ -6,7 +6,7 @@
 |-----|-----|-----------|
 | **Eigene Fotos** | 3 Kernleistungs- und 5 Unterseiten, zweites Studiobild auf „Über uns" | Wird nachgereicht. Bis dahin teilen sich mehrere Seiten dasselbe Bild — welche, steht in `INHALTE-KERNLEISTUNGEN.md` und `INHALTE-UNTERLEISTUNGEN.md`. |
 | **Domain in CookieYes freischalten, Scan starten** | CookieYes-Konto | Ohne Freigabe erscheint kein Banner. Details unten. |
-| **Einbettungscode der Cookie-Übersicht** | Datenschutz, Abschnitt 4 | Aus dem CookieYes-Konto holen und an der markierten Stelle einsetzen. |
+| **Cookie-Übersicht durch das CookieYes-Snippet ersetzen** | Datenschutz, Abschnitt 4 | Steht derzeit als handgepflegte Tabelle drin. Nach dem Scan durch das Snippet aus dem Konto ersetzen, das hält sich selbst aktuell. |
 | **Elfsight: Firmierung und Anschrift** | Datenschutz, Abschnitt Elfsight | Steht weder im alten Impressum noch auf elfsight.com. Bitte im Elfsight-Konto oder im AV-Vertrag nachsehen. |
 
 ## Adressen auf Deutsch — 29. September 2026
@@ -410,10 +410,24 @@ doch einer, greift das Blockieren nicht und muss nachgebessert werden.
 
 1. **Domain im CookieYes-Konto eintragen**, sonst erscheint kein Banner.
 2. **Scan starten**, sobald die Seite auf der echten Domain liegt.
-3. **Einbettungscode der Cookie-Übersicht** aus dem Konto holen
-   (*Cookie Banner > Content > Cookie List*, Variante „Code snippet“, nicht
-   die HTML-Fassung — das Snippet aktualisiert sich nach jedem Scan selbst)
-   und in `datenschutz/index.html` an der markierten Stelle einsetzen.
+3. **Cookie-Übersicht ersetzen.** In `datenschutz/index.html` steht eine von
+   Hand gepflegte Tabelle mit den Cookies, die ich belegen konnte:
+
+   | Name | Anbieter | Laufzeit | Kategorie |
+   |---|---|---|---|
+   | `cookieyes-consent` | CookieYes Limited | 1 Jahr | Notwendig |
+   | `elfsight_viewed_recently` | Elfsight | 15 Sekunden | Advertisement |
+
+   Dazu ein Absatz zu Google Maps: Welche Cookies Google beim Laden der Karte
+   setzt, legt Google fest und ändert sich. Beim Abruf der Einbettung kam kein
+   `Set-Cookie` zurück, deshalb steht dort keine Liste, sondern der Verweis auf
+   Googles eigene Übersicht. Erfundene Cookie-Namen in einem Rechtstext wären
+   schlimmer als keine.
+
+   **Die Tabelle hält sich nicht selbst aktuell.** Nach dem Scan bitte durch das
+   Snippet aus dem CookieYes-Konto ersetzen (*Cookie Banner > Content > Cookie
+   List*, Variante „Code snippet“, nicht die HTML-Fassung). Der Hinweis steht
+   auch als Kommentar direkt an der Stelle.
 4. **AV-Vertrag mit CookieYes** schließen. Der entsprechende Satz steht bereits
    in der Datenschutzerklärung.
 5. **Kategorie prüfen:** Elfsight und die Karte liegen auf „advertisement“.

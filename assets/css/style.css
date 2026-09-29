@@ -1267,6 +1267,27 @@ body[data-page="v3"] .core__more{
 .cookiedecl{ margin:var(--sp-3) 0 var(--sp-4); font-size:.92rem; }
 .cookiedecl table{ width:100%; border-collapse:collapse; }
 .cookiedecl div{ overflow-x:auto; }
+.cookiedecl__cap{
+  caption-side:top; text-align:left; padding-bottom:10px;
+  font-size:.78rem; color:var(--muted);
+}
+.cookiedecl th,.cookiedecl td{
+  text-align:left; vertical-align:top;
+  padding:10px 14px 10px 0; border-bottom:1px solid var(--line);
+}
+.cookiedecl th{
+  font-family:var(--font-h); font-size:.72rem; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+  white-space:nowrap;
+}
+.cookiedecl td code{
+  font-size:.86em; overflow-wrap:anywhere; color:var(--rose-deep);
+}
+@media (max-width:720px){
+  /* Auf schmalen Schirmen laesst sich die Tabelle seitlich schieben,
+     statt die Spalten unlesbar zu quetschen. */
+  .cookiedecl table{ min-width:640px; }
+}
 
 
 /* Oeffnungszeiten */
