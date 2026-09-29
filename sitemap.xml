@@ -2,265 +2,267 @@
 <!--
   Erzeugt von tools/sitemap_xml.py aus tools/sitemap.py.
   Nach jeder neuen Seite neu erzeugen:  python tools/sitemap_xml.py
-  Die Adressen zeigen auf https://www.artist-of-aesthetic.de - vor dem Livegang pruefen,
-  ob die Domain stimmt (mit oder ohne www).
+  Die Adressen zeigen bewusst auf https://artist-of-aesthetic.de OHNE www - so ist
+  die Seite seit Jahren indexiert (Search Console, 29.09.2026).
+  Dieselbe Schreibweise steht in den Canonical-Angaben und in
+  der .htaccess. Wird eine davon geaendert, muessen alle drei mit.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.artist-of-aesthetic.de/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/services/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/services/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/about/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/about/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/contact/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/contact/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/gesichtsbehandlungen-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/gesichtsbehandlungen-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/mikroneedling-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/mikroneedling-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/aquafacial-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/aquafacial-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/bb-glow-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/bb-glow-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/prx-t33-peeling-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/prx-t33-peeling-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/biorepeel-cl3-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/biorepeel-cl3-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/fruchtsaeure-peeling-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/fruchtsaeure-peeling-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/porentiefe-gesichtsbehandlung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/porentiefe-gesichtsbehandlung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/basic-gesichtsbehandlung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/basic-gesichtsbehandlung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/akne-behandlung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/akne-behandlung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/teeny-gesichtsbehandlung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/teeny-gesichtsbehandlung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/de-luxe-goldmaske-behandlung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/de-luxe-goldmaske-behandlung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/schoenheitssalon-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/schoenheitssalon-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/braut-make-up-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/braut-make-up-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/augenbrauen-formen-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/augenbrauen-formen-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/tages-make-up-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/tages-make-up-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/abend-make-up-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/abend-make-up-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/glam-smokey-eye-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/glam-smokey-eye-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/gesichtsenthaarung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/gesichtsenthaarung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/ohren-nasenhaare-entfernen-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/ohren-nasenhaare-entfernen-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/augenbrauen-faerben-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/augenbrauen-faerben-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/wimpernstudio-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/wimpernstudio-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/wimpernverlaengerung-volumen-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/wimpernverlaengerung-volumen-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/wimpernlifting-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/wimpernlifting-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/classic-wimpernverlaengerung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/classic-wimpernverlaengerung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/mega-volume-wimpernverlaengerung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/mega-volume-wimpernverlaengerung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/wimpernverlaengerung-refill-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/wimpernverlaengerung-refill-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/wimpernverlaengerung-entfernen-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/wimpernverlaengerung-entfernen-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/browlifting-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/browlifting-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/henna-brows-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/henna-brows-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/permanent-make-up-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/permanent-make-up-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/lippen-permanent-make-up-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/lippen-permanent-make-up-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/microblading-augenbrauen-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/microblading-augenbrauen-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/ombre-powder-brows-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/ombre-powder-brows-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/wimpernkranz-verdichtung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/wimpernkranz-verdichtung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/eyeliner-pigmentierung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/eyeliner-pigmentierung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/hautanalyse-beratung-bruchsal/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/hautanalyse-beratung-bruchsal/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/impressum/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/impressum/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.artist-of-aesthetic.de/datenschutz/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://artist-of-aesthetic.de/datenschutz/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

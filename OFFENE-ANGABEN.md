@@ -9,6 +9,45 @@
 | **Google Fonts selbst hosten** | alle Seiten | Cookiebot blockiert keine Stylesheets — die Schriften laden weiterhin ohne Einwilligung. Details unten. |
 | **Elfsight: Firmierung und Anschrift** | Datenschutz, Abschnitt Elfsight | Steht weder im alten Impressum noch auf elfsight.com. Bitte im Elfsight-Konto oder im AV-Vertrag nachsehen. |
 
+## Livegang-Vorbereitung — 29. September 2026
+
+**`noindex` ist raus** – auf allen 43 Seiten. Nur die `404.html` behält es
+(`noindex, follow`), das gehört so: Fehlerseiten sollen nie in den Index.
+
+**Domain: ohne `www`.** Der Search-Console-Export vom 29. September zeigt alle
+15 indexierten Adressen als `https://artist-of-aesthetic.de/…` – Google kennt
+die Seite seit Jahren so. Deshalb zeigen Canonical-Angaben, `sitemap.xml` und
+die Weiterleitung in der `.htaccess` jetzt einheitlich auf die Fassung ohne
+`www`; `www` wird per 301 dorthin umgeleitet. **Wird eine der drei Stellen
+geändert, müssen alle drei mit.**
+
+**Weiterleitungen stehen** – aktiv in der `.htaccess`, alle 15 Adressen aus dem
+Export abgedeckt und gegen die neuen Seiten geprüft. Zwei Adressen bleiben
+gleich (`/` und `/permanent-make-up-bruchsal/`) und brauchen keine.
+
+Die alten Ortsseiten für Ubstadt, Karlsdorf und Forst gehen auf die thematisch
+passende Seite, nicht auf die Startseite – eine Weiterleitung auf die
+Startseite wertet Google wie einen 404 ("soft 404"), wenn der Inhalt nicht
+passt. Dazu: 410 für die WordPress-Reste (`/wp-admin` und Co.) und eine
+Weiterleitung der alten Yoast-Sitemaps auf `/sitemap.xml`.
+
+**Google Fonts sind weg.** Montserrat und Open Sans liegen unter
+`assets/fonts/`, eingebunden über `assets/css/fonts.css`. Nachgemessen: **null
+Requests an Google oder gstatic**, 84 kB Schriften vom eigenen Server. Es sind
+variable Schriften – eine Datei deckt alle Schnitte ab, deshalb nur vier
+Dateien statt sechzehn. `latin-ext` lädt nur, wenn ein Zeichen daraus vorkommt.
+Der Abschnitt in der Datenschutzerklärung heißt jetzt „Schriftarten“ und sagt
+korrekt, dass keine Verbindung zu Dritten aufgebaut wird.
+
+### Offene Ortsseiten – ein Hinweis
+
+Die alte Seite hatte eigene Seiten für Ubstadt, Karlsdorf und Forst. Die neue
+hat das nicht; die Orte stehen nur im Einzugsgebiet auf der Startseite. Die
+Weiterleitungen fangen den Verlust ab, aber für Suchanfragen wie
+„Kosmetikerin Ubstadt“ fällt die Seite damit zurück. Falls diese Orte Umsatz
+bringen, wären eigene Ortsseiten der nächste sinnvolle Schritt – aber nur mit
+echtem, ortsspezifischem Inhalt, nicht als Textkopie mit getauschtem Ortsnamen.
+
 ## Technisches SEO — erledigt am 8. September 2026
 
 **Neu angelegt:** `sitemap.xml` (43 Adressen), `robots.txt`, `404.html`,

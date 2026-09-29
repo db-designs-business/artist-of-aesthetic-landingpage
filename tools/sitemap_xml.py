@@ -16,7 +16,7 @@ ROOT = os.path.dirname(HIER)
 sys.path.insert(0, HIER)
 import sitemap  # noqa: E402
 
-DOMAIN = "https://www.artist-of-aesthetic.de"
+DOMAIN = "https://artist-of-aesthetic.de"
 
 # Prioritaet und erwartete Aenderungsfrequenz je Seitenart.
 # Die Prioritaet ist ein Hinweis fuer die Reihenfolge des Crawlings,
@@ -55,8 +55,10 @@ def main():
            u'<!--\n'
            u'  Erzeugt von tools/sitemap_xml.py aus tools/sitemap.py.\n'
            u'  Nach jeder neuen Seite neu erzeugen:  python tools/sitemap_xml.py\n'
-           u'  Die Adressen zeigen auf %s - vor dem Livegang pruefen,\n'
-           u'  ob die Domain stimmt (mit oder ohne www).\n'
+           u'  Die Adressen zeigen bewusst auf %s OHNE www - so ist\n'
+           u'  die Seite seit Jahren indexiert (Search Console, 29.09.2026).\n'
+           u'  Dieselbe Schreibweise steht in den Canonical-Angaben und in\n'
+           u'  der .htaccess. Wird eine davon geaendert, muessen alle drei mit.\n'
            u'-->\n'
            u'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
            u'%s\n'

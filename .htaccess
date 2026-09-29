@@ -2,32 +2,105 @@
 #  Serverkonfiguration fuer Apache (All-Inkl und die meisten Hoster).
 #
 #  Auf GitHub Pages hat diese Datei KEINE Wirkung - dort wird 404.html
-#  automatisch als Fehlerseite genommen und die Komprimierung ist
-#  ohnehin aktiv. Sie wird erst beim Umzug auf den echten Hoster wichtig.
+#  automatisch als Fehlerseite genommen. Sie wird erst auf dem echten
+#  Hoster wirksam.
 # =====================================================================
 
-# ---------- Fehlerseite ----------
+# ---------------------------------------------------------------------
+#  1 · HTTPS und Schreibweise der Domain vereinheitlichen
+#
+#  Ziel ist die Fassung OHNE www - so steht die Seite seit Jahren in der
+#  Search Console und so sind alle 15 indexierten Adressen aufgebaut.
+#  Dieselbe Schreibweise steht in den Canonical-Angaben und in der
+#  sitemap.xml. Bitte nicht auf www umstellen, ohne beides mitzuziehen.
+#
+#  ACHTUNG: Erst einschalten, wenn das SSL-Zertifikat fuer beide
+#  Schreibweisen steht. Sonst landen Besucher in einer Fehlermeldung.
+#  Zum Abschalten die vier Zeilen zwischen RewriteEngine und </IfModule>
+#  auskommentieren.
+# ---------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://artist-of-aesthetic.de/$1 [R=301,L]
+</IfModule>
+
+# ---------------------------------------------------------------------
+#  2 · Weiterleitungen von den alten WordPress-Adressen
+#
+#  Grundlage: Search-Console-Export vom 29. September 2026, 15 indexierte
+#  Adressen. Ohne diese Zeilen laufen alle bestehenden Google-Treffer und
+#  alle fremden Links ins Leere - der haeufigste Grund fuer einen
+#  Einbruch nach einem Relaunch.
+#
+#  Nicht aufgefuehrt, weil die Adresse gleich bleibt:
+#    /                          (Startseite)
+#    /permanent-make-up-bruchsal/
+#    /datenschutz/
+# ---------------------------------------------------------------------
+
+# Gleiches Thema, neue Adresse
+RedirectMatch 301 ^/kontakt/?$                        /contact/
+RedirectMatch 301 ^/behandlungen/?$                   /services/
+RedirectMatch 301 ^/impressum-2/?$                    /impressum/
+RedirectMatch 301 ^/permanent-make-up-in-bruchsal/?$  /permanent-make-up-bruchsal/
+RedirectMatch 301 ^/wimpernverlaengerung-bruchsal/?$  /wimpernstudio-bruchsal/
+
+# Alte Ortsseiten. Es gibt keine eigenen Seiten mehr fuer Ubstadt,
+# Karlsdorf und Forst - die Orte stehen jetzt im Einzugsgebiet auf der
+# Startseite. Weitergeleitet wird deshalb auf die thematisch passende
+# Seite, nicht pauschal auf die Startseite: Google wertet eine
+# Weiterleitung auf die Startseite wie einen 404, wenn der Inhalt nicht
+# passt ("soft 404").
+RedirectMatch 301 ^/permanent-make-up-forst/?$        /permanent-make-up-bruchsal/
+RedirectMatch 301 ^/permanent-make-up-ubstadt/?$      /permanent-make-up-bruchsal/
+RedirectMatch 301 ^/wimpernverlaengerung-ubstadt/?$   /wimpernstudio-bruchsal/
+RedirectMatch 301 ^/professionelles-make-up-forst/?$  /schoenheitssalon-bruchsal/
+RedirectMatch 301 ^/professionelles-make-up-ubstadt/?$ /schoenheitssalon-bruchsal/
+RedirectMatch 301 ^/gesichtsbehandlung-karlsdorf/?$   /gesichtsbehandlungen-bruchsal/
+RedirectMatch 301 ^/kosmetik-karlsdorf/?$             /gesichtsbehandlungen-bruchsal/
+RedirectMatch 301 ^/kosmetik-ubstadt/?$               /gesichtsbehandlungen-bruchsal/
+
+# Alte Sitemaps von WordPress beziehungsweise Yoast
+RedirectMatch 301 ^/(page|post|category|author)-sitemap\.xml$  /sitemap.xml
+RedirectMatch 301 ^/sitemap_index\.xml$                        /sitemap.xml
+
+# Reste von WordPress. Die Seite ist statisch - es gibt keinen
+# Anmeldebereich mehr. Sauberer 410 statt 404: sagt Google, dass die
+# Adresse endgueltig weg ist, und sie faellt schneller aus dem Index.
+RedirectMatch 410 ^/(wp-admin|wp-login\.php|wp-content|wp-includes|xmlrpc\.php)
+
+# ---------------------------------------------------------------------
+#  3 · Fehlerseite
+# ---------------------------------------------------------------------
 ErrorDocument 404 /404.html
 
-# ---------- Verzeichnisse ohne Index nicht auflisten ----------
+# ---------------------------------------------------------------------
+#  4 · Verzeichnisse ohne Index nicht auflisten, Arbeitsdateien sperren
+# ---------------------------------------------------------------------
 Options -Indexes
 
-# ---------- Arbeitsdateien nicht ausliefern ----------
 <FilesMatch "\.(py|md)$">
   Require all denied
 </FilesMatch>
 RedirectMatch 404 ^/(tools|_shared)/
 
-# ---------- Komprimierung ----------
-# Spart bei den Textdateien rund 75 Prozent. Bilder sind bereits
-# komprimiert und werden bewusst ausgelassen.
+# ---------------------------------------------------------------------
+#  5 · Komprimierung
+#  Spart bei den Textdateien rund 75 Prozent. Bilder sind bereits
+#  komprimiert und werden bewusst ausgelassen.
+# ---------------------------------------------------------------------
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
   AddOutputFilterByType DEFLATE application/javascript application/json
   AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff2
 </IfModule>
 
-# ---------- Zwischenspeicher im Browser ----------
+# ---------------------------------------------------------------------
+#  6 · Zwischenspeicher im Browser
+# ---------------------------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css                "access plus 1 year"
@@ -35,40 +108,14 @@ RedirectMatch 404 ^/(tools|_shared)/
   ExpiresByType image/jpeg              "access plus 1 year"
   ExpiresByType image/webp              "access plus 1 year"
   ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType font/woff2              "access plus 1 year"
   ExpiresByType text/html               "access plus 1 hour"
 </IfModule>
 
-# ---------- WebP korrekt ausliefern ----------
+# ---------------------------------------------------------------------
+#  7 · Dateitypen korrekt ausliefern
+# ---------------------------------------------------------------------
 <IfModule mod_mime.c>
   AddType image/webp .webp
+  AddType font/woff2 .woff2
 </IfModule>
-
-# =====================================================================
-#  NOCH EINZURICHTEN - VOR DEM LIVEGANG
-# =====================================================================
-#
-#  1. HTTPS und Domain vereinheitlichen. Erst einschalten, wenn das
-#     Zertifikat steht, sonst ist die Seite nicht erreichbar. Und nur
-#     EINE Schreibweise als Ziel - passend zu den Canonical-Angaben,
-#     die auf https://www.artist-of-aesthetic.de/ zeigen.
-#
-#  <IfModule mod_rewrite.c>
-#    RewriteEngine On
-#    RewriteCond %{HTTPS} off [OR]
-#    RewriteCond %{HTTP_HOST} !^www\. [NC]
-#    RewriteRule ^(.*)$ https://www.artist-of-aesthetic.de/$1 [R=301,L]
-#  </IfModule>
-#
-#  2. Weiterleitungen von den alten WordPress-Adressen. Ohne sie laufen
-#     alle bestehenden Google-Treffer und fremden Links ins Leere - das
-#     ist der haeufigste Grund fuer einen Einbruch nach einem Relaunch.
-#     Die alte Adressliste bekommt man aus der Search Console
-#     (Seiten > indexiert) oder aus der alten WordPress-Sitemap.
-#
-#     Muster - alte Adresse links, neue rechts:
-#  Redirect 301 /leistungen/microblading/ /microblading-augenbrauen-bruchsal/
-#  Redirect 301 /impressum-2/            /impressum/
-#  Redirect 301 /kontakt/                /contact/
-#
-#     Die Zeile fuer das Impressum stimmt bereits: die alte Seite liegt
-#     unter /impressum-2/. Die uebrigen bitte erst pruefen, dann setzen.

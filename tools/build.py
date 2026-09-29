@@ -104,14 +104,10 @@ SKELETON = u"""<!DOCTYPE html>
 <title>{title}</title>
 <meta name="description" content="{desc}">
 
-<!-- ===== NUR FÜR DIE TEST-DEPLOYMENT AUF GITHUB PAGES =====
-     VOR DEM LIVEGANG diese Zeile und robots.txt löschen. -->
-<meta name="robots" content="noindex, nofollow">
-
 <link rel="icon" href="{base}assets/img/logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="{base}assets/fonts/montserrat-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="{base}assets/fonts/open-sans-latin.woff2" crossorigin>
+<link rel="stylesheet" href="{base}assets/css/fonts.css">
 <link rel="stylesheet" href="{base}assets/css/style.css">
 </head>
 <body data-page="{slug}">

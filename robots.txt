@@ -15,4 +15,4 @@ Allow: /
 Disallow: /tools/
 Disallow: /_shared/
 
-Sitemap: https://www.artist-of-aesthetic.de/sitemap.xml
+Sitemap: https://artist-of-aesthetic.de/sitemap.xml
