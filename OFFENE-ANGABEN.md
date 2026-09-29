@@ -205,34 +205,59 @@ Direktes Einbetten ohne Klick ist ein Einzeiler — der iframe aus dem
 `data-map`-Attribut kommt direkt in den Container. Der Kommentar im Quelltext
 der Kontaktseite beschreibt beide Varianten.
 
-## Formularversand — gebaut am 8. September 2026
+## Formularversand — 29. September 2026
 
 `formular.php` liegt im Wurzelverzeichnis. Das Formular schickt die Angaben per
-`fetch` dorthin, PHP prüft sie noch einmal und verschickt eine E-Mail an
-`info@artist-of-aesthetic.de`. **Nichts wird gespeichert, kein Drittanbieter ist
-beteiligt** — deshalb braucht es dafür weder einen Consent-Banner noch einen
-zusätzlichen Abschnitt in der Datenschutzerklärung. Der bestehende Abschnitt
-„Kontaktformular" deckt es ab.
+`fetch` dorthin, PHP prüft sie noch einmal und verschickt eine E-Mail.
+**Nichts wird gespeichert, kein Drittanbieter ist beteiligt** — deshalb braucht
+es dafür weder einen Consent-Banner noch einen zusätzlichen Abschnitt in der
+Datenschutzerklärung. Der bestehende Abschnitt „Kontaktformular“ deckt es ab.
 
-**Vor der Inbetriebnahme:** Empfängeradresse oben in `formular.php` prüfen. Die
-Absenderadresse muss eine der eigenen Domain sein, sonst stufen viele
-Mailserver die Nachricht als Fälschung ein — steht als Kommentar in der Datei.
-Nach dem Upload einmal testweise absenden und prüfen, ob die Mail ankommt (auch
-im Spam-Ordner nachsehen).
+### ⚠ Empfänger steht auf Test
+
+```php
+$empfaenger = 'tools.aoa@wachstumswebseiten.de';   // TESTBETRIEB
+```
+
+**Vor der Übergabe an die Kundin umstellen auf `info@artist-of-aesthetic.de`.**
+Der Hinweis steht als Kommentarblock direkt darüber in der Datei.
+
+Die Absenderadresse bleibt `info@artist-of-aesthetic.de` — sie muss zur eigenen
+Domain gehören, sonst stufen viele Mailserver die Nachricht als Fälschung ein
+(SPF/DMARC). Die Adresse der Besucherin steht im `Reply-To`, ein Klick auf
+„Antworten“ geht also direkt an sie.
+
+### Die E-Mail
+
+Verschickt wird `multipart/alternative`: eine HTML-Fassung und eine reine
+Textfassung in einer Nachricht. Postfächer, die kein HTML anzeigen, und die
+Vorschau auf der Uhr bekommen den Text — deshalb stehen dort Name, Telefon und
+Behandlung ganz oben.
+
+Der **Betreff** nennt Name und Behandlung: *„Terminanfrage: Sandra Müller –
+Microblading Augenbrauen“*. So ist die Anfrage schon in der Übersicht
+einzuordnen, ohne sie zu öffnen.
+
+Die **HTML-Fassung** ist bewusst altmodisch gebaut — Tabellen statt Flexbox,
+Farben direkt am Element statt im Stylesheet. E-Mail-Programme, allen voran
+Outlook, können modernes CSS nicht. Die Telefonnummer ist der größte Text in
+der Mail und anklickbar: In neun von zehn Fällen ist der Rückruf die Antwort.
+Alles, was aus dem Formular kommt, wird vorher maskiert — sonst könnte jemand
+über das Nachrichtenfeld eigenes Markup einschleusen.
 
 **Spamschutz** ohne Captcha: ein für Menschen unsichtbares Feld, das Bots
 ausfüllen, plus eine Zeitprüfung — wer in unter drei Sekunden absendet, ist
 keiner. Beides wird stillschweigend verworfen, damit der Bot nichts lernt.
 
+**Nach dem Upload testen:** einmal absenden und prüfen, ob die Mail ankommt —
+auch im Spam-Ordner nachsehen.
+
 **Auf der Testfassung** läuft kein PHP. Das Formular zeigt dort eine ehrliche
-Fehlermeldung mit Telefonnummer und E-Mail-Adresse statt eines falschen
-Erfolgs. Geprüft: Erfolgsweg und Fehlerweg funktionieren beide, alle neun
-Felder werden übertragen.
+Fehlermeldung mit Telefonnummer und E-Mail-Adresse statt eines falschen Erfolgs.
 
 Ein Randpunkt: Auf GitHub Pages ist `formular.php` als Text lesbar, weil Pages
-PHP nicht ausführt. Darin stehen keine Zugangsdaten, nur die
-Empfängeradresse — und die steht ohnehin im Impressum. Auf einem Hoster mit
-PHP tritt das nicht auf.
+PHP nicht ausführt. Darin stehen keine Zugangsdaten, nur die Empfängeradresse.
+Auf einem Hoster mit PHP tritt das nicht auf.
 
 ## Cookiebot — eingebaut am 8. September 2026
 
