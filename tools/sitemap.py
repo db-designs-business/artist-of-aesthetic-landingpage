@@ -65,7 +65,7 @@ CATEGORIES = [
         "name": "Wimpernstudio",
         "nav": "Wimpernstudio",
         "core": [
-            ("wimpernverlaengerung-volumen-bruchsal", "Light Volume Wimpernverlängerung 2D–5D"),
+            ("wimpernverlaengerung-volumen-bruchsal", "Light Volume Wimpernverlängerung 2D bis 5D"),
             ("wimpernlifting-bruchsal", "Wimpernlifting inkl. Färben"),
         ],
         "child": [

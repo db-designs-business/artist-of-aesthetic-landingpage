@@ -205,6 +205,45 @@ Direktes Einbetten ohne Klick ist ein Einzeiler — der iframe aus dem
 `data-map`-Attribut kommt direkt in den Container. Der Kommentar im Quelltext
 der Kontaktseite beschreibt beide Varianten.
 
+## Eingangsbestätigung und Gedankenstriche — 29. September 2026
+
+### Eingangsbestätigung an die Kundin
+
+`formular.php` verschickt jetzt zwei Nachrichten: die Anfrage ans Studio und
+eine Bestätigung an die Kundin. Betreff: „Deine Anfrage ist da, wir melden
+uns“. Gleiche Gestaltung wie die Benachrichtigung, ebenfalls HTML plus Text.
+
+Drei Punkte, die dabei Absicht sind:
+
+- **Sonntags-Hinweis.** Ohne ihn widerspricht das 24-Stunden-Versprechen den
+  Öffnungszeiten. Wer samstagabends schreibt, denkt sonst, es sei etwas
+  schiefgelaufen.
+- **Die eigene Nachricht wird zurückgespiegelt.** Das nimmt die Unsicherheit,
+  ob wirklich alles angekommen ist.
+- **Unterschrieben mit Aylins Namen.** Bei einem Studio, das bewusst allein
+  geführt wird, wäre „Ihr Team von…“ unglaubwürdig.
+
+Technisch: Die Bestätigung geht erst raus, wenn die Nachricht ans Studio durch
+ist. Schlägt sie fehl — Tippfehler in der Adresse, volles Postfach —, merkt die
+Kundin davon nichts; ihre Anfrage ist ja angekommen. `Reply-To` zeigt auf das
+Studio, dazu `Auto-Submitted: auto-replied`, damit keine Antwortschleife mit
+anderen Automaten entsteht.
+
+### Gedankenstriche entfernt
+
+Im sichtbaren Text standen 670 Gedankenstriche auf 44 Seiten. Sie sind raus,
+jede Stelle einzeln angesehen: mal ein Punkt, mal ein Komma, mal ein
+Doppelpunkt, an einigen Stellen der ganze Satz umgebaut. Auch Bereiche wie
+„Mo–Sa 10:00–18:00 Uhr“ stehen jetzt ausgeschrieben.
+
+**Sechs Stellen bleiben, alle in der Datenschutzerklärung:** der Firmenname
+ALL-INKL.COM sowie fünf Einschübe im übernommenen Standardtext
+(„Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen –
+bleiben unberührt“ und Ähnliches). An Rechtstexten wird nicht umformuliert,
+und einen Firmennamen ändert man nicht.
+
+Quelltext-Kommentare wurden nicht angefasst — die sieht niemand außer uns.
+
 ## Formular verschlankt — 29. September 2026
 
 „Gewünschte Behandlung“ und „Wunschzeitraum“ sind raus, auf der Startseite und

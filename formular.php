@@ -281,4 +281,152 @@ if (!$gesendet) {
     );
 }
 
+// ================================================================
+//  EINGANGSBESTAETIGUNG AN DIE KUNDIN
+//
+//  Geht erst raus, wenn die Nachricht ans Studio durch ist. Wenn hier
+//  etwas schiefgeht - Tippfehler in der Adresse, volles Postfach -,
+//  merkt die Kundin davon nichts: Ihre Anfrage ist ja angekommen, und
+//  eine Fehlermeldung an dieser Stelle wuerde nur verunsichern.
+//
+//  Reply-To zeigt bewusst auf das Studio. Wer auf die Bestaetigung
+//  antwortet, landet damit im richtigen Postfach.
+// ================================================================
+$antwortText = implode("\n", array(
+    'Hallo ' . $name . ',',
+    '',
+    'danke fuer deine Anfrage. Sie ist bei uns angekommen.',
+    '',
+    'Wir melden uns innerhalb von 24 Stunden bei dir, per Anruf oder',
+    'WhatsApp. Falls du am Sonntag geschrieben hast: Das Studio ist',
+    'sonntags geschlossen, dann hoerst du am Montag von uns.',
+    '',
+    ($nachricht !== '' ? "Das hast du uns geschickt:\n" . $nachricht . "\n" : ''),
+    'Beim ersten Termin schauen wir uns deine Haut in Ruhe an. Die',
+    'Hautanalyse ist kostenlos und verpflichtet dich zu nichts. Erst',
+    'danach entscheidest du, ob und was gemacht wird.',
+    '',
+    'Wenn dir zwischendurch noch etwas einfaellt oder sich etwas',
+    'aendert, ruf einfach an: ' . $telefon_studio,
+    '',
+    'Bis bald',
+    'Aylin Acikgoez',
+    $studio,
+    '',
+    str_repeat('-', 46),
+    'Schwimmbadstrasse 14, 76646 Bruchsal',
+    'Montag bis Samstag, 10:00 bis 18:00 Uhr. Sonntag geschlossen.',
+    $absender . ', artist-of-aesthetic.de',
+    '',
+    'Diese Nachricht wurde automatisch verschickt, weil du das Formular',
+    'auf unserer Website ausgefuellt hast. Du kannst direkt darauf',
+    'antworten.',
+));
+
+$deineNachricht = $nachricht !== ''
+    ? '<tr><td style="padding:4px 28px 0;">
+         <div style="font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#6b6b6b;padding-bottom:8px;">Das hast du uns geschickt</div>
+         <div style="background:#faf6f8;border-left:3px solid #efd7e5;padding:14px 16px;font-size:14px;line-height:1.6;color:#282023;">'
+      . nl2br(h($nachricht)) . '</div>
+       </td></tr>'
+    : '';
+
+$antwortHtml = '<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deine Anfrage ist da</title>
+</head>
+<body style="margin:0;padding:0;background:#f4eef1;">
+
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">
+  Wir melden uns innerhalb von 24 Stunden bei dir.
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4eef1;padding:24px 12px;">
+<tr><td align="center">
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:#ffffff;border-radius:6px;overflow:hidden;font-family:Helvetica,Arial,sans-serif;">
+
+    <tr>
+      <td style="background:#282023;padding:22px 28px;">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#efd7e5;">Artist of Aesthetic</div>
+        <div style="font-size:21px;color:#ffffff;padding-top:6px;">Deine Anfrage ist da</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="padding:26px 28px 0;font-size:15px;line-height:1.65;color:#282023;">
+        <p style="margin:0 0 16px;">Hallo <strong>' . h($name) . '</strong>,</p>
+        <p style="margin:0 0 16px;">danke f&uuml;r deine Anfrage. Sie ist bei uns angekommen.</p>
+        <p style="margin:0 0 16px;">Wir melden uns <strong>innerhalb von 24&nbsp;Stunden</strong> bei dir, per Anruf oder WhatsApp. Falls du am Sonntag geschrieben hast: Das Studio ist sonntags geschlossen, dann h&ouml;rst du am Montag von uns.</p>
+      </td>
+    </tr>
+
+    ' . $deineNachricht . '
+
+    <tr>
+      <td style="padding:18px 28px 0;font-size:15px;line-height:1.65;color:#282023;">
+        <p style="margin:0 0 16px;">Beim ersten Termin schauen wir uns deine Haut in Ruhe an. Die Hautanalyse ist kostenlos und verpflichtet dich zu nichts. Erst danach entscheidest du, ob und was gemacht wird.</p>
+        <p style="margin:0 0 20px;">Wenn dir zwischendurch noch etwas einf&auml;llt oder sich etwas &auml;ndert, ruf einfach an:
+          <a href="tel:+4917676333562" style="color:#8d4f66;text-decoration:none;white-space:nowrap;"><strong>' . h($telefon_studio) . '</strong></a>
+        </p>
+        <p style="margin:0 0 4px;">Bis bald</p>
+        <p style="margin:0;"><strong>Aylin Acikg&ouml;z</strong><br>' . h($studio) . '</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="padding:24px 28px 26px;">
+        <div style="border-top:1px solid #ece3e7;padding-top:16px;font-size:12px;line-height:1.7;color:#8a8a8a;">
+          Schwimmbadstra&szlig;e 14, 76646 Bruchsal<br>
+          Montag bis Samstag, 10:00 bis 18:00 Uhr. Sonntag geschlossen.<br>
+          <a href="mailto:' . h($absender) . '" style="color:#8d4f66;text-decoration:none;">' . h($absender) . '</a>,
+          <a href="' . h($domain) . '" style="color:#8d4f66;text-decoration:none;">artist-of-aesthetic.de</a>
+        </div>
+      </td>
+    </tr>
+
+  </table>
+
+  <div style="max-width:560px;padding:14px 4px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;line-height:1.6;color:#a89aa1;text-align:center;">
+    Diese Nachricht wurde automatisch verschickt, weil du das Formular auf unserer Website ausgef&uuml;llt hast. Du kannst direkt darauf antworten.
+  </div>
+
+</td></tr>
+</table>
+
+</body>
+</html>';
+
+$grenze2 = '=_aoa_' . md5(uniqid('b', true));
+$kopf2 = array(
+    'MIME-Version: 1.0',
+    'From: ' . $studio . ' <' . $absender . '>',
+    'Reply-To: ' . $studio . ' <' . $absender . '>',
+    'Content-Type: multipart/alternative; boundary="' . $grenze2 . '"',
+    'Auto-Submitted: auto-replied',
+    'X-Auto-Response-Suppress: All',
+    'X-Mailer: PHP/' . phpversion(),
+);
+$koerper2 =
+    '--' . $grenze2 . "\r\n"
+    . "Content-Type: text/plain; charset=UTF-8\r\n"
+    . "Content-Transfer-Encoding: 8bit\r\n\r\n"
+    . $antwortText . "\r\n\r\n"
+    . '--' . $grenze2 . "\r\n"
+    . "Content-Type: text/html; charset=UTF-8\r\n"
+    . "Content-Transfer-Encoding: 8bit\r\n\r\n"
+    . $antwortHtml . "\r\n\r\n"
+    . '--' . $grenze2 . "--\r\n";
+
+@mail(
+    sauber($email),
+    '=?UTF-8?B?' . base64_encode('Deine Anfrage ist da, wir melden uns') . '?=',
+    $koerper2,
+    implode("\r\n", $kopf2),
+    '-f' . $absender
+);
+
 antwort(true, 'Danke! Deine Anfrage ist eingegangen.');
