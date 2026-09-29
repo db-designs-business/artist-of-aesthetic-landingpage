@@ -14,10 +14,14 @@
 #  Dieselbe Schreibweise steht in den Canonical-Angaben und in der
 #  sitemap.xml. Bitte nicht auf www umstellen, ohne beides mitzuziehen.
 #
-#  ACHTUNG: Erst einschalten, wenn das SSL-Zertifikat fuer beide
-#  Schreibweisen steht. Sonst landen Besucher in einer Fehlermeldung.
-#  Zum Abschalten die vier Zeilen zwischen RewriteEngine und </IfModule>
-#  auskommentieren.
+#  Geprueft am 29.09.2026 an der laufenden alten Seite:
+#    * Zertifikat deckt beide Schreibweisen ab
+#      (CN artist-of-aesthetic.de, SAN dazu www.artist-of-aesthetic.de)
+#    * der Server leitet bereits http -> https und www -> ohne www
+#  Diese Regel kann also ohne Vorbehalt aktiv bleiben. Sie steht hier
+#  trotzdem: Falls die bisherige Weiterleitung aus der WordPress-
+#  .htaccess kam, verschwindet sie mit den alten Dateien. Macht All-Inkl
+#  es ohnehin selbst, greift die Regel einfach nie.
 # ---------------------------------------------------------------------
 <IfModule mod_rewrite.c>
   RewriteEngine On
