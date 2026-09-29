@@ -12,11 +12,11 @@ CITY = "Bruchsal"
 HOME = {"slug": "", "title": "Kosmetikstudio Bruchsal", "h1": None, "kind": "home"}
 
 MAIN = [
-    {"slug": "services", "name": "Alle Leistungen",
+    {"slug": "leistungen", "name": "Alle Leistungen",
      "h1": "Alle Leistungen im Überblick", "kind": "main"},
-    {"slug": "about", "name": "Über uns",
+    {"slug": "ueber-uns", "name": "Über uns",
      "h1": "Über Artist of Aesthetic", "kind": "main"},
-    {"slug": "contact", "name": "Kontakt",
+    {"slug": "kontakt", "name": "Kontakt",
      "h1": "Kontakt & Terminanfrage", "kind": "main"},
 ]
 

@@ -41,7 +41,7 @@ def main():
     zeilen = []
     for page in sitemap.all_pages():
         prio, freq = PRIO[page["kind"]]
-        if page["slug"] == "services":
+        if page["slug"] == "leistungen":
             prio = "0.7"          # Verteilerseite, kein eigenes Ziel
         zeilen.append(
             u"  <url>\n"

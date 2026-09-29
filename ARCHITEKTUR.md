@@ -105,7 +105,7 @@ Hautanalyse & Hauttyp-Beratung `/hautanalyse-beratung-bruchsal`
 Bewusst vier Punkte. Die vier Kategorieseiten standen bis zum 8. September
 einzeln in der Kopfzeile — das waren sieben Punkte, die am Handy umbrachen und
 die Aufmerksamkeit auf vier gleichrangige Ziele verteilt haben. Jetzt führt ein
-Punkt auf `/services/`, und von dort geht es weiter in die Kategorien. Die
+Punkt auf `/leistungen/`, und von dort geht es weiter in die Kategorien. Die
 Kategorieseiten selbst bleiben unverändert bestehen und werden aus dem Fließtext
 und aus der Fußzeile heraus verlinkt.
 

@@ -330,7 +330,9 @@
 
     summary.hidden = true;
 
-    // Versand an kontakt.php (siehe Datei im Wurzelverzeichnis).
+    // Versand an formular.php (siehe Datei im Wurzelverzeichnis).
+    // Bewusst NICHT kontakt.php: unter /kontakt/ liegt die
+    // Kontaktseite, und Apache koennte beides verwechseln.
     submitBtn.classList.add('is-loading');
     submitBtn.disabled = true;
     submitBtn.querySelector('.btn__label').textContent = 'Wird gesendet …';
@@ -350,7 +352,7 @@
       fail.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' });
     }
 
-    var endpunkt = form.getAttribute('data-endpoint') || 'kontakt.php';
+    var endpunkt = form.getAttribute('data-endpoint') || 'formular.php';
 
     fetch(endpunkt, { method: 'POST', body: new FormData(form) })
       .then(function (res) {

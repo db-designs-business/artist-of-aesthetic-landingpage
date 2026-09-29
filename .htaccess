@@ -36,13 +36,13 @@
 #
 #  Nicht aufgefuehrt, weil die Adresse gleich bleibt:
 #    /                          (Startseite)
+#    /kontakt/                  (die neue Kontaktseite liegt genauso)
 #    /permanent-make-up-bruchsal/
 #    /datenschutz/
 # ---------------------------------------------------------------------
 
 # Gleiches Thema, neue Adresse
-RedirectMatch 301 ^/kontakt/?$                        /contact/
-RedirectMatch 301 ^/behandlungen/?$                   /services/
+RedirectMatch 301 ^/behandlungen/?$                   /leistungen/
 RedirectMatch 301 ^/impressum-2/?$                    /impressum/
 RedirectMatch 301 ^/permanent-make-up-in-bruchsal/?$  /permanent-make-up-bruchsal/
 RedirectMatch 301 ^/wimpernverlaengerung-bruchsal/?$  /wimpernstudio-bruchsal/
@@ -80,6 +80,12 @@ ErrorDocument 404 /404.html
 #  4 · Verzeichnisse ohne Index nicht auflisten, Arbeitsdateien sperren
 # ---------------------------------------------------------------------
 Options -Indexes
+
+# MultiViews aus: Mit eingeschaltetem MultiViews sucht Apache bei /kontakt
+# nach passenden Dateien und koennte kontakt.php statt /kontakt/index.html
+# ausliefern. Das Formularskript heisst deshalb formular.php - und diese
+# Zeile sorgt zusaetzlich dafuer, dass nur exakte Adressen bedient werden.
+Options -MultiViews
 
 <FilesMatch "\.(py|md)$">
   Require all denied

@@ -61,7 +61,7 @@ def render_block(name, page):
         # eine Behandlung beschreibt - Kategorie, Kernleistung, Unterseite -
         # markiert deshalb "Leistungen".
         if page["kind"] in ("category", "core", "child", "general"):
-            target = base + "services/"
+            target = base + "leistungen/"
         html = re.sub(
             r'(<a href="%s")' % re.escape(target),
             r'\1 class="is-active" aria-current="page"',

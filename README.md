@@ -110,7 +110,7 @@ laufen also nicht ins Leere, das Ziel ist nur noch leer.
 
 ## Was noch angebunden werden muss
 
-- **Formularversand** — `kontakt.php` im Wurzelverzeichnis. Läuft auf jedem
+- **Formularversand** — `formular.php` im Wurzelverzeichnis. Läuft auf jedem
   Hoster mit PHP (also auch auf All-Inkl). Empfängeradresse steht oben in
   der Datei. Auf GitHub Pages gibt es kein PHP — dort zeigt das Formular
   den Ersatzweg mit Telefonnummer und E-Mail-Adresse.

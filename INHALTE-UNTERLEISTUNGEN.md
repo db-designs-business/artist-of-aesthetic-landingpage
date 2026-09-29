@@ -1,6 +1,6 @@
 # Übersichtsseite und Unterleistungen
 
-## /services — Navigationsdrehscheibe
+## /leistungen — Navigationsdrehscheibe
 
 Aufbau: schlichter Hero ohne Bild (laut Vorgabe hier erlaubt), Einstiegsabsatz,
 vier Bereichsabschnitte, ein Abschnitt für allgemeine Leistungen, Abschluss-CTA.

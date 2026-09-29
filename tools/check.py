@@ -62,8 +62,8 @@ if dead:
 
 print("\n=== Aktiver Navigationspunkt ===")
 for probe in ("index.html", "mikroneedling-bruchsal/index.html",
-              "about/index.html", "bb-glow-bruchsal/index.html",
-              "services/index.html"):
+              "ueber-uns/index.html", "bb-glow-bruchsal/index.html",
+              "leistungen/index.html"):
     t = io.open(probe, encoding="utf-8").read()
     m = re.search(r'<a href="[^"]*" class="is-active"[^>]*>([^<]*)</a>', t)
     print("  %-42s -> %s" % (probe, m.group(1) if m else "KEINER"))

@@ -15,19 +15,19 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://artist-of-aesthetic.de/services/</loc>
+    <loc>https://artist-of-aesthetic.de/leistungen/</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://artist-of-aesthetic.de/about/</loc>
+    <loc>https://artist-of-aesthetic.de/ueber-uns/</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://artist-of-aesthetic.de/contact/</loc>
+    <loc>https://artist-of-aesthetic.de/kontakt/</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

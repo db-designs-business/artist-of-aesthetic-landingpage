@@ -9,6 +9,31 @@
 | **Google Fonts selbst hosten** | alle Seiten | Cookiebot blockiert keine Stylesheets — die Schriften laden weiterhin ohne Einwilligung. Details unten. |
 | **Elfsight: Firmierung und Anschrift** | Datenschutz, Abschnitt Elfsight | Steht weder im alten Impressum noch auf elfsight.com. Bitte im Elfsight-Konto oder im AV-Vertrag nachsehen. |
 
+## Adressen auf Deutsch — 29. September 2026
+
+| alt | neu |
+|---|---|
+| `/services/` | `/leistungen/` |
+| `/about/` | `/ueber-uns/` |
+| `/contact/` | `/kontakt/` |
+| `kontakt.php` | `formular.php` |
+
+**Glücksfall bei der Kontaktseite:** Die alte WordPress-Seite lag bereits unter
+`/kontakt/`. Diese Adresse bleibt damit unverändert erhalten – die
+Weiterleitung dafür ist entfallen, und der bestehende Google-Treffer zeigt
+direkt auf die neue Seite.
+
+**Warum `formular.php` statt `kontakt.php`:** Auf dem Server lägen sonst
+`/kontakt/` und `/kontakt.php` nebeneinander. Mit eingeschaltetem MultiViews
+kann Apache einen Aufruf von `/kontakt` an die PHP-Datei ausliefern statt an
+die Kontaktseite. Der andere Dateiname räumt das aus; zusätzlich steht jetzt
+`Options -MultiViews` in der `.htaccess`.
+
+Mitgezogen: Verzeichnisse (per `git mv`, damit die Historie erhalten bleibt),
+alle internen Verweise auf 48 Dateien, Canonical, `og:url`, Schema-Adressen,
+Breadcrumbs, `sitemap.xml`, die Werkzeuge in `tools/` und das Standardziel des
+Formulars in `assets/js/main.js`.
+
 ## Livegang-Vorbereitung — 29. September 2026
 
 **`noindex` ist raus** – auf allen 43 Seiten. Nur die `404.html` behält es
@@ -119,7 +144,7 @@ damit 43 übrig.
 **Navigation auf vier Punkte gekürzt:** Home · Leistungen · Über uns · Kontakt.
 Die vier Kategorieseiten standen vorher einzeln in der Kopfzeile. Sie bleiben
 bestehen und werden weiter aus dem Fließtext und der Fußzeile verlinkt — nur der
-Weg dorthin führt jetzt über `/services/`.
+Weg dorthin führt jetzt über `/leistungen/`.
 
 **„Kosmetikstudio“ → „Kosmetiker“**, passend zur Hauptkategorie im
 Google-Unternehmensprofil: in allen Seitentiteln, Meta-Beschreibungen, im
@@ -182,14 +207,14 @@ der Kontaktseite beschreibt beide Varianten.
 
 ## Formularversand — gebaut am 8. September 2026
 
-`kontakt.php` liegt im Wurzelverzeichnis. Das Formular schickt die Angaben per
+`formular.php` liegt im Wurzelverzeichnis. Das Formular schickt die Angaben per
 `fetch` dorthin, PHP prüft sie noch einmal und verschickt eine E-Mail an
 `info@artist-of-aesthetic.de`. **Nichts wird gespeichert, kein Drittanbieter ist
 beteiligt** — deshalb braucht es dafür weder einen Consent-Banner noch einen
 zusätzlichen Abschnitt in der Datenschutzerklärung. Der bestehende Abschnitt
 „Kontaktformular" deckt es ab.
 
-**Vor der Inbetriebnahme:** Empfängeradresse oben in `kontakt.php` prüfen. Die
+**Vor der Inbetriebnahme:** Empfängeradresse oben in `formular.php` prüfen. Die
 Absenderadresse muss eine der eigenen Domain sein, sonst stufen viele
 Mailserver die Nachricht als Fälschung ein — steht als Kommentar in der Datei.
 Nach dem Upload einmal testweise absenden und prüfen, ob die Mail ankommt (auch
@@ -204,7 +229,7 @@ Fehlermeldung mit Telefonnummer und E-Mail-Adresse statt eines falschen
 Erfolgs. Geprüft: Erfolgsweg und Fehlerweg funktionieren beide, alle neun
 Felder werden übertragen.
 
-Ein Randpunkt: Auf GitHub Pages ist `kontakt.php` als Text lesbar, weil Pages
+Ein Randpunkt: Auf GitHub Pages ist `formular.php` als Text lesbar, weil Pages
 PHP nicht ausführt. Darin stehen keine Zugangsdaten, nur die
 Empfängeradresse — und die steht ohnehin im Impressum. Auf einem Hoster mit
 PHP tritt das nicht auf.

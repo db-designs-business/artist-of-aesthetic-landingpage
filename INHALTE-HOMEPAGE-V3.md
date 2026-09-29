@@ -44,7 +44,7 @@ Zwei weitere Punkte:
 
 - **Abschnitt 10** sollte laut Vorlage auf eine `/locations/`-Hub-Seite verlinken.
   Eine solche Seite gibt es in der Architektur nicht — verlinkt ist stattdessen
-  `/contact/` für Anfahrt und Kontakt. Wenn Ortsseiten dazukommen sollen, ist das
+  `/kontakt/` für Anfahrt und Kontakt. Wenn Ortsseiten dazukommen sollen, ist das
   die Stelle dafür.
 - **Abschnitt 7 und 10** überschneiden sich thematisch (beide Einzugsgebiet). Sie
   sind inhaltlich getrennt: 7 nennt Anfahrtszeiten und die Parkplatzsituation,
