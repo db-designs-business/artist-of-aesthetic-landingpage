@@ -286,19 +286,19 @@ geleert.
 es dafür weder einen Consent-Banner noch einen zusätzlichen Abschnitt in der
 Datenschutzerklärung. Der bestehende Abschnitt „Kontaktformular“ deckt es ab.
 
-### ⚠ Empfänger steht auf Test
+### Empfänger
 
 ```php
-$empfaenger = 'tools.aoa@wachstumswebseiten.de';   // TESTBETRIEB
+$empfaenger = 'info@artist-of-aesthetic.de';
 ```
 
-**Vor der Übergabe an die Kundin umstellen auf `info@artist-of-aesthetic.de`.**
-Der Hinweis steht als Kommentarblock direkt darüber in der Datei.
+Steht seit dem 29. September auf dem Postfach des Studios. Zum Testen
+vorübergehend eine andere Adresse eintragen und danach zurücksetzen.
 
-Die Absenderadresse bleibt `info@artist-of-aesthetic.de` — sie muss zur eigenen
-Domain gehören, sonst stufen viele Mailserver die Nachricht als Fälschung ein
-(SPF/DMARC). Die Adresse der Besucherin steht im `Reply-To`, ein Klick auf
-„Antworten“ geht also direkt an sie.
+Die Absenderadresse ist dieselbe. Sie muss zur eigenen Domain gehören, sonst
+stufen viele Mailserver die Nachricht als Fälschung ein (SPF/DMARC). Die
+Adresse der Besucherin steht im `Reply-To`, ein Klick auf „Antworten“ geht
+also direkt an sie.
 
 ### Die E-Mail
 

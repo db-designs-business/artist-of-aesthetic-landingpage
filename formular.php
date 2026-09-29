@@ -11,8 +11,9 @@
  * EINRICHTUNG
  * ------------------------------------------------------------------
  * 1. Datei ins Wurzelverzeichnis der Website legen (neben index.html).
- * 2. $empfaenger unten auf das Postfach des Studios umstellen, sobald
- *    der Test durch ist. Aktuell steht dort die Testadresse.
+ * 2. $empfaenger steht auf info@artist-of-aesthetic.de. Zum Testen
+ *    vorübergehend eine andere Adresse eintragen und danach
+ *    zurücksetzen.
  * 3. $absender MUSS eine Adresse der eigenen Domain sein, sonst stufen
  *    viele Mailserver die Nachricht als Fälschung ein (SPF/DMARC).
  *    Die Adresse der Besucherin steht im Reply-To, damit die Antwort
@@ -24,12 +25,12 @@
  * ------------------------------------------------------------------
  */
 
-// ==================================================================
-//  TESTBETRIEB – vor der Übergabe an die Kundin umstellen auf:
-//  $empfaenger = 'info@artist-of-aesthetic.de';
-// ==================================================================
-$empfaenger = 'tools.aoa@wachstumswebseiten.de';
+// Postfach des Studios. Hier laufen die Anfragen auf.
+$empfaenger = 'info@artist-of-aesthetic.de';
 
+// MUSS eine Adresse der eigenen Domain sein, sonst stufen viele
+// Mailserver die Nachricht als Fälschung ein (SPF/DMARC). Dass
+// Empfänger und Absender gleich sind, ist in Ordnung.
 $absender = 'info@artist-of-aesthetic.de';
 
 // Für die Fußzeile der E-Mail und die Links darin
