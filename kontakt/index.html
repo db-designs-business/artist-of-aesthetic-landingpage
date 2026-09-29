@@ -379,36 +379,24 @@
       <p class="sec__sub">Schwimmbadstraße 14, 76646 Bruchsal</p>
     </header>
 
-    <!-- KARTE MIT KLICK-LOESUNG
-         Die Karte laedt erst, wenn jemand die Schaltflaeche anklickt. Bis
-         dahin geht kein einziger Request an Google. So ist die Karte da,
-         ohne dass vor dem Consent-Tool Daten uebertragen werden.
-
-         Sobald das Consent-Tool steht, gibt es zwei Wege:
-         a) So lassen — der Klick ist die Einwilligung, das genuegt.
-         b) Auf das Consent-Tool umstellen: dann das data-map-Element vom
-            Tool ansteuern lassen und die Schaltflaeche entfernen.
-
-         Direktes Einbetten ohne Klick waere ein Einzeiler: den iframe aus
-         dem data-map-Attribut direkt in den Container schreiben. Bitte
-         erst, wenn das Consent-Tool laeuft. -->
-    <div class="mapbox reveal" id="karte"
-         data-map="https://www.google.com/maps?q=Schwimmbadstra%C3%9Fe+14,+76646+Bruchsal&amp;hl=de&amp;z=16&amp;output=embed">
-      <div class="mapbox__ask">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <p class="mapbox__h">Schwimmbadstraße 14, 76646 Bruchsal</p>
-        <p class="mapbox__note">
-          Die Karte wird erst geladen, wenn du sie aktivierst. Dabei werden Daten an Google
-          übertragen. Näheres steht in der <a href="../datenschutz/">Datenschutzerklärung</a>.
-        </p>
-        <button class="btn btn--primary" type="button" data-map-load>Karte laden</button>
-        <p class="mapbox__alt">
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=Schwimmbadstra%C3%9Fe+14%2C+76646+Bruchsal" target="_blank" rel="noopener">
-            Oder Route direkt in Google Maps öffnen
-          </a>
-        </p>
-      </div>
+    <!-- Karte als gewoehnliche Einbettung. data-cookieyes ordnet sie der
+         Kategorie "advertisement" zu; ob sie vor der Einwilligung
+         zurueckgehalten wird, entscheidet CookieYes. Hier wird nichts
+         zusaetzlich geblockt. -->
+    <div class="mapbox reveal" id="karte">
+      <iframe
+        data-cookieyes="cookieyes-advertisement"
+        src="https://www.google.com/maps?q=Schwimmbadstra%C3%9Fe+14,+76646+Bruchsal&amp;hl=de&amp;z=16&amp;output=embed"
+        title="Standort Artist of Aesthetic, Schwimmbadstraße 14, Bruchsal"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
     </div>
+    <p class="mapbox__alt">
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Schwimmbadstra%C3%9Fe+14%2C+76646+Bruchsal" target="_blank" rel="noopener">
+        Route direkt in Google Maps öffnen
+      </a>
+    </p>
   </div>
 </section>
 
@@ -553,18 +541,12 @@
 <!-- /@shared:mobilebar -->
 
 <!-- @shared:consent -->
-<!-- ===== EINWILLIGUNGSPFLICHTIGE EINBETTUNGEN =====
-     Hier steht bewusst KEIN Skript mehr.
-
-     Das Elfsight-Skript war früher hier mit data-cookieyes ausgezeichnet.
-     Am 29.09.2026 live nachgemessen: Der Request ging trotzdem raus,
-     obwohl niemand zugestimmt hatte. Auf das automatische Blockieren
-     ist also kein Verlass.
-
-     Deshalb lädt assets/js/main.js das Skript jetzt selbst – erst nach
-     Zustimmung zur Kategorie "advertisement" und nur auf Seiten, die
-     einen Elfsight-Container haben. Wer ein weiteres Widget einbaut,
-     setzt nur das <div> und muss hier nichts ändern. -->
+<!-- ===== ELFSIGHT (Google-Bewertungen) =====
+     data-cookieyes ordnet das Skript der Kategorie "advertisement" zu.
+     Ob es blockiert wird, entscheidet die Einstellung im
+     CookieYes-Konto – hier wird nichts zusätzlich zurückgehalten. -->
+<script data-cookieyes="cookieyes-advertisement"
+        src="https://elfsightcdn.com/platform.js" async></script>
 <!-- /@shared:consent -->
 
 <script src="../assets/js/main.js" defer></script>

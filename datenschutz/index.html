@@ -708,14 +708,12 @@
       Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland.
     </p>
     <p class="reveal">
-      Die Karte auf unserer Kontaktseite wird nicht automatisch geladen. Sie sehen dort
-      zunächst nur einen Hinweis mit einer Schaltfläche. Die Karte wird erst geladen, wenn
-      Sie der entsprechenden Kategorie im Einwilligungs-Dialog zugestimmt oder die
-      Schaltfläche angeklickt haben. Solange beides nicht geschehen ist, werden keine Daten
-      an Google übertragen.
+      Die Karte auf unserer Kontaktseite ist der Kategorie „advertisement“ zugeordnet und
+      wird erst geladen, wenn Sie dieser Kategorie im Einwilligungs-Dialog zugestimmt haben.
+      Solange das nicht geschehen ist, werden keine Daten an Google übertragen.
     </p>
     <p class="reveal">
-      Klicken Sie die Schaltfläche an, wird Ihre IP-Adresse an Google übermittelt und dort
+      Nach Ihrer Zustimmung wird Ihre IP-Adresse an Google übermittelt und dort
       unter Umständen gespeichert; die Übertragung erfolgt in der Regel an einen Server von
       Google in den USA. Google kann hierbei Cookies in Ihrem Browser speichern oder
       vergleichbare Wiedererkennungstechnologien einsetzen. Auf diese Datenübertragung haben
@@ -848,18 +846,12 @@
 <!-- /@shared:mobilebar -->
 
 <!-- @shared:consent -->
-<!-- ===== EINWILLIGUNGSPFLICHTIGE EINBETTUNGEN =====
-     Hier steht bewusst KEIN Skript mehr.
-
-     Das Elfsight-Skript war früher hier mit data-cookieyes ausgezeichnet.
-     Am 29.09.2026 live nachgemessen: Der Request ging trotzdem raus,
-     obwohl niemand zugestimmt hatte. Auf das automatische Blockieren
-     ist also kein Verlass.
-
-     Deshalb lädt assets/js/main.js das Skript jetzt selbst – erst nach
-     Zustimmung zur Kategorie "advertisement" und nur auf Seiten, die
-     einen Elfsight-Container haben. Wer ein weiteres Widget einbaut,
-     setzt nur das <div> und muss hier nichts ändern. -->
+<!-- ===== ELFSIGHT (Google-Bewertungen) =====
+     data-cookieyes ordnet das Skript der Kategorie "advertisement" zu.
+     Ob es blockiert wird, entscheidet die Einstellung im
+     CookieYes-Konto – hier wird nichts zusätzlich zurückgehalten. -->
+<script data-cookieyes="cookieyes-advertisement"
+        src="https://elfsightcdn.com/platform.js" async></script>
 <!-- /@shared:consent -->
 
 <script src="../assets/js/main.js" defer></script>

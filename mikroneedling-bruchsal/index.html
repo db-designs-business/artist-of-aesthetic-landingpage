@@ -449,18 +449,12 @@
 <!-- /@shared:mobilebar -->
 
 <!-- @shared:consent -->
-<!-- ===== EINWILLIGUNGSPFLICHTIGE EINBETTUNGEN =====
-     Hier steht bewusst KEIN Skript mehr.
-
-     Das Elfsight-Skript war früher hier mit data-cookieyes ausgezeichnet.
-     Am 29.09.2026 live nachgemessen: Der Request ging trotzdem raus,
-     obwohl niemand zugestimmt hatte. Auf das automatische Blockieren
-     ist also kein Verlass.
-
-     Deshalb lädt assets/js/main.js das Skript jetzt selbst – erst nach
-     Zustimmung zur Kategorie "advertisement" und nur auf Seiten, die
-     einen Elfsight-Container haben. Wer ein weiteres Widget einbaut,
-     setzt nur das <div> und muss hier nichts ändern. -->
+<!-- ===== ELFSIGHT (Google-Bewertungen) =====
+     data-cookieyes ordnet das Skript der Kategorie "advertisement" zu.
+     Ob es blockiert wird, entscheidet die Einstellung im
+     CookieYes-Konto – hier wird nichts zusätzlich zurückgehalten. -->
+<script data-cookieyes="cookieyes-advertisement"
+        src="https://elfsightcdn.com/platform.js" async></script>
 <!-- /@shared:consent -->
 
 <script src="../assets/js/main.js" defer></script>

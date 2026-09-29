@@ -176,90 +176,14 @@
   /* =======================================================
      Karte erst auf Klick laden (kein Request an Google davor)
      ======================================================= */
-  // Der Knopf "Cookie-Einstellungen" in der Fussleiste braucht keinen
-  // eigenen Aufruf: CookieYes haengt sich an die Klasse
+  // Karte und Elfsight stehen als gewoehnliche Einbettung im HTML und
+  // sind mit data-cookieyes ausgezeichnet. Ob sie vor der Einwilligung
+  // zurueckgehalten werden, entscheidet CookieYes - hier wird dazu
+  // bewusst nichts mehr gemacht.
+  //
+  // Der Knopf "Cookie-Einstellungen" in der Fussleiste braucht ebenfalls
+  // keinen eigenen Aufruf: CookieYes haengt sich an die Klasse
   // cky-banner-element und oeffnet das Banner selbst.
-
-  /* =======================================================
-     Einwilligung: Kategorie "advertisement"
-
-     wennWerbungErlaubt(fn) ruft fn auf, sobald die Zustimmung
-     vorliegt - egal ob sie schon gespeichert war oder gerade erst
-     erteilt wurde. Drei Wege fuehren dorthin:
-
-       cookieyes_banner_load    bei jedem Seitenaufruf, mit dem
-                                aktuellen Stand in event.detail
-       cookieyes_consent_update wenn jemand das Banner bedient
-       sofortiger Aufruf        falls CookieYes schon fertig ist,
-                                bevor diese Datei laeuft
-
-     Der sofortige Aufruf allein reicht nicht: getCkyConsent gibt es
-     erst, wenn CookieYes seine Einstellungen geladen hat, und das
-     dauert laenger als das Ausfuehren dieser Datei.
-     ======================================================= */
-  function wennWerbungErlaubt(fn) {
-    var erledigt = false;
-
-    var pruefen = function (ereignis) {
-      if (erledigt) return;
-      var kategorien =
-        (ereignis && ereignis.detail && ereignis.detail.categories) ||
-        (typeof window.getCkyConsent === 'function' && window.getCkyConsent().categories);
-      if (kategorien && kategorien.advertisement) {
-        erledigt = true;
-        fn();
-      }
-    };
-
-    document.addEventListener('cookieyes_banner_load', pruefen);
-    document.addEventListener('cookieyes_consent_update', pruefen);
-    pruefen();
-  }
-
-  /* =======================================================
-     Elfsight (Google-Bewertungen)
-
-     Wird hier geladen statt im HTML: Das Attribut data-cookieyes hat
-     den Request nicht aufgehalten - nachgemessen am 29.09.2026. So
-     liegt es in unserer Hand. Nebeneffekt: Das Skript laedt nur noch
-     auf der einen Seite, die es braucht, statt auf allen 44.
-     ======================================================= */
-  if (document.querySelector('[class*="elfsight-app-"]')) {
-    wennWerbungErlaubt(function () {
-      var s = document.createElement('script');
-      s.src = 'https://elfsightcdn.com/platform.js';
-      s.async = true;
-      document.body.appendChild(s);
-    });
-  }
-
-  /* =======================================================
-     Karte erst nach Einwilligung oder auf Klick
-     ======================================================= */
-  var mapBtn = document.querySelector('[data-map-load]');
-  if (mapBtn) {
-    var karteGeladen = false;
-
-    var karteLaden = function () {
-      if (karteGeladen) return;
-      var box = document.getElementById('karte');
-      if (!box) return;
-      var frame = document.createElement('iframe');
-      frame.src = box.getAttribute('data-map');
-      frame.title = 'Standort Artist of Aesthetic, Schwimmbadstraße 14, Bruchsal';
-      frame.loading = 'lazy';
-      frame.referrerPolicy = 'no-referrer-when-downgrade';
-      frame.setAttribute('allowfullscreen', '');
-      box.innerHTML = '';
-      box.appendChild(frame);
-      karteGeladen = true;
-    };
-
-    // Wer zugestimmt hat, sieht die Karte sofort. Der Knopf bleibt der
-    // Weg fuer alle, die nicht zugestimmt haben.
-    mapBtn.addEventListener('click', karteLaden);
-    wennWerbungErlaubt(karteLaden);
-  }
 
   /* ---------- Formular ---------- */
   var form = document.getElementById('terminForm');

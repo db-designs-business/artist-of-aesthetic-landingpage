@@ -332,6 +332,41 @@ Ein Randpunkt: Auf GitHub Pages ist `formular.php` als Text lesbar, weil Pages
 PHP nicht ausführt. Darin stehen keine Zugangsdaten, nur die Empfängeradresse.
 Auf einem Hoster mit PHP tritt das nicht auf.
 
+## Blockieren liegt bei CookieYes — 29. September 2026
+
+Die Website hält **nichts** mehr von sich aus zurück. Karte und
+Bewertungs-Widget stehen als gewöhnliche Einbettung im HTML:
+
+```html
+<iframe data-cookieyes="cookieyes-advertisement" src="https://www.google.com/maps?…">
+<script data-cookieyes="cookieyes-advertisement" src="https://elfsightcdn.com/platform.js">
+```
+
+`data-cookieyes` ordnet beide der Kategorie *advertisement* zu. Ob und wann sie
+geladen werden, entscheidet allein die Einstellung im CookieYes-Konto.
+
+**Entfernt wurde:** die Klick-Konstruktion der Karte samt Schaltfläche
+„Karte laden“, die zugehörigen CSS-Regeln (`.mapbox__ask`) und die gesamte
+Lade- und Einwilligungslogik in `assets/js/main.js`. Der Link „Route direkt in
+Google Maps öffnen“ steht weiterhin unter der Karte.
+
+**Datenschutzerklärung** angepasst: Sie beschreibt jetzt, dass die Karte der
+Kategorie *advertisement* zugeordnet ist und nach Zustimmung lädt. Vom
+früheren Klick ist keine Rede mehr.
+
+### ⚠ Was das bedeutet
+
+Am 29. September live gemessen, bei offenem Banner und `advertisement: false`:
+Der Request an `elfsightcdn.com` ging **trotz** `data-cookieyes` raus. Solange
+das so bleibt, laden Karte und Widget bei jedem Seitenaufruf, bevor jemand
+zugestimmt hat — und damit geht die IP-Adresse jeder Besucherin an Google und
+an Elfsight.
+
+Das ist im CookieYes-Konto einzustellen (automatisches Blockieren). Bitte
+danach nachmessen: privates Fenster, Entwicklerwerkzeuge, Reiter Netzwerk.
+Vor jeder Zustimmung darf dort weder `elfsightcdn.com` noch `google.com/maps`
+stehen.
+
 ## CookieYes — eingebaut am 29. September 2026
 
 Löst Cookiebot ab. Das Skript steht als **erstes Skript im `<head>`** aller 44
