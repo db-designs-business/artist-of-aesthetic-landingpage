@@ -56,6 +56,8 @@ CATEGORIES = [
             ("gesichtsenthaarung-bruchsal", "Gesichtsenthaarung mit Fadentechnik oder Wax"),
             ("ohren-nasenhaare-entfernen-bruchsal", "Ohren- & Nasenhaare entfernen mit Wax"),
             ("augenbrauen-faerben-bruchsal", "Augenbrauen färben"),
+            ("browlifting-bruchsal", "Browlifting inkl. Färben"),
+            ("henna-brows-bruchsal", "Henna Brows"),
         ],
     },
     {
@@ -71,8 +73,6 @@ CATEGORIES = [
             ("mega-volume-wimpernverlaengerung-bruchsal", "Mega Volume Wimpernverlängerung ab 6D"),
             ("wimpernverlaengerung-refill-bruchsal", "Wimpernverlängerung Refill"),
             ("wimpernverlaengerung-entfernen-bruchsal", "Wimpernverlängerung entfernen"),
-            ("browlifting-bruchsal", "Browlifting inkl. Färben"),
-            ("henna-brows-bruchsal", "Henna Brows"),
         ],
     },
     {
