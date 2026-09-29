@@ -75,8 +75,6 @@ function feld($name)
 $name        = feld('name');
 $telefon     = feld('tel');
 $email       = feld('email');
-$behandlung  = feld('behandlung');
-$wunsch      = feld('wunsch');
 $nachricht   = feld('nachricht');
 $datenschutz = feld('datenschutz') !== '';
 
@@ -90,9 +88,6 @@ if (strlen(preg_replace('/[^0-9]/', '', $telefon)) < 7) {
 }
 if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $fehler[] = 'E-Mail-Adresse ist ungültig.';
-}
-if ($behandlung === '') {
-    $fehler[] = 'Wunschbehandlung fehlt.';
 }
 if (!$datenschutz) {
     $fehler[] = 'Zustimmung zur Datenschutzerklärung fehlt.';
@@ -134,9 +129,6 @@ $zeilen = array(
     'Telefon:   ' . $telefon,
     'E-Mail:    ' . ($email !== '' ? $email : '– nicht angegeben –'),
     '',
-    'Behandlung: ' . $behandlung,
-    'Zeitraum:   ' . ($wunsch !== '' ? $wunsch : '– offen –'),
-    '',
     'Nachricht:',
     $nachricht !== '' ? $nachricht : '– keine –',
     '',
@@ -177,7 +169,7 @@ $html = '<!DOCTYPE html>
 
 <!-- Vorschautext: erscheint in der Übersicht neben dem Betreff -->
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;">
-  ' . h($name) . ' – ' . h($behandlung) . ' – ' . h($telefon) . '
+  ' . h($name) . ' – ' . h($telefon) . ' – Terminanfrage über die Website
 </div>
 
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4eef1;padding:24px 12px;">
@@ -205,27 +197,10 @@ $html = '<!DOCTYPE html>
       </td>
     </tr>
 
-    <tr><td style="padding:20px 28px 0;"><div style="border-top:1px solid #ece3e7;font-size:0;line-height:0;">&nbsp;</div></td></tr>
-
-    <!-- Angaben -->
-    <tr>
-      <td style="padding:18px 28px 0;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-size:14px;color:#282023;">
-          <tr>
-            <td width="130" valign="top" style="padding:7px 0;color:#6b6b6b;">Behandlung</td>
-            <td valign="top" style="padding:7px 0;"><strong>' . h($behandlung) . '</strong></td>
-          </tr>
-          <tr>
-            <td valign="top" style="padding:7px 0;color:#6b6b6b;">Wunschzeitraum</td>
-            <td valign="top" style="padding:7px 0;">' . ($wunsch !== '' ? h($wunsch) : '<span style="color:#9a9a9a;">offen</span>') . '</td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-
     <!-- Nachricht -->
     <tr>
-      <td style="padding:18px 28px 0;">
+      <td style="padding:22px 28px 0;">
+        <div style="border-top:1px solid #ece3e7;font-size:0;line-height:0;padding-bottom:20px;">&nbsp;</div>
         <div style="font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#6b6b6b;padding-bottom:8px;">Nachricht</div>
         <div style="background:#faf6f8;border-left:3px solid #efd7e5;padding:14px 16px;font-size:14px;line-height:1.6;color:#282023;">
           ' . $nachrichtHtml . '
@@ -284,9 +259,9 @@ $koerper =
     . $html . "\r\n\r\n"
     . '--' . $grenze . "--\r\n";
 
-// Betreff mit Name und Behandlung – so ist die Anfrage schon in der
-// Übersicht einzuordnen, ohne sie zu öffnen.
-$betreff = 'Terminanfrage: ' . $name . ' – ' . $behandlung;
+// Betreff mit Namen – so ist die Anfrage schon in der Übersicht
+// zuzuordnen, ohne sie zu öffnen.
+$betreff = 'Terminanfrage: ' . $name;
 $betreffKodiert = '=?UTF-8?B?' . base64_encode($betreff) . '?=';
 
 $gesendet = mail(

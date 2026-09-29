@@ -205,6 +205,40 @@ Direktes Einbetten ohne Klick ist ein Einzeiler — der iframe aus dem
 `data-map`-Attribut kommt direkt in den Container. Der Kommentar im Quelltext
 der Kontaktseite beschreibt beide Varianten.
 
+## Formular verschlankt — 29. September 2026
+
+„Gewünschte Behandlung“ und „Wunschzeitraum“ sind raus, auf der Startseite und
+auf der Kontaktseite. Übrig bleiben fünf Felder: Name, Telefon, E-Mail,
+Nachricht, Datenschutz-Häkchen. Was jemand will, klärt sich im Rückruf – und
+jedes Feld weniger heißt mehr abgeschickte Anfragen.
+
+Mitgezogen: die Prüfregel in `assets/js/main.js`, die Felder in `formular.php`,
+der Betreff (jetzt nur noch „Terminanfrage: Sandra Müller“) und beide Fassungen
+der E-Mail.
+
+### Zwei Funde beim Testen
+
+**1. Die Prüfung stürzte ab, wenn ein Feld fehlte.** `validateField` griff
+ungeprüft auf das Element zu. Fehlt es, bricht die ganze Schleife ab: keine
+Fehlermeldungen, keine Zusammenfassung, und das Formular lässt sich nicht
+abschicken. Aufgefallen, weil mein Browser noch die alte `main.js` im
+Zwischenspeicher hatte – altes Skript, neues HTML. Jetzt wird das Feld geprüft,
+bevor darauf zugegriffen wird.
+
+**2. Genau dieser Fall konnte live eintreten.** Die `.htaccess` hat Stylesheet
+und Skript ein Jahr lang zwischenspeichern lassen. Die Dateien heißen aber
+immer gleich, es gibt keinen Bau-Schritt, der eine Versionsnummer anhängt –
+nach einer Änderung hätten Stammkundinnen monatelang die alte Fassung benutzt.
+Steht jetzt auf **einer Woche**. Bilder und Schriften bleiben bei einem Jahr,
+die ändern sich nicht unter gleichem Namen.
+
+### Geprüft
+
+Fehlerweg: alle vier Pflichtfelder melden sich, die Zusammenfassung oben
+erscheint mit Sprunglinks. Erfolgsweg: alle fünf Nutzfelder plus Spamschutz
+gehen an `../formular.php`, die Erfolgsmeldung erscheint, das Formular wird
+geleert.
+
 ## Formularversand — 29. September 2026
 
 `formular.php` liegt im Wurzelverzeichnis. Das Formular schickt die Angaben per

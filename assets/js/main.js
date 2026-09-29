@@ -227,7 +227,6 @@
     name: 'Name',
     tel: 'Telefon',
     email: 'E-Mail',
-    behandlung: 'Wunschbehandlung',
     datenschutz: 'Datenschutz'
   };
 
@@ -246,10 +245,6 @@
       // Pflichtfeld nur dort, wo das Feld im HTML als required markiert ist
       if (!v.trim()) return (el && el.required) ? 'Bitte gib deine E-Mail-Adresse an.' : '';
       if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.trim())) return 'Bitte prüfe die E-Mail-Adresse, z. B. name@beispiel.de';
-      return '';
-    },
-    behandlung: function (v) {
-      if (!v) return 'Bitte wähle eine Wunschbehandlung aus.';
       return '';
     },
     datenschutz: function (v, el) {
@@ -275,6 +270,12 @@
 
   function validateField(field) {
     var el = document.getElementById(field);
+    // Kein Absturz, wenn eine Regel zu einem Feld gehoert, das es auf
+    // dieser Seite nicht gibt. Sonst bricht die gesamte Pruefung ab und
+    // das Formular laesst sich gar nicht mehr abschicken - genau das
+    // passiert, wenn ein Browser noch eine alte Fassung dieser Datei im
+    // Zwischenspeicher hat.
+    if (!el) return '';
     var msg = rules[field](el.value, el);
     setError(field, msg);
     return msg;

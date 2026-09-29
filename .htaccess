@@ -109,8 +109,14 @@ RedirectMatch 404 ^/(tools|_shared)/
 # ---------------------------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/css                "access plus 1 year"
-  ExpiresByType application/javascript  "access plus 1 year"
+  # Stylesheet und Skript bewusst nur eine Woche: Die Dateien heissen
+  # immer gleich, es gibt keinen Bau-Schritt, der eine Versionsnummer
+  # anhaengt. Bei einem Jahr wuerde ein Browser nach einer Aenderung
+  # noch monatelang die alte Fassung benutzen - im schlimmsten Fall
+  # altes Skript mit neuem HTML, und das Formular funktioniert nicht.
+  ExpiresByType text/css                "access plus 1 week"
+  ExpiresByType application/javascript  "access plus 1 week"
+  # Bilder und Schriften aendern sich nicht unter gleichem Namen
   ExpiresByType image/jpeg              "access plus 1 year"
   ExpiresByType image/webp              "access plus 1 year"
   ExpiresByType image/svg+xml           "access plus 1 year"
