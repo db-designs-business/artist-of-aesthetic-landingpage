@@ -374,6 +374,38 @@ Die Prüfung lief, **bevor** der Klick-Handler überhaupt registriert war. Das
 Laden steckt jetzt in einer eigenen Funktion mit Schutz gegen doppelte
 Ausführung, und die Prüfung läuft danach.
 
+### Auf der Testfassung geprüft — und warum das Ergebnis nichts aussagt
+
+| Punkt | Ergebnis |
+|---|---|
+| CookieYes-Skript wird geladen | ✓ |
+| Knopf mit `cky-banner-element` im Seitenquelltext | ✓ |
+| Elfsight trägt `data-cookieyes="cookieyes-advertisement"` | ✓ |
+| Banner erscheint | ✗ |
+| Elfsight wird blockiert | ✗ — lädt trotzdem |
+| API `getCkyConsent` verfügbar | ✗ |
+
+Die drei Fehlschläge haben **eine** gemeinsame Ursache. CookieYes meldet in der
+Konsole wörtlich:
+
+> Looks like your website URL has changed. To ensure the proper functioning of
+> your banner, update the registered URL on your CookieYes account.
+
+Die Testdomain `db-designs-business.github.io` ist im CookieYes-Konto nicht
+hinterlegt. Das Skript bricht daraufhin ab: kein Banner, kein Blockieren, keine
+API. Dass Elfsight lädt, ist die Folge davon und **kein Fehler an der
+Auszeichnung** — die entspricht der CookieYes-Dokumentation.
+
+**Das heißt aber auch:** Ob das Blockieren wirklich greift, ist noch nicht
+bewiesen. Das lässt sich erst nachmessen, wenn die Domain im Konto steht.
+Derselbe Punkt stand schon bei Cookiebot offen — es ist die Natur dieser Tools,
+dass sie an eine registrierte Domain gebunden sind.
+
+**Nach dem Livegang unbedingt nachmessen:** Seite im privaten Fenster öffnen,
+Entwicklerwerkzeuge, Reiter Netzwerk. Vor jeder Zustimmung darf **kein**
+Request an `elfsightcdn.com` und keiner an `google.com/maps` stehen. Steht dort
+doch einer, greift das Blockieren nicht und muss nachgebessert werden.
+
 ### Noch zu tun
 
 1. **Domain im CookieYes-Konto eintragen**, sonst erscheint kein Banner.
