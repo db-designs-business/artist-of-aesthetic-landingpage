@@ -96,11 +96,13 @@ SKELETON = u"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Cookiebot – muss das ERSTE Skript im <head> bleiben.
-     Nur dann kann der Automatikmodus (data-blockingmode="auto")
-     Skripte und iframes abfangen, bevor sie laden. Nicht nach
-     unten verschieben. -->
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="f01d9f3d-efba-4dab-890a-05d6c7ba5b8e" data-blockingmode="auto" type="text/javascript"></script>
+<!-- CookieYes – muss das ERSTE Skript im <head> bleiben.
+     Nur von hier aus kann das automatische Blockieren andere
+     Skripte abfangen, bevor sie laden. Nicht nach unten
+     verschieben und nicht mit defer versehen. -->
+<!-- Start cookieyes banner -->
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/a5ebb4d34703c71d6108e4f78e00fafc/script.js"></script>
+<!-- End cookieyes banner -->
 <title>{title}</title>
 <meta name="description" content="{desc}">
 

@@ -5,8 +5,8 @@
 | Was | Wo | Anmerkung |
 |-----|-----|-----------|
 | **Eigene Fotos** | 3 Kernleistungs- und 5 Unterseiten, zweites Studiobild auf „Über uns" | Wird nachgereicht. Bis dahin teilen sich mehrere Seiten dasselbe Bild — welche, steht in `INHALTE-KERNLEISTUNGEN.md` und `INHALTE-UNTERLEISTUNGEN.md`. |
-| **Domain in Cookiebot freischalten** | Cookiebot-Konto | Ohne Freigabe erscheint kein Banner. Details unten. |
-| **Google Fonts selbst hosten** | alle Seiten | Cookiebot blockiert keine Stylesheets — die Schriften laden weiterhin ohne Einwilligung. Details unten. |
+| **Domain in CookieYes freischalten, Scan starten** | CookieYes-Konto | Ohne Freigabe erscheint kein Banner. Details unten. |
+| **Einbettungscode der Cookie-Übersicht** | Datenschutz, Abschnitt 4 | Aus dem CookieYes-Konto holen und an der markierten Stelle einsetzen. |
 | **Elfsight: Firmierung und Anschrift** | Datenschutz, Abschnitt Elfsight | Steht weder im alten Impressum noch auf elfsight.com. Bitte im Elfsight-Konto oder im AV-Vertrag nachsehen. |
 
 ## Adressen auf Deutsch — 29. September 2026
@@ -169,7 +169,7 @@ Drei Stellen blieben bewusst stehen:
   Permanent Make-up anbieten, ist die Anzeige beim Gesundheitsamt nach § 36
   IfSG in der Regel Pflicht — das Gesundheitsamt Karlsruhe gibt dazu Auskunft.
   Für die Website ändert das nichts.
-- **AV-Verträge** mit Cookiebot und Elfsight — liegen vor. Die entsprechenden
+- **AV-Verträge** mit Elfsight — liegen vor. Für CookieYes bitte nachziehen. Die entsprechenden
   Sätze in der Datenschutzerklärung können so stehen bleiben.
 - **Rechtsprüfung** von Impressum und Datenschutz — erledigt bzw. übernommen.
 - **Fotos** — werden am Ende gemeinsam mit der Gesamtdurchsicht geklärt.
@@ -332,61 +332,62 @@ Ein Randpunkt: Auf GitHub Pages ist `formular.php` als Text lesbar, weil Pages
 PHP nicht ausführt. Darin stehen keine Zugangsdaten, nur die Empfängeradresse.
 Auf einem Hoster mit PHP tritt das nicht auf.
 
-## Cookiebot — eingebaut am 8. September 2026
+## CookieYes — eingebaut am 29. September 2026
 
-Das Skript steht mit `data-blockingmode="auto"` als **erstes Skript im `<head>`**
-aller 45 Seiten. Nur an dieser Stelle kann der Automatikmodus Skripte und
-iframes abfangen, bevor sie laden — bitte nicht nach unten verschieben.
+Löst Cookiebot ab. Das Skript steht als **erstes Skript im `<head>`** aller 44
+Seiten — nur von dort kann das automatische Blockieren andere Skripte abfangen,
+bevor sie laden.
 
-Zusätzlich ist das Elfsight-Skript ausdrücklich als
-`type="text/plain" data-cookieconsent="marketing"` ausgezeichnet. Das greift
-auch dann, wenn `elfsightcdn.com` nicht in der Cookiebot-Datenbank steht.
+### Was sich gegenüber Cookiebot geändert hat
 
-Weiter eingerichtet:
+| | Cookiebot | CookieYes |
+|---|---|---|
+| Blockieren von Hand | `type="text/plain"` + `data-cookieconsent` | nur `data-cookieyes` |
+| Kategorie für Elfsight und Karte | `marketing` | `advertisement` |
+| Banner erneut öffnen | `Cookiebot.renew()` | CSS-Klasse `cky-banner-element` |
+| Zustimmung auslesen | `Cookiebot.consent.marketing` | `getCkyConsent().categories.advertisement` |
+| Ereignis | `CookiebotOnAccept` | `cookieyes_consent_update` |
 
-- **Karte** lädt automatisch, sobald Marketing erlaubt ist; der Knopf „Karte
-  laden" bleibt als zweiter Weg für alle, die nicht zustimmen.
-- **Fußleiste** hat eine Schaltfläche „Cookie-Einstellungen", die den Dialog
-  über `Cookiebot.renew()` erneut öffnet — der Widerruf muss jederzeit möglich
-  sein.
-- **Datenschutzerklärung** hat einen Cookiebot-Abschnitt (Anbieter
-  Usercentrics A/S, Havnegade 39, 1058 Kopenhagen; Nachweispflicht nach
-  Art. 7 Abs. 1 DSGVO) und am Ende von Abschnitt 4 die automatisch erzeugte
-  **Cookie-Erklärung**, die alle gesetzten Cookies auflistet.
+**Die Zeile mit `type="text/plain"` ist der Stolperstein.** Cookiebot brauchte
+sie, CookieYes darf sie nicht sehen — sonst wird das Elfsight-Widget nie
+geladen. In `_shared/consent.html` steht dazu ein Warnhinweis.
 
-### Geprüft auf der Testfassung
+### Eingerichtet
 
-| Punkt | Ergebnis |
-|---|---|
-| Cookiebot lädt | ✓ |
-| Elfsight bleibt blockiert | ✓ `type="text/plain"`, kein Request |
-| Cookies vor Einwilligung | ✓ keine |
-| Banner erscheint | ✗ — Domain nicht freigegeben |
-| Google Fonts | ✗ — lädt trotzdem |
+- **Elfsight** trägt `data-cookieyes="cookieyes-advertisement"`.
+- **Karte** auf der Kontaktseite lädt automatisch, sobald die Kategorie
+  freigegeben ist; der Knopf „Karte laden“ bleibt als zweiter Weg.
+- **Fußleiste** hat die Schaltfläche „Cookie-Einstellungen“ mit der Klasse
+  `cky-banner-element`. CookieYes hängt sich selbst daran, eigener
+  JavaScript-Aufruf ist nicht mehr nötig.
+- **Datenschutzerklärung** nennt jetzt CookieYes Limited, 3 Warren Yard,
+  Warren Park, Wolverton Mill, Milton Keynes, MK12 5NW, Vereinigtes
+  Königreich. Dazu ein Absatz zur Übermittlung ins Vereinigte Königreich:
+  Dafür gilt ein Angemessenheitsbeschluss nach Art. 45 DSGVO, zusätzliche
+  Garantien sind also nicht nötig. Das war bei Cookiebot (Dänemark, EU) kein
+  Thema und ist jetzt eines.
 
-### Zwei Punkte zum Nachziehen
+### Nebenbei behobener Fehler
 
-**1. Domain freigeben.** Cookiebot meldet in der Konsole wörtlich:
+Die Karte wurde nie automatisch geladen, auch nicht bei erteilter Zustimmung:
+Die Prüfung lief, **bevor** der Klick-Handler überhaupt registriert war. Das
+Laden steckt jetzt in einer eigenen Funktion mit Schutz gegen doppelte
+Ausführung, und die Prüfung läuft danach.
 
-> The domain DB-DESIGNS-BUSINESS.GITHUB.IO is not authorized to show the cookie
-> banner for domain group ID f01d9f3d-… Please add it to the domain group in the
-> Cookiebot Manager.
+### Noch zu tun
 
-Also: `db-designs-business.github.io` im Cookiebot-Manager zur Domain-Gruppe
-hinzufügen, dann erscheint das Banner auch in der Testfassung. Spätestens beim
-Umzug muss dort ohnehin die echte Domain eingetragen und der Scan gestartet
-werden — erst danach ist die Cookie-Erklärung vollständig.
+1. **Domain im CookieYes-Konto eintragen**, sonst erscheint kein Banner.
+2. **Scan starten**, sobald die Seite auf der echten Domain liegt.
+3. **Einbettungscode der Cookie-Übersicht** aus dem Konto holen
+   (*Cookie Banner > Content > Cookie List*, Variante „Code snippet“, nicht
+   die HTML-Fassung — das Snippet aktualisiert sich nach jedem Scan selbst)
+   und in `datenschutz/index.html` an der markierten Stelle einsetzen.
+4. **AV-Vertrag mit CookieYes** schließen. Der entsprechende Satz steht bereits
+   in der Datenschutzerklärung.
+5. **Kategorie prüfen:** Elfsight und die Karte liegen auf „advertisement“.
+   Wer sie unter „functional“ führen will, ändert das an zwei Stellen:
+   `_shared/consent.html` und `assets/js/main.js`.
 
-**2. Google Fonts selbst hosten.** Der Automatikmodus fängt Skripte und iframes
-ab, **aber keine Stylesheets**. Die Schriften Montserrat und Open Sans laden
-deshalb weiterhin bei jedem Seitenaufruf von Google, mit IP-Übertragung, bevor
-irgendjemand zugestimmt hat. Nachgemessen: zwei Requests an Google.
-
-Ein Banner ändert daran nichts. Sauber wird es nur durch Selbsthosten:
-Schriftdateien nach `assets/fonts/`, per `@font-face` in `style.css` einbinden,
-den `<link>` auf `fonts.googleapis.com` aus allen Seiten entfernen. Nebeneffekt:
-zwei externe Verbindungen weniger, die Seite lädt schneller. Etwa 30 Minuten
-Arbeit — sag Bescheid.
 
 ## Google-Bewertungen: reicht Elfsight für SEO?
 

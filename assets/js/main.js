@@ -176,41 +176,45 @@
   /* =======================================================
      Karte erst auf Klick laden (kein Request an Google davor)
      ======================================================= */
-  /* Cookie-Einstellungen erneut oeffnen (Knopf in der Fussleiste) */
-  var ccBtn = document.querySelector('[data-cc-renew]');
-  if (ccBtn) {
-    ccBtn.addEventListener('click', function () {
-      if (window.Cookiebot && typeof Cookiebot.renew === 'function') {
-        Cookiebot.renew();
-      }
-    });
-  }
+  // Der Knopf "Cookie-Einstellungen" in der Fussleiste braucht keinen
+  // eigenen Aufruf mehr: CookieYes haengt sich an die Klasse
+  // cky-banner-element und oeffnet das Banner selbst.
 
   var mapBtn = document.querySelector('[data-map-load]');
   if (mapBtn) {
-    // Doppelt geladen wird nichts: nach dem ersten Klick ist der Knopf weg.
+    var karteGeladen = false;
 
-    // Wer der Kategorie Marketing zugestimmt hat, bekommt die Karte
-    // direkt zu sehen - der Knopf bleibt fuer alle anderen der Weg.
-    var karteWennErlaubt = function () {
-      if (window.Cookiebot && Cookiebot.consent && Cookiebot.consent.marketing) {
-        mapBtn.click();
-      }
-    };
-    window.addEventListener('CookiebotOnAccept', karteWennErlaubt);
-    karteWennErlaubt();
-    mapBtn.addEventListener('click', function () {
+    var karteLaden = function () {
+      if (karteGeladen) return;
       var box = document.getElementById('karte');
-      var src = box.getAttribute('data-map');
+      if (!box) return;
       var frame = document.createElement('iframe');
-      frame.src = src;
+      frame.src = box.getAttribute('data-map');
       frame.title = 'Standort Artist of Aesthetic, Schwimmbadstraße 14, Bruchsal';
       frame.loading = 'lazy';
       frame.referrerPolicy = 'no-referrer-when-downgrade';
       frame.setAttribute('allowfullscreen', '');
       box.innerHTML = '';
       box.appendChild(frame);
-    });
+      karteGeladen = true;
+    };
+
+    mapBtn.addEventListener('click', karteLaden);
+
+    // Wer der Kategorie "advertisement" zugestimmt hat, bekommt die
+    // Karte direkt zu sehen. Fuer alle anderen bleibt der Knopf der Weg.
+    // getCkyConsent gibt es erst, wenn das CookieYes-Skript geladen ist -
+    // deshalb die Pruefung auf die Funktion.
+    var karteWennErlaubt = function () {
+      if (typeof window.getCkyConsent !== 'function') return;
+      var zustimmung = window.getCkyConsent();
+      if (zustimmung && zustimmung.categories && zustimmung.categories.advertisement) {
+        karteLaden();
+      }
+    };
+
+    document.addEventListener('cookieyes_consent_update', karteWennErlaubt);
+    karteWennErlaubt();
   }
 
   /* ---------- Formular ---------- */
